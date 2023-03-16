@@ -1,0 +1,21 @@
+//viewports
+$min-width: 320px;
+$mobile-menu: 375px;
+$tablet-width: 768px;
+$desktop-width: 1280px;
+$mobile-width-only: ($tablet-width - 1);
+
+//global
+@import "_normalize";
+
+@import "_global";
+@import "_button";
+
+//blocks
+@import "blocks/_page";
+@import "blocks/_start-screen";
+@import "blocks/_header";
+@import "blocks/_logo";
+@import "blocks/_menu";
+@import "blocks/_social";
+@import "blocks/_footer";

@@ -1,0 +1,28 @@
+@use "./abstract/" as *;
+/* header */
+
+.header {
+  padding-top: 30px;
+  margin-inline: auto;
+  padding-inline: 2.0283%;
+  // padding-block: 2.25rem;
+  min-width: $min-width;
+  width: 100%;
+  max-width: $desktop-width;
+
+  position: absolute;
+  display: flex;
+  column-gap: 50px;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: inherit;
+
+}
+
+.menu-nav__link {
+  color: $color-dark-s;
+  font-family: Arial;
+  font-size: 0,9375rem;
+  line-height: 1.5rem;
+}

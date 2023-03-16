@@ -1,0 +1,45 @@
+@use "./abstract/" as *;
+
+
+.start-screen__wrapper {
+  padding-inline: 3.125%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 42px;
+  align-items: end;
+  min-height: 908px;
+  max-height: 1165px;
+  background: $start-screen-gradient-background;
+}
+
+.start__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 42px;
+  align-self: center;
+}
+
+.start__title,
+.start__text  {
+  margin: 0;
+}
+
+.start__title {
+  font-size: 2.75rem;
+  line-height: 3.575rem;
+  color: $color-light-xl;
+}
+
+.start__text {
+  font-family: Arial;
+  color: $color-dark-s;
+}
+
+.start-img {
+  width: 698px;
+  height: 728px;
+  background: url('../img/bg/start-screen-puppy.png');
+  background-size: cover;
+}
