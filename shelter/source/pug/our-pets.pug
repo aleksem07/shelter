@@ -1,0 +1,11 @@
+extends layout/layout
+
+block variables
+  - var title = 'Cozy House'
+  - var pageClass = "our-pets-page"
+  - var headerClass = "header__pets"
+
+block content
+  main(class= pageClass)
+    //- include
+    include ./blocks/pets

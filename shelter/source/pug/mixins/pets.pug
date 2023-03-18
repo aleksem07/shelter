@@ -1,0 +1,7 @@
+include ../mixins/mixins
+
+mixin friend(name)
+  li.pets__item
+    img(src="", alt='', srcset="" width='270' height='270' style="background-color:grey;")
+    h2.pets__name #{name}
+    +button('Learn more')

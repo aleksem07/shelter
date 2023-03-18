@@ -1,0 +1,58 @@
+@use "./modules/variables" as v;
+@use "./abstract/" as *;
+
+.pets{
+  background-color: $color-light-l;
+}
+.pets__wrapper {
+  padding-inline: v.$wrapper-inline;
+  padding-bottom: 100px;
+}
+
+.pets__title {
+  padding-top: 80px;
+  margin-bottom: 45px;
+  text-align: center;
+  color: $color-dark-l;
+  font-size: 2.1875rem;
+  font-weight: 400;
+  line-height: 2.84375rem;
+  letter-spacing: 0.06em;
+}
+
+.pets__list {
+  margin-bottom: 45px;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+  column-gap: 40px;
+  row-gap: 30px;
+}
+
+.pets__item {
+  display: grid;
+  row-gap: 30px;
+}
+
+.pets__name {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.42rem;
+  letter-spacing: 0.06em;
+}
+
+.pets__pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 115%;
+
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  color: $color-dark-3xl;
+}
