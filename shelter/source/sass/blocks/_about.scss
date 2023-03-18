@@ -1,0 +1,15 @@
+@use "./modules/variables" as v;
+@use "./abstract/" as *;
+
+.about__wrapper {
+  padding-block: 80px 100px;
+  padding-inline: v.$wrapper-inline;
+  display: flex;
+  justify-content: center;
+  column-gap: 10%;
+}
+
+.about__text-block {
+  order: 2;
+  max-width: 430px;
+}

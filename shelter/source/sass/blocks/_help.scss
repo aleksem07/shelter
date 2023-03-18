@@ -1,0 +1,25 @@
+@use "./modules/variables" as v;
+@use "./abstract/" as *;
+
+.help__wrapper {
+  padding-inline: v.$wrapper-inline;
+}
+
+.help__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.help__title {
+  order: 2;
+  text-align: center;
+}
+
+.help__item {
+  display: grid;
+  justify-items: center;
+}
+
+.help__item-title {
+  order: 2;
+}

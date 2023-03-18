@@ -14,6 +14,8 @@ $mobile-width-only: ($tablet-width - 1);
 //blocks
 @import "blocks/_page";
 @import "blocks/_start-screen";
+@import "blocks/_about";
+@import "blocks/_help";
 @import "blocks/_pets";
 @import "blocks/_header";
 @import "blocks/_logo";
