@@ -1,3 +1,39 @@
+/* color */ /* fonts */
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-regular.woff2") format("woff2"), url("/fonts/arial/arial-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-italic.woff2") format("woff2"), url("/fonts/arial/arial-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-regular.woff2") format("woff2"), url("/fonts/georgia/georgia-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-bold.woff2") format("woff2"), url("/fonts/georgia/georgia-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-italic.woff2") format("woff2"), url("/fonts/georgia/georgia-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -349,6 +385,10 @@ ul {
   list-style: none;
 }
 
+p {
+  margin: 0;
+}
+
 *,
 *::before,
 *::after {
@@ -452,15 +492,15 @@ input:focus::placeholder {
   font-display: swap;
 }
 .button {
-  padding-block: 1rem;
-  min-width: 207px;
+  padding-block: 0.85rem;
+  min-width: 187px;
   background-color: #F1CDB3;
   border: none;
   border-radius: 2rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 125%;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
   color: #292929;
   cursor: pointer;
   -webkit-transition: 1s ease;
@@ -470,20 +510,22 @@ input:focus::placeholder {
   transition: all 0.2s ease-out;
 }
 
-nav > button .button__text {
-  position: relative;
+.button--start {
+  max-width: 208px;
+  width: 100%;
 }
 
-nav > button .button__text::before {
-  content: "";
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  top: -1px;
-  left: -23px;
-  background-image: url("../img/icons/reservation.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
+.button--pets {
+  max-width: 187px;
+  margin: 0 auto;
+  background-color: inherit;
+  border: 1px solid #F1CDB3;
+}
+
+.button-pets-slider {
+  padding-inline: 3rem;
+  margin: 0 auto;
+  display: block;
 }
 
 /* color */ /* fonts */
@@ -541,174 +583,13 @@ nav > button .button__text::before {
   color: #292929;
 }
 
-/* color */ /* fonts */
-@font-face {
-  font-family: Arial;
-  src: url("/fonts/arial/arial-regular.woff2") format("woff2"), url("/fonts/arial/arial-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Arial;
-  src: url("/fonts/arial/arial-italic.woff2") format("woff2"), url("/fonts/arial/arial-italic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Georgia;
-  src: url("/fonts/georgia/georgia-regular.woff2") format("woff2"), url("/fonts/georgia/georgia-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Georgia;
-  src: url("/fonts/georgia/georgia-bold.woff2") format("woff2"), url("/fonts/georgia/georgia-bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Georgia;
-  src: url("/fonts/georgia/georgia-italic.woff2") format("woff2"), url("/fonts/georgia/georgia-italic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-.start-screen__wrapper {
-  padding-inline: 3.125%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 42px;
-  align-items: end;
-  min-height: 908px;
-  max-height: 1165px;
-  background: url("../img/bg/noise_transparent.png"), radial-gradient(#513D2F, #211F20);
-}
-
-.start__text-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 42px;
-  align-self: center;
-}
-
-.start__title,
-.start__text {
-  margin: 0;
-}
-
-.start__title {
-  font-size: 2.75rem;
-  line-height: 3.575rem;
-  color: #FFFFFF;
-}
-
-.start__text {
-  font-family: Arial;
-  color: #CDCDCD;
-}
-
-.start-img {
-  width: 698px;
-  height: 728px;
-  background: url("../img/bg/start-screen-puppy.png");
-  background-size: cover;
-}
-
-/* color */ /* fonts */
-@font-face {
-  font-family: Arial;
-  src: url("/fonts/arial/arial-regular.woff2") format("woff2"), url("/fonts/arial/arial-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Arial;
-  src: url("/fonts/arial/arial-italic.woff2") format("woff2"), url("/fonts/arial/arial-italic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Georgia;
-  src: url("/fonts/georgia/georgia-regular.woff2") format("woff2"), url("/fonts/georgia/georgia-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Georgia;
-  src: url("/fonts/georgia/georgia-bold.woff2") format("woff2"), url("/fonts/georgia/georgia-bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Georgia;
-  src: url("/fonts/georgia/georgia-italic.woff2") format("woff2"), url("/fonts/georgia/georgia-italic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-.pets {
-  background-color: #F6F6F6;
-}
-
-.pets__wrapper {
-  padding-inline: 2.0283%;
-  padding-bottom: 100px;
-}
-
-.pets__title {
-  padding-top: 80px;
-  margin-bottom: 45px;
+.titleH2 {
   text-align: center;
-  color: #545454;
+  font-weight: 400;
   font-size: 2.1875rem;
-  font-weight: 400;
-  line-height: 2.84375rem;
+  line-height: 130%;
   letter-spacing: 0.06em;
-}
-
-.pets__list {
-  margin-bottom: 45px;
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-  flex-wrap: wrap;
-  -moz-column-gap: 40px;
-       column-gap: 40px;
-  row-gap: 30px;
-}
-
-.pets__item {
-  display: grid;
-  row-gap: 30px;
-}
-
-.pets__name {
-  text-align: center;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.42rem;
-  letter-spacing: 0.06em;
-}
-
-.pets__pagination {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-size: 20px;
-  line-height: 115%;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.06em;
-  color: #292929;
+  color: #545454;
 }
 
 /* color */ /* fonts */
@@ -751,22 +632,22 @@ nav > button .button__text::before {
 .header {
   margin-inline: auto;
   padding-top: 30px;
-  padding-inline: 2.0283%;
+  padding-inline: 3.125%;
   min-width: 320px;
   width: 100%;
   max-width: 1280px;
   position: absolute;
   display: flex;
-  -moz-column-gap: 50px;
-       column-gap: 50px;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
   justify-content: space-between;
   align-items: center;
   background-color: inherit;
 }
 
 .header__pets {
-  min-height: 120px;
   position: relative;
+  background-color: #FFFFFF;
 }
 
 .header__pets a,
@@ -777,7 +658,7 @@ nav > button .button__text::before {
 .menu-nav__link {
   color: #CDCDCD;
   font-family: Arial;
-  font-size: 0, 9375rem;
+  font-size: 0.9375rem;
   line-height: 1.5rem;
 }
 
@@ -820,12 +701,12 @@ nav > button .button__text::before {
 /* logo */
 .logo {
   display: grid;
+  gap: 7.5px;
   align-items: center;
 }
 
 .logo__title {
   margin: 0;
-  margin-bottom: 10px;
   color: #F1CDB3;
   font-size: 2rem;
   font-weight: 400;
@@ -893,7 +774,7 @@ nav > button .button__text::before {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 2rem;
+  gap: 2.2rem;
   list-style: none;
   font-size: 1.125rem;
   align-self: center;
@@ -908,6 +789,390 @@ nav > button .button__text::before {
   padding-bottom: 3px;
   font-weight: bold;
   border-bottom: 3px solid #F1CDB3;
+}
+
+/* color */ /* fonts */
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-regular.woff2") format("woff2"), url("/fonts/arial/arial-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-italic.woff2") format("woff2"), url("/fonts/arial/arial-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-regular.woff2") format("woff2"), url("/fonts/georgia/georgia-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-bold.woff2") format("woff2"), url("/fonts/georgia/georgia-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-italic.woff2") format("woff2"), url("/fonts/georgia/georgia-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+.start-screen__wrapper {
+  padding-inline: 3.125%;
+  display: grid;
+  grid-template-columns: 38.5% 1fr;
+  gap: 43px;
+  align-items: end;
+  min-height: 908px;
+  max-height: 1165px;
+  background: url("../img/bg/noise_transparent.png"), radial-gradient(#513D2F, #211F20);
+}
+
+.start__text-wrapper {
+  margin-top: 105px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  align-self: center;
+}
+
+.start__title,
+.start__text {
+  margin: 0;
+}
+
+.start__title {
+  font-size: 2.75rem;
+  line-height: 3.575rem;
+  color: #FFFFFF;
+}
+
+.start__text {
+  font-size: 0.9375rem;
+  line-height: 160%;
+  font-family: Arial;
+  color: #CDCDCD;
+}
+
+.start-img {
+  width: 698px;
+  height: 728px;
+  background: url("../img/bg/start-screen-puppy.png");
+  background-size: cover;
+}
+
+/* color */ /* fonts */
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-regular.woff2") format("woff2"), url("/fonts/arial/arial-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-italic.woff2") format("woff2"), url("/fonts/arial/arial-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-regular.woff2") format("woff2"), url("/fonts/georgia/georgia-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-bold.woff2") format("woff2"), url("/fonts/georgia/georgia-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-italic.woff2") format("woff2"), url("/fonts/georgia/georgia-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+.about__wrapper {
+  padding-block: 80px 100px;
+  padding-inline: 3.125%;
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 10%;
+       column-gap: 10%;
+}
+
+.about__text-block {
+  order: 2;
+  max-width: 430px;
+}
+
+.about__title {
+  margin-top: 15px;
+  margin-bottom: 23px;
+  text-align: left;
+}
+
+.about__text:first-of-type {
+  margin-bottom: 23px;
+}
+
+.about__text {
+  font-family: "Arial";
+  font-size: 0.9375rem;
+  line-height: 160%;
+}
+
+.about__image-block {
+  max-width: 300px;
+  width: 100%;
+  height: 408px;
+  background: url("../img/bg/about-pets.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pets-slider {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: #F6F6F6;
+}
+
+.pets-slider__title {
+  margin-bottom: 60px;
+}
+
+.pets-slider__slider {
+  margin-bottom: 92px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 90px;
+       column-gap: 90px;
+}
+.pets-slider__slider::before {
+  content: "<";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  background-color: #F1CDB3;
+  border-radius: 50%;
+  text-align: center;
+}
+.pets-slider__slider::after {
+  content: ">";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  background-color: #F1CDB3;
+  border-radius: 50%;
+  text-align: center;
+}
+
+/* color */ /* fonts */
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-regular.woff2") format("woff2"), url("/fonts/arial/arial-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-italic.woff2") format("woff2"), url("/fonts/arial/arial-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-regular.woff2") format("woff2"), url("/fonts/georgia/georgia-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-bold.woff2") format("woff2"), url("/fonts/georgia/georgia-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-italic.woff2") format("woff2"), url("/fonts/georgia/georgia-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+.help {
+  padding-block: 80px 100px;
+}
+
+.help__wrapper {
+  padding-inline: 3.125%;
+}
+
+.help__title {
+  margin-bottom: 60px;
+  order: 2;
+  text-align: center;
+}
+
+.help__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  -moz-column-gap: 120px;
+       column-gap: 120px;
+  row-gap: 50px;
+}
+
+.help__item {
+  display: grid;
+  row-gap: 30px;
+  justify-items: center;
+}
+
+.help__item-title {
+  order: 2;
+}
+
+.donation__wrapper {
+  padding-block: 80px 122px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  -moz-column-gap: 11px;
+       column-gap: 11px;
+}
+
+.donation__text-block {
+  justify-self: start;
+  order: 2;
+  max-width: 430px;
+}
+
+.donation__title {
+  text-align: left;
+}
+
+.donation__text {
+  line-height: 1rem;
+}
+
+.donation__image-block {
+  justify-self: end;
+}
+
+/* color */ /* fonts */
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-regular.woff2") format("woff2"), url("/fonts/arial/arial-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Arial;
+  src: url("/fonts/arial/arial-italic.woff2") format("woff2"), url("/fonts/arial/arial-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-regular.woff2") format("woff2"), url("/fonts/georgia/georgia-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-bold.woff2") format("woff2"), url("/fonts/georgia/georgia-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Georgia;
+  src: url("/fonts/georgia/georgia-italic.woff2") format("woff2"), url("/fonts/georgia/georgia-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+.pets {
+  background-color: #F6F6F6;
+}
+
+.pets__wrapper {
+  padding-inline: 3.125%;
+  padding-bottom: 100px;
+}
+
+.pets__title {
+  padding-top: 80px;
+  margin-bottom: 45px;
+  text-align: center;
+  color: #545454;
+  font-size: 2.1875rem;
+  font-weight: 400;
+  line-height: 2.84375rem;
+  letter-spacing: 0.06em;
+}
+
+.pets__list {
+  margin-bottom: 45px;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  row-gap: 30px;
+}
+
+.pets__item {
+  display: grid;
+  row-gap: 30px;
+}
+
+.pets__name {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.42rem;
+  letter-spacing: 0.06em;
+}
+
+.pets__pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 115%;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #292929;
 }
 
 .social__list {
@@ -963,6 +1228,7 @@ nav > button .button__text::before {
 /* footer */
 .footer {
   margin-top: auto;
+  padding-top: 40px;
   width: 100%;
   min-height: 350px;
   display: flex;
@@ -970,7 +1236,13 @@ nav > button .button__text::before {
   background: url("../img/bg/noise_transparent.png"), radial-gradient(#513D2F, #211F20);
 }
 
-.footer__container {
-  padding-inline: 2.0283%;
+.footer__wrapper {
+  padding-inline: 3.125%;
+  display: flex;
+}
+
+.titleH2.titleH2--footer {
+  color: #FFFFFF;
+  text-align: left;
 }
 /*# sourceMappingURL=style.css.map */
