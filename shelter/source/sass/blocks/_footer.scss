@@ -4,6 +4,7 @@
 
 .footer {
   margin-top: auto;
+  padding-top: 40px;
   width: 100%;
   min-height: 350px;
 
@@ -12,6 +13,13 @@
   background: $footer-gradient-background;
 }
 
-.footer__container {
+.footer__wrapper {
   padding-inline: v.$wrapper-inline;
+
+  display: flex;
+}
+
+.titleH2.titleH2--footer {
+  color: $color-light-xl;
+  text-align: left;
 }

@@ -1,18 +1,18 @@
 include ../mixins/pets
-include ../layout/pagination
+include ../mixins/pagination
 
 section.pets
   .pets__wrapper
     h1.pets__title Our friends who<br> are looking for a house
     ul.pets__list
-      +friend('Katrine')
-      +friend('Jennifer')
-      +friend('Woody')
-      +friend('Sophia')
-      +friend()
-      +friend()
-      +friend()
-      +friend()
+      +friend('Katrine', 'katrine')
+      +friend('Jennifer', 'jennifer')
+      +friend('Woody', 'woody')
+      +friend('Sophia', 'sophia')
+      +friend('Timmy', 'timmy')
+      +friend('Charly', 'charly')
+      +friend('Scarlett', 'scarlett')
+      +friend('Freddie', 'freddie')
 
     ul.pets__pagination
       +pagination('<<', '#', true)

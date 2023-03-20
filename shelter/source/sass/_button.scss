@@ -1,16 +1,16 @@
 @use "./abstract/" as *;
 
 .button {
-  padding-block: 1rem;
-  min-width: 207px;
+  padding-block: 0.85rem;
+  min-width: 187px;
 
   background-color: $color-primary;
   border: none;
   border-radius: 2rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 125%;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
   color: $color-dark-3xl;
   cursor: pointer;
 
@@ -24,20 +24,20 @@
   }
 }
 
-nav > button .button__text {
-  position: relative;
+.button--start {
+  max-width: 208px;
+  width: 100%;
 }
 
-nav > button .button__text::before {
-  content: '';
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  top: -1px;
-  left: -23px;
-  background-image: url('../img/icons/reservation.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  // ../img/sprite.svg##{svgName}
+.button--pets {
+  max-width: 187px;
+  margin: 0 auto;
+  background-color: inherit;
+  border: 1px solid $color-primary;
+}
 
+.button-pets-slider {
+  padding-inline: 3rem;
+  margin: 0 auto;
+  display: block;
 }

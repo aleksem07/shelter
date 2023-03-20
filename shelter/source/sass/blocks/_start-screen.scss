@@ -5,8 +5,9 @@
   padding-inline: 3.125%;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 42px;
+  grid-template-columns: 38.5% 1fr;
+
+  gap: 43px;
   align-items: end;
   min-height: 908px;
   max-height: 1165px;
@@ -14,10 +15,11 @@
 }
 
 .start__text-wrapper {
+  margin-top: 105px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 42px;
+  gap: 40px;
   align-self: center;
 }
 
@@ -33,6 +35,8 @@
 }
 
 .start__text {
+  font-size: 0.9375rem;
+  line-height: 160%;
   font-family: Arial;
   color: $color-dark-s;
 }

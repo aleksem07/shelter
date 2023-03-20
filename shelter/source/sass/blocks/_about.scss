@@ -13,3 +13,29 @@
   order: 2;
   max-width: 430px;
 }
+
+.about__title {
+  margin-top: 15px;
+  margin-bottom: 23px;
+  text-align: left;
+}
+
+.about__text:first-of-type {
+  margin-bottom: 23px;
+}
+
+.about__text {
+  font-family: 'Arial';
+  font-size: 0.9375rem;
+  line-height: 160%;
+}
+
+.about__image-block {
+  max-width: 300px;
+  width: 100%;
+  height: 408px;
+
+  background: url('../img/bg/about-pets.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}

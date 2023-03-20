@@ -1,0 +1,26 @@
+.donation__wrapper {
+  padding-block: 80px 122px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+
+  // justify-content: right;
+  column-gap: 11px;
+}
+
+.donation__text-block {
+  justify-self: start;
+  order: 2;
+  max-width: 430px;
+}
+
+.donation__title {
+  text-align: left;
+}
+
+.donation__text {
+  line-height: 1rem;
+}
+
+.donation__image-block {
+  justify-self: end;
+}

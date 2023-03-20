@@ -1,0 +1,41 @@
+.pets-slider {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: $color-light-l;
+}
+
+.pets-slider__title {
+  margin-bottom: 60px;
+}
+
+.pets-slider__slider {
+  margin-bottom: 92px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  column-gap: 90px;
+
+  &::before {
+    content: '<';
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    background-color: $color-primary;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  &::after {
+    content: '>';
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    background-color: $color-primary;
+    border-radius: 50%;
+    text-align: center;
+  }
+}

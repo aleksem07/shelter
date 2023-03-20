@@ -12,7 +12,7 @@
 
   position: absolute;
   display: flex;
-  column-gap: 50px;
+  column-gap: 15px;
   justify-content: space-between;
   align-items: center;
 
@@ -20,8 +20,8 @@
 }
 
 .header__pets {
-  min-height: 120px;
   position: relative;
+  background-color: $color-light-xl;
 }
 
 .header__pets a,
@@ -32,6 +32,6 @@
 .menu-nav__link {
   color: $color-dark-s;
   font-family: Arial;
-  font-size: 0,9375rem;
+  font-size: 0.9375rem;
   line-height: 1.5rem;
 }

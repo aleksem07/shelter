@@ -1,22 +1,31 @@
 @use "./modules/variables" as v;
 @use "./abstract/" as *;
 
+.help {
+  padding-block: 80px 100px;
+}
+
 .help__wrapper {
   padding-inline: v.$wrapper-inline;
+}
+
+.help__title {
+  margin-bottom: 60px;
+  order: 2;
+  text-align: center;
 }
 
 .help__list {
   display: flex;
   flex-wrap: wrap;
-}
-
-.help__title {
-  order: 2;
-  text-align: center;
+  justify-content: center;
+  column-gap: 120px;
+  row-gap: 50px;
 }
 
 .help__item {
   display: grid;
+  row-gap: 30px;
   justify-items: center;
 }
 
