@@ -41,3 +41,29 @@
   margin: 0 auto;
   display: block;
 }
+
+.button--donation {
+  margin-bottom: 17px;
+  padding-right: 13px;
+  max-width: 349px;
+  width: 100%;
+
+  position: relative;
+
+  border-radius: 9px;
+  font-size: 1.25rem;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  text-align: right;
+
+  &::before {
+    content: '';
+    width: 30px;
+    height: 23px;
+    top: 25%;
+    left: 15px;
+    position: absolute;
+    // background-color: red;
+    background-image: url("../img/icons/credit-card.svg");
+  }
+}

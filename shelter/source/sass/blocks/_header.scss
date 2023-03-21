@@ -5,8 +5,12 @@
 .header {
   margin-inline: auto;
   padding-top: 30px;
-  padding-inline: v.$wrapper-inline;
-  min-width: $min-width;
+
+  // padding-inline: v.$wrapper-inline;
+  padding-inline: 40px;
+  // min-width: $min-width;
+  min-width: 1280px;
+
   width: 100%;
   max-width: $desktop-width;
 

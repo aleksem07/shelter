@@ -1,4 +1,5 @@
 .pets-slider {
+  padding-inline: v.$wrapper-inline;
   padding-top: 80px;
   padding-bottom: 100px;
   background-color: $color-light-l;
@@ -13,29 +14,32 @@
   position: relative;
   display: flex;
   justify-content: center;
-  column-gap: 90px;
+  // column-gap: 90px;
+}
 
-  &::before {
-    content: '<';
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 50%;
-    left: 3%;
-    background-color: $color-primary;
-    border-radius: 50%;
-    text-align: center;
-  }
+.pets-slider__slider li {
+  margin-inline: 4%;
+}
 
-  &::after {
-    content: '>';
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 50%;
-    right: 3%;
-    background-color: $color-primary;
-    border-radius: 50%;
-    text-align: center;
+.arrow {
+  margin-top: 30px;
+  width: 52px;
+  height: 52px;
+  background: url('../img/icons/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid $color-primary;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  align-self: center;
+  transition: all 1s ease;
+
+  &:hover {
+    background-color: $color-primary-light;
   }
+}
+
+.pets-slider__arrow--right {
+  transform: rotate(180deg);
 }

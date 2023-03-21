@@ -71,16 +71,21 @@
                           <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
                   </li>
           </ul>
-          <ul class="pets__pagination">
-                  <li class="pagination__item"><a class="pagination__link pagination__link--active" title="'Текущая страница № &lt;&lt;'">&lt;&lt;</a>
+          <ul class="pets__pagination pagination">
+                  <li class="pagination__item">
+                    <button class="pagination__link" disabled title="'Текущая страница № &lt;&lt;'">&lt;&lt;</button>
                   </li>
-                  <li class="pagination__item"><a class="pagination__link" href="#" title="'Перейти на страницу № &lt;'">&lt;</a>
+                  <li class="pagination__item">
+                    <button class="pagination__link" disabled title="'Текущая страница № &lt;'">&lt;</button>
                   </li>
-                  <li class="pagination__item"><a class="pagination__link" href="#" title="'Перейти на страницу № 1'">1</a>
+                  <li class="pagination__item pagination__link--active">
+                    <button class="pagination__link pagination__link--active" title="'Текущая страница № 1'">1</button>
                   </li>
-                  <li class="pagination__item"><a class="pagination__link" href="#" title="'Перейти на страницу № &gt;'">&gt;</a>
+                  <li class="pagination__item">
+                    <button class="pagination__link" href="#" title="'Перейти на страницу № &gt;'">&gt;</button>
                   </li>
-                  <li class="pagination__item"><a class="pagination__link" href="#" title="'Перейти на страницу № &gt;&gt;'">&gt;&gt;</a>
+                  <li class="pagination__item">
+                    <button class="pagination__link" href="#" title="'Перейти на страницу № &gt;&gt;'">&gt;&gt;</button>
                   </li>
           </ul>
         </div>
@@ -88,15 +93,29 @@
     </main>
     <footer class="footer">
       <div class="footer__wrapper">
-        <div class="footer__contacts">
-          <h2 class="footer__contacts--title titleH2 titleH2--footer">For questions and suggestions</h2>
+        <div class="footer__contacts contacts">
+          <h2 class="footer__contacts--title titleH2 titleH2--footer">For questions <br> and suggestions</h2>
+          <ul class="contacts__list">
+                <li class="contacts__item"><a class="contacts__link" href="mailto: email@shelter.com"><svg width="40" height="40" viewBox="0 0 40 40">
+<use xlink:href="../img/sprite.svg#mail"></use>
+</svg>
+                    <h3 class="contacts__info">email@shelter.com</h3></a></li>
+                <li class="contacts__item"><a class="contacts__link" href="tel:+13 674 567 75 54"><svg width="40" height="40" viewBox="0 0 40 40">
+<use xlink:href="../img/sprite.svg#phone"></use>
+</svg>
+                    <h3 class="contacts__info">+13 674 567 75 54</h3></a></li>
+          </ul>
         </div>
         <div class="footer__address">
-          <h2 class="footer__address--title titleH2 titleH2--footer">We are waiting for your visit</h2>
+          <h2 class="footer__address--title titleH2 titleH2--footer">We are waiting <br> for your visit</h2>
+          <ul class="contacts__list address">
+                <li class="contacts__item"><a class="contacts__link address__link">
+                    <h3 class="contacts__info">1 Central Street, Boston (entrance from the store)</h3></a></li>
+                <li class="contacts__item"><a class="contacts__link address__link">
+                    <h3 class="contacts__info">18 South Park, London </h3></a></li>
+          </ul>
         </div>
-        <div class="footer__img">
-          <div class="about__image-block" style="background:grey; width:300px; height:310px"></div>
-        </div>
+        <div class="footer__img"></div>
       </div>
     </footer>
   </body>

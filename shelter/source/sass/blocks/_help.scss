@@ -20,7 +20,7 @@
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 120px;
-  row-gap: 50px;
+  row-gap: 55px;
 }
 
 .help__item {
@@ -31,4 +31,9 @@
 
 .help__item-title {
   order: 2;
+
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 115%;
+  letter-spacing: 0.06em;
 }

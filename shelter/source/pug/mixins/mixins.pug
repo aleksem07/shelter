@@ -12,6 +12,19 @@ mixin help-icon(title, svgName)
     <use xlink:href="../img/sprite.svg##{svgName}"></use>
     </svg>
 
+mixin contact(title, svgName, href)
+  li.contacts__item
+    a.contacts__link(href=href)&attributes(attributes)
+      <svg width="40" height="40" viewBox="0 0 40 40">
+      <use xlink:href="../img/sprite.svg##{svgName}"></use>
+      </svg>
+      h3.contacts__info #{title}
+
+mixin address(title, svgName, href)
+  li.contacts__item
+    a.contacts__link.address__link(href=href)&attributes(attributes)
+      h3.contacts__info #{title}
+
 mixin button(text)
   button.button(type='button')&attributes(attributes)
     span.button__text #{text}

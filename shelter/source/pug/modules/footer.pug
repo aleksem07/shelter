@@ -3,9 +3,15 @@ include ../mixins/mixins
 footer.footer
 
   .footer__wrapper
-      .footer__contacts
-        h2.footer__contacts--title.titleH2.titleH2--footer For questions and suggestions
+      .footer__contacts.contacts
+        h2.footer__contacts--title.titleH2.titleH2--footer For questions #[br] and suggestions
+        ul.contacts__list
+          +contact('email@shelter.com', 'mail', "mailto: email@shelter.com")
+          +contact('+13 674 567 75 54', 'phone', 'tel:+13 674 567 75 54')
       .footer__address
-        h2.footer__address--title.titleH2.titleH2--footer We are waiting for your visit
+        h2.footer__address--title.titleH2.titleH2--footer We are waiting #[br] for your visit
+        ul.contacts__list.address
+          +address('1 Central Street, Boston (entrance from the store)', 'pin')
+          +address('18 South Park, London ', 'pin')
       .footer__img
-        .about__image-block(style="background:grey; width:300px; height:310px")
+
