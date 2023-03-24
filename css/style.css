@@ -369,6 +369,10 @@ template {
   font-style: italic;
   font-display: swap;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   color: #292929;
   text-decoration: none;
@@ -675,7 +679,7 @@ input:focus::placeholder {
 
 .menu-nav__link {
   color: #CDCDCD;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.5rem;
 }
@@ -960,7 +964,7 @@ input:focus::placeholder {
   max-width: 300px;
   width: 100%;
   height: 408px;
-  background: url("../img/bg/about-pets.png");
+  background: url("../img/bg/about-pets.webp");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -979,12 +983,43 @@ input:focus::placeholder {
 .pets-slider__slider {
   margin-bottom: 92px;
   position: relative;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  -moz-column-gap: 120px;
+       column-gap: 120px;
+  justify-items: center;
 }
 
-.pets-slider__slider li {
-  margin-inline: 4%;
+.pets__item:nth-child(1) {
+  grid-column: 1/2;
+}
+
+.pets__item:nth-child(2) {
+  grid-column: 2/4;
+}
+
+.pets__item:nth-child(3) {
+  grid-column: 4/8;
+}
+
+.pets__item:nth-child(4) {
+  grid-column: 8/10;
+}
+
+.pets__item:nth-child(5) {
+  grid-column: 10/11;
+}
+
+.pets__item li {
+  margin-inline: 3%;
+}
+
+.pets-slider__slider .pets__item {
+  margin-inline: 1%;
+}
+
+.pets__item--button {
+  margin-inline: 0.5%;
 }
 
 .arrow {
