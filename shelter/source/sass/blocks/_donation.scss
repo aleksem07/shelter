@@ -4,7 +4,7 @@
 
 .donation__wrapper {
   padding-block: 82px 87px;
-  padding-inline: v.$wrapper-inline;
+  padding-inline: $wrapper-inline;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   column-gap: 19px;
@@ -36,7 +36,7 @@
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 150%;
-  color: $color-dark-m
+  color: $color-dark-m;
 }
 
 .donation__image-block {
@@ -51,5 +51,4 @@
   background: url('../img/bg/donation-dog.png');
   background-repeat: no-repeat;
   background-size: contain;
-
 }

@@ -1,5 +1,5 @@
-@use "./modules/variables" as v;
-@use "./abstract/" as *;
+@use './modules/variables' as v;
+@use './abstract/' as *;
 /* header */
 
 .header {
@@ -35,7 +35,7 @@
 
 .menu-nav__link {
   color: $color-dark-s;
-  font-family: Arial;
+  font-family: v.$font-second;
   font-size: 0.9375rem;
   line-height: 1.5rem;
 }

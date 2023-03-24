@@ -1,8 +1,7 @@
-@use "./abstract/" as *;
+@use './abstract/' as *;
 
 .button {
   padding-block: 0.85rem;
-  min-width: 187px;
 
   background-color: $color-primary;
   border: none;
@@ -16,11 +15,24 @@
 
   -webkit-transition: 1s ease;
 
-
   &:hover {
     background-color: $color-primary-light;
-    transition: all 0.2s ease-out;
+    box-shadow: 0 10px 20px 0 $color-dark-m--alpha50;
+  }
+  &:active {
+    background-color: $color-primary;
+    box-shadow: 0 0 1em $color-dark-m--alpha20 inset;
+  }
 
+  &:disabled,
+  &[disabled] {
+    box-shadow: none;
+  }
+}
+
+.start-screen__wrapper .button {
+  &:hover {
+    box-shadow: 0 10px 20px 0 $color-dark-m--alpha20;
   }
 }
 
@@ -30,6 +42,7 @@
 }
 
 .button--pets {
+  min-width: 187px;
   max-width: 187px;
   margin: 0 auto;
   background-color: inherit;
@@ -37,7 +50,10 @@
 }
 
 .button-pets-slider {
-  padding-inline: 3rem;
+  max-width: 261px;
+  text-align: center;
+  padding-inline: 2.5rem;
+  padding-block: 0.85rem;
   margin: 0 auto;
   display: block;
 }
@@ -64,6 +80,6 @@
     left: 15px;
     position: absolute;
     // background-color: red;
-    background-image: url("../img/icons/credit-card.svg");
+    background-image: url('../img/icons/credit-card.svg');
   }
 }

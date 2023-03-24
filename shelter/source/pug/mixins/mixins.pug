@@ -9,22 +9,30 @@ mixin help-icon(title, svgName)
   li.help__item
     h3.help__item-title #{title}
     <svg width="60" height="60" viewBox="0 0 19 19">
-    <use xlink:href="../img/sprite.svg##{svgName}"></use>
+    <use xlink:href="./img/sprite.svg##{svgName}"></use>
     </svg>
 
 mixin contact(title, svgName, href)
   li.contacts__item
     a.contacts__link(href=href)&attributes(attributes)
       <svg width="40" height="40" viewBox="0 0 40 40">
-      <use xlink:href="../img/sprite.svg##{svgName}"></use>
+      <use xlink:href="./img/sprite.svg##{svgName}"></use>
       </svg>
       h3.contacts__info #{title}
 
 mixin address(title, svgName, href)
   li.contacts__item
-    a.contacts__link.address__link(href=href)&attributes(attributes)
+    a.contacts__link.address__link(href=href, target='_blank')&attributes(attributes)
       h3.contacts__info #{title}
 
-mixin button(text)
-  button.button(type='button')&attributes(attributes)
+mixin button(text, href)
+  if href
+    button.button(type='button' onclick=`document.location='${href}'`)&attributes(attributes)
+      span.button__text #{text}
+  else
+    button.button(type='button')&attributes(attributes)
+      span.button__text #{text}
+
+mixin button-link(href, text)
+  a(href=href).button&attributes(attributes)
     span.button__text #{text}

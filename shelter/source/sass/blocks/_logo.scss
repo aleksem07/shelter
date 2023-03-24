@@ -1,4 +1,4 @@
-@use "./abstract/" as *;
+@use './abstract/' as *;
 /* logo */
 
 .logo {
@@ -6,11 +6,13 @@
   gap: 7.5px;
   align-items: center;
 
+  &:hover p {
+    color: $color-primary;
+  }
 }
 
 .logo__title {
   margin: 0;
-
 
   color: $color-primary;
   font-size: 2rem;

@@ -1,5 +1,5 @@
-@use "./abstract/" as *;
-@use "./modules/variables" as v;
+@use './abstract/' as *;
+@use './modules/variables' as *;
 
 //viewports
 $min-width: 320px;
@@ -9,23 +9,23 @@ $desktop-width: 1280px;
 $mobile-width-only: ($tablet-width - 1);
 
 //global
-@import "_normalize";
-@import "_global";
-@import "_button";
+@import '_normalize';
+@import '_global';
+@import '_button';
 
 //blocks
-@import "blocks/_page";
+@import 'blocks/_page';
 
-@import "blocks/_header";
-@import "blocks/_logo";
-@import "blocks/_menu";
+@import 'blocks/_header';
+@import 'blocks/_logo';
+@import 'blocks/_menu';
 
-@import "blocks/_start-screen";
-@import "blocks/_about";
-@import "blocks/_pets-slider";
-@import "blocks/_help";
-@import "blocks/_donation";
-@import "blocks/_pets";
-@import "blocks/_social";
+@import 'blocks/_start-screen';
+@import 'blocks/_about';
+@import 'blocks/_pets-slider';
+@import 'blocks/_help';
+@import 'blocks/_donation';
+@import 'blocks/_pets';
+@import 'blocks/_social';
 
-@import "blocks/_footer";
+@import 'blocks/_footer';

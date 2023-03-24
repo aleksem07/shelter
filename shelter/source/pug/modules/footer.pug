@@ -1,17 +1,17 @@
 include ../mixins/mixins
 
-footer.footer
+footer.footer#contacts
 
   .footer__wrapper
       .footer__contacts.contacts
         h2.footer__contacts--title.titleH2.titleH2--footer For questions #[br] and suggestions
         ul.contacts__list
-          +contact('email@shelter.com', 'mail', "mailto: email@shelter.com")
-          +contact('+13 674 567 75 54', 'phone', 'tel:+13 674 567 75 54')
+          +contact('email@shelter.com', 'mail', "mailto:email@shelter.com")
+          +contact('+13 674 567 75 54', 'phone', 'tel:+136745677554')
       .footer__address
         h2.footer__address--title.titleH2.titleH2--footer We are waiting #[br] for your visit
         ul.contacts__list.address
-          +address('1 Central Street, Boston (entrance from the store)', 'pin')
-          +address('18 South Park, London ', 'pin')
+          +address('1 Central Street, Boston (entrance from the store)', 'pin', `https://www.google.com/maps/place/37%C2%B024'05.2%22N+116%C2%B052'03.8%22W/@37.4011958,-116.8698977,712m/data=!3m1!1e3!4m4!3m3!8m2!3d37.401437!4d-116.86773?hl=en`)
+          +address('18 South Park, London ', 'pin', `https://www.google.com/maps/place/Gora+Bolshaya+Udina/@55.751463,160.54184,16135m/data=!3m1!1e3!4m6!3m5!1s0x59045f967089bb91:0xcda5e28041a52ec4!8m2!3d55.7583332!4d160.5277148!16s%2Fg%2F1thz1df5?hl=ru`)
       .footer__img
 
