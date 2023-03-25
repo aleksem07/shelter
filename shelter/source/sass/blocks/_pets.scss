@@ -36,9 +36,13 @@
   display: grid;
   row-gap: 30px;
   cursor: pointer;
+  border-radius: 9px;
 
   &:hover {
     box-shadow: 0 10px 20px 0 $color-dark-m--alpha20;
+  }
+  & img {
+    border-radius: 9px 9px 0 0;
   }
 }
 
@@ -105,4 +109,9 @@
 .pagination__link--active {
   border-radius: 50%;
   background-color: $color-primary;
+
+  &:hover {
+    box-shadow: none;
+    background-color: $color-primary;
+  }
 }
