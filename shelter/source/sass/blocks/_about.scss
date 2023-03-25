@@ -1,5 +1,5 @@
-@use "./modules/variables" as v;
-@use "./abstract/" as *;
+@use './modules/variables' as v;
+@use './abstract/' as *;
 
 .about__wrapper {
   padding-block: 80px 100px;
@@ -7,27 +7,64 @@
   display: flex;
   justify-content: center;
   column-gap: 10%;
+  @media (max-width: $desktop-width - 1px) {
+    flex-direction: column;
+    gap: 79px;
+  }
+  @media (max-width: $tablet-width - 1px) {
+    padding-top: 42px;
+    padding-bottom: 46px;
+    gap: 40px;
+  }
 }
 
 .about__text-block {
   order: 2;
   max-width: 430px;
+  @media (max-width: $desktop-width - 1px) {
+    order: 0;
+    align-self: center;
+  }
 }
 
 .about__title {
   margin-top: 15px;
   margin-bottom: 23px;
   text-align: left;
+  @media (max-width: $desktop-width - 1px) {
+    margin-top: 0;
+  }
+  @media (max-width: $tablet-width - 1px) {
+    font-size: 25px;
+    line-height: 130%;
+    text-align: center;
+  }
 }
 
 .about__text:first-of-type {
   margin-bottom: 23px;
+  @media (max-width: $desktop-width - 1px) {
+    margin-bottom: 26px;
+  }
+  @media (max-width: $tablet-width - 1px) {
+    margin-bottom: 24px;
+  }
 }
 
 .about__text {
   font-family: 'Arial';
   font-size: 0.9375rem;
   line-height: 160%;
+  @media (max-width: $desktop-width - 1px) {
+    text-align: left;
+  }
+  @media (max-width: $tablet-width - 1px) {
+    padding-inline: 5%;
+    font-size: 15px;
+    line-height: 160%;
+    max-width: 100%;
+    text-align: justify;
+  }
 }
 
 .about__image-block {
@@ -38,4 +75,10 @@
   background: url('../img/bg/about-pets.webp');
   background-repeat: no-repeat;
   background-size: contain;
+  @media (max-width: $desktop-width - 1px) {
+    align-self: center;
+  }
+  @media (max-width: $tablet-width - 1px) {
+    height: 353.6px;
+  }
 }

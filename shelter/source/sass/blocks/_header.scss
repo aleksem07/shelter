@@ -6,11 +6,19 @@
   margin-inline: auto;
   padding-top: 30px;
 
-  // padding-inline: v.$wrapper-inline;
-  padding-inline: 40px;
-  // min-width: $min-width;
-  min-width: 1280px;
+  padding-inline: v.$wrapper-inline;
+  @media (min-width: $desktop-width) {
+    padding-inline: 40px;
+  }
+  @media (max-width: $desktop-width - 1px) {
+    padding-inline: 4.125%;
+  }
 
+  @media (max-width: $tablet-width - 1px) {
+    padding-inline: 6.125%;
+  }
+
+  min-width: $min-width;
   width: 100%;
   max-width: $desktop-width;
 

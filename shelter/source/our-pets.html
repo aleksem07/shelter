@@ -32,6 +32,12 @@
               </li>
         </ul>
       </nav>
+      <button class="menu-nav__button menu__button--open" type="button" aria-expanded="false" aria-controls="menu-nav__list">
+        <svg class="menu-nav__icon" aria-hidden="true" width="35" height="35">
+            <use class="menu-nav__icon-menu" href="img/sprite.svg#menu"></use>
+            <use class="menu-nav__icon-menu--open" href="img/sprite.svg#menu"></use>
+        </svg>
+      </button>
     </header>
     <main class="our-pets-page">
       <section class="pets">
@@ -118,6 +124,6 @@
         <div class="footer__img"></div>
       </div>
     </footer>
-    <script src="js/index.js"></script>
+    <script src="js/index.js" type="module"></script>
   </body>
 </html>

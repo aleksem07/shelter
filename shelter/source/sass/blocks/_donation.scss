@@ -8,6 +8,10 @@
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   column-gap: 19px;
+
+  @media (max-width: $desktop-width - 1) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .donation__text-block {
@@ -15,6 +19,11 @@
   justify-self: start;
   order: 2;
   max-width: 430px;
+  @media (max-width: $desktop-width - 1) {
+    padding-left: 3.5%;
+    grid-column: 1;
+    justify-self: center;
+  }
 }
 
 .donation__title {
@@ -28,6 +37,10 @@
   font-weight: 400;
   letter-spacing: 0.06em;
   line-height: 110%;
+  @media (max-width: $desktop-width - 1) {
+    grid-column: 1;
+    margin-bottom: 17px;
+  }
 }
 
 .donation__info {
@@ -37,6 +50,11 @@
   font-size: 0.75rem;
   line-height: 150%;
   color: $color-dark-m;
+
+  @media (max-width: $desktop-width - 1) {
+    max-width: 100%;
+    font-size: $_12;
+  }
 }
 
 .donation__image-block {
@@ -51,4 +69,10 @@
   background: url('../img/bg/donation-dog.png');
   background-repeat: no-repeat;
   background-size: contain;
+
+  @media (max-width: $desktop-width - 1) {
+    order: 2;
+    grid-column: auto;
+    justify-self: center;
+  }
 }

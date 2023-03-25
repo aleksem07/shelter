@@ -32,6 +32,12 @@
               </li>
         </ul>
       </nav>
+      <button class="menu-nav__button menu__button--open" type="button" aria-expanded="false" aria-controls="menu-nav__list">
+        <svg class="menu-nav__icon" aria-hidden="true" width="35" height="35">
+            <use class="menu-nav__icon-menu" href="img/sprite.svg#menu"></use>
+            <use class="menu-nav__icon-menu--open" href="img/sprite.svg#menu"></use>
+        </svg>
+      </button>
     </header>
     <main class="index-page">
       <section class="start-screen">
@@ -41,8 +47,7 @@
             <p class="start__title">Not only people<br>need a house</p>
             <p class="start__text">We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
                   <button class="button button--start" type="button" onclick="document.location='index.html#our-friends'"><span class="button__text">Make a friend</span></button>
-          </div>
-          <div class="start-img"></div>
+          </div><img class="start-img" src="./img/bg/start-screen-puppy.png">
         </div>
       </section>
       <section class="about">
@@ -143,6 +148,7 @@
           <div class="donation__image-block"></div>
         </div>
       </section>
+      <1></1>
     </main>
     <footer class="footer" id="contacts">
       <div class="footer__wrapper">
@@ -171,6 +177,6 @@
         <div class="footer__img"></div>
       </div>
     </footer>
-    <script src="js/index.js"></script>
+    <script src="js/index.js" type="module"></script>
   </body>
 </html>

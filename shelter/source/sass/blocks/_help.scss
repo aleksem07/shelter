@@ -1,5 +1,5 @@
-@use "./modules/variables" as v;
-@use "./abstract/" as *;
+@use './modules/variables' as v;
+@use './abstract/' as *;
 
 .help {
   padding-block: 80px 100px;
@@ -21,6 +21,20 @@
   justify-content: center;
   column-gap: 120px;
   row-gap: 55px;
+
+  @media (max-width: $desktop-width - 1) {
+    padding-inline: 2%;
+    column-gap: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $tablet-width - 1) {
+    padding-inline: 2%;
+
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
 }
 
 .help__item {

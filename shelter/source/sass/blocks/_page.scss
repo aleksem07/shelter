@@ -1,4 +1,4 @@
-@use "./abstract/" as *;
+@use './abstract/' as *;
 
 .page {
   height: 100%;
@@ -9,8 +9,8 @@
 }
 
 .page__body {
-  width: 1280px;
-
+  width: 100%;
+  max-width: $desktop-width;
   margin: 0 auto;
   padding: 0;
   display: flex;
