@@ -1,23 +1,40 @@
-@use './abstract/' as *;
-@use './modules/variables' as v;
 /* footer */
 
 .footer {
   margin-top: auto;
   padding-top: 40px;
+
   width: 100%;
   min-height: 350px;
 
   display: flex;
   flex-direction: column;
   background: $footer-gradient-background;
+  @media (max-width: $desktop-width - 1) {
+    padding-top: 15px;
+    padding-bottom: 60px;
+  }
+  @media (max-width: $tablet-width - 1) {
+    padding-top: 12px;
+    padding-bottom: 0;
+  }
 }
 
 .footer__wrapper {
-  padding-inline: v.$wrapper-inline;
+  padding-inline: $wrapper-inline;
   display: flex;
   justify-content: flex-start;
   gap: 3.5%;
+  @media (max-width: $desktop-width - 1) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 0;
+    row-gap: 10.5%;
+  }
+  @media (max-width: $tablet-width - 1) {
+    display: block;
+  }
 }
 
 .titleH2--footer {
@@ -25,6 +42,31 @@
   margin-bottom: 32px;
   color: $color-light-xl;
   text-align: left;
+
+  @media (max-width: $tablet-width - 1) {
+    text-align: center;
+    font-size: $fz25;
+    max-width: 98%;
+    margin-bottom: 36px;
+  }
+
+  & br {
+    @media (max-width: $tablet-width - 1) {
+      display: none;
+    }
+  }
+}
+
+.contacts {
+  @media (max-width: $desktop-width - 1) {
+    margin-left: 40px;
+  }
+}
+
+.contact .contacts__item {
+  @media (max-width: $tablet-width - 1) {
+    margin-left: 25px;
+  }
 }
 
 .contacts__item {
@@ -36,6 +78,13 @@
 .footer__contacts,
 .footer__address {
   flex-basis: 33%;
+  @media (max-width: $desktop-width - 1) {
+    margin-inline: auto;
+    max-width: 320px;
+  }
+  @media (max-width: $tablet-width - 1) {
+    margin-bottom: 38px;
+  }
 }
 
 .footer__address {
@@ -51,6 +100,12 @@
 
   &:hover h3 {
     color: $color-primary-light;
+  }
+}
+
+.address {
+  @media (max-width: $tablet-width - 1) {
+    margin-bottom: 54px;
   }
 }
 
@@ -84,4 +139,14 @@
   background: url('../img/bg/footer-puppy.png');
   background-repeat: no-repeat;
   background-size: contain;
+
+  @media (max-width: $desktop-width - 1) {
+    margin-inline: auto;
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: $tablet-width - 1) {
+    max-width: 260px;
+    height: 269px;
+  }
 }

@@ -3,10 +3,19 @@
   padding-top: 80px;
   padding-bottom: 100px;
   background-color: $color-light-l;
+  @media (max-width: $tablet-width - 1) {
+    padding-top: 30px;
+    padding-bottom: 45px;
+  }
 }
 
 .pets-slider__title {
   margin-bottom: 60px;
+  @media (max-width: $tablet-width - 1) {
+    padding-top: 9px;
+    font-size: $fz25;
+    margin-bottom: 39px;
+  }
 }
 
 .pets-slider__slider {
@@ -17,39 +26,62 @@
   grid-template-columns: 52px repeat(auto-fit, minmax(270px, auto)) 52px;
   justify-content: space-between;
   justify-items: center;
+  @media (max-width: $tablet-width - 1) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'pet'
+      'buttonsLeftRight';
+    margin-bottom: 42px;
+  }
+}
+
+.pets-slider__slider .pets__item:nth-child(1) {
+  @media (max-width: $tablet-width - 1) {
+    grid-area: buttonsLeftRight;
+    justify-self: start;
+  }
 }
 
 .pets-slider__slider .pets__item:nth-child(2) {
-  @media (max-width: $desktop-width) {
+  @media (max-width: $desktop-width - 1) {
     margin-right: 23px;
+  }
+  @media (max-width: $tablet-width - 1) {
+    grid-area: pet;
+    margin: 0;
   }
 }
 
 .pets-slider__slider .pets__item:nth-child(3) {
   margin-inline: 36px;
 
-  @media (max-width: $desktop-width) {
+  @media (max-width: $desktop-width - 1) {
     margin-inline: 0;
   }
-}
-
-.pets__item:nth-child(4) {
-  @media (max-width: $desktop-width) {
+  @media (max-width: $tablet-width - 1) {
     display: none;
   }
 }
 
 .pets-slider__slider .pets__item:nth-child(5) {
   grid-column: -1 / -2;
+  grid-row: -1/-2;
+  @media (max-width: $tablet-width - 1) {
+    grid-area: buttonsLeftRight;
+    justify-self: end;
+  }
+}
+
+.pets-slider__slider .pets__item:nth-child(4) {
+  @media (max-width: $desktop-width - 1) {
+    display: none;
+  }
 }
 
 .pets__item li {
   margin-inline: 3%;
 }
-
-// .pets-slider__slider .pets__item {
-//   margin-inline: 1%;
-// }
 
 .pets__item--button {
   margin-inline: 0.5%;
@@ -69,6 +101,9 @@
 
   &:hover {
     background-color: $color-primary-light;
+  }
+  @media (max-width: $tablet-width - 1) {
+    margin-top: 24px;
   }
 }
 
