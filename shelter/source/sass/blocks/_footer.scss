@@ -29,7 +29,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    column-gap: 0;
+    column-gap: 5%;
     row-gap: 10.5%;
   }
   @media (max-width: $tablet-width - 1) {
@@ -61,6 +61,9 @@
   @media (max-width: $desktop-width - 1) {
     margin-left: 40px;
   }
+  @media (max-width: $min-width) {
+    margin-left: 0;
+  }
 }
 
 .contact .contacts__item {
@@ -79,10 +82,10 @@
 .footer__address {
   flex-basis: 33%;
   @media (max-width: $desktop-width - 1) {
-    margin-inline: auto;
     max-width: 320px;
   }
   @media (max-width: $tablet-width - 1) {
+    margin: 0 auto;
     margin-bottom: 38px;
   }
 }

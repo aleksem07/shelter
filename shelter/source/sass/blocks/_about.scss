@@ -81,4 +81,7 @@
   @media (max-width: $tablet-width - 1px) {
     height: 353.6px;
   }
+  @media (max-width: $min-width) {
+    margin-left: 13%;
+  }
 }

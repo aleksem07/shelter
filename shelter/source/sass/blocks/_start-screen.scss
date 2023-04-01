@@ -80,18 +80,17 @@
 }
 
 .start-img {
-  width: 698px;
-
-  object-fit: cover;
-  // background: url('../img/bg/start-screen-puppy.png') right / contain no-repeat;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 
   @media (max-width: $desktop-width - 1px) {
-    margin-left: auto;
-    width: 100%;
     max-width: 569px;
+    margin-left: auto;
   }
 
-  @media (max-width: $tablet-width - 1px) {
-    max-width: 260px;
+  @media (max-width: $min-width) {
+    max-width: 261px;
   }
 }
