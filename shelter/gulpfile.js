@@ -51,16 +51,18 @@ exports.styles = styles;
 // HTML
 
 const html = () => {
-  return gulp
-    .src('source/**/*.html')
-    .pipe(
-      fileinclude({
-        prefix: '@@',
-        basepath: '@file',
-      })
-    )
-    .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest('build'));
+  return (
+    gulp
+      .src('source/**/*.html')
+      .pipe(
+        fileinclude({
+          prefix: '@@',
+          basepath: '@file',
+        })
+      )
+      // .pipe(htmlmin({ collapseWhitespace: true }))
+      .pipe(gulp.dest('build'))
+  );
 };
 
 exports.html = html;

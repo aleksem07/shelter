@@ -11,3 +11,10 @@ header.header&attributes(attributes)(class=headerClass)
       +site-nav('Our pets', href=pageClass === 'our-pets-page' ? false : 'our-pets.html')
       +site-nav('Help the shelter', href=pageClass === 'index-page' ? `#help`: `index.html#help`)
       +site-nav('Contacts', href=pageClass === 'index-page' || 'our-pets-page' ?  `#contacts`: `index.html#contacts`)
+
+    button.menu-nav__button(type='button' aria-expanded='false' aria-controls='menu-nav__list')
+      .
+        <svg class="menu-nav__icon" aria-hidden="true" width="35" height="35">
+            <use class="menu-nav__icon-menu" href="img/sprite.svg#menu"></use>
+        </svg>
+

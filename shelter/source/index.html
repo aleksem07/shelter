@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body class="page__body">
-    <header class="header index-page"><a class="header__logo logo" href="#">
+    <header class="header index-page"><a class="header__logo logo logo--index" href="#">
         <p class="logo__title">Cozy House</p>
         <p class="logo__subtitle">Shelter for pets in Boston</p></a>
       <nav class="header__menu menu-nav">
@@ -31,6 +31,11 @@
               <li class="menu-nav__item menu-site__item"><a class="menu-nav__link menu-site__link" href="#contacts" rel="noopener noreferrer">Contacts</a>
               </li>
         </ul>
+        <button class="menu-nav__button" type="button" aria-expanded="false" aria-controls="menu-nav__list">
+          <svg class="menu-nav__icon" aria-hidden="true" width="35" height="35">
+              <use class="menu-nav__icon-menu" href="img/sprite.svg#menu"></use>
+          </svg>
+        </button>
       </nav>
     </header>
     <main class="index-page">
@@ -41,8 +46,7 @@
             <p class="start__title">Not only people<br>need a house</p>
             <p class="start__text">We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
                   <button class="button button--start" type="button" onclick="document.location='index.html#our-friends'"><span class="button__text">Make a friend</span></button>
-          </div>
-          <div class="start-img"></div>
+          </div><img class="start-img" src="./img/bg/start-screen-puppy.png" alt="Собака смотрит вверх" width="698" height="728">
         </div>
       </section>
       <section class="about">
@@ -139,8 +143,7 @@
             <p class="donation__text">Name of the bank / Type of bank account</p>
                   <button class="button button--donation" type="button" onclick="document.location='#'"><span class="button__text">8380 2880 8028 8791 7435</span></button>
             <p class="donation__text donation__info">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-          </div>
-          <div class="donation__image-block"></div>
+          </div><img class="donation__image-block" src="./img/bg/donation-dog.png" alt="Лежит щенок и смотрит на тебя">
         </div>
       </section>
     </main>
@@ -148,7 +151,7 @@
       <div class="footer__wrapper">
         <div class="footer__contacts contacts">
           <h2 class="footer__contacts--title titleH2 titleH2--footer">For questions <br> and suggestions</h2>
-          <ul class="contacts__list">
+          <ul class="contacts__list contact">
                 <li class="contacts__item"><a class="contacts__link" href="mailto:email@shelter.com"><svg width="40" height="40" viewBox="0 0 40 40">
 <use xlink:href="./img/sprite.svg#mail"></use>
 </svg>
@@ -171,6 +174,6 @@
         <div class="footer__img"></div>
       </div>
     </footer>
-    <script src="js/index.js"></script>
+    <script src="js/index.js" type="module"></script>
   </body>
 </html>

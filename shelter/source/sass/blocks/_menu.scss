@@ -14,6 +14,10 @@
   padding: 0;
   display: flex;
 
+  @media (max-width: $tablet-width - 1px) {
+    display: none;
+  }
+
   gap: 2.2rem;
   list-style: none;
   font-size: 1.125rem;
@@ -21,6 +25,36 @@
   font-weight: 400;
   line-height: 125%;
   font-family: 'Manrope';
+}
+
+.menu__list--open {
+  @include media('max', 'md') {
+    // transform: translateX(1px, 50px);
+    display: grid;
+    align-content: center;
+    row-gap: 40px;
+    min-width: 326px;
+    width: 100%;
+    max-width: 320px;
+
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+
+    text-align: center;
+    background-color: $color-dark-3xl;
+
+    & li a {
+      font-family: $font-family-second;
+      @include font(32px, 160%);
+    }
+  }
+}
+
+.menu__button--open .menu-nav__icon {
+  stroke: $color-primary-light;
 }
 
 /* item */
@@ -56,4 +90,43 @@
   &:active {
     color: $color-dark-s;
   }
+}
+
+//toggle
+
+.menu-nav__button {
+  @media (width < ($tablet-width + 1px)) {
+    align-items: baseline;
+    display: block;
+    z-index: 11;
+    order: 1;
+    padding: 0;
+    border: none;
+    margin: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  @media (width > ($tablet-width - 1px)) {
+    display: none;
+  }
+}
+
+@media (width < ($tablet-width + 1px)) {
+  .menu-nav__icon {
+    stroke: $color-primary;
+  }
+}
+
+.menu-nav__icon-menu {
+  @extend %transition;
+  transform-origin: 20px 20px;
+}
+
+.rotated {
+  transform: rotate(90deg);
+}
+
+.fix {
+  overflow: hidden;
 }

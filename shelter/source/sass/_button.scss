@@ -12,8 +12,7 @@
   letter-spacing: 0.06em;
   color: $color-dark-3xl;
   cursor: pointer;
-
-  -webkit-transition: 1s ease;
+  @extend %transition;
 
   &:hover {
     background-color: $color-primary-light;
@@ -39,6 +38,10 @@
 .button--start {
   max-width: 208px;
   width: 100%;
+
+  @media (max-width: $desktop-width - 1px) {
+    margin: 0 auto;
+  }
 }
 
 .button--pets {
@@ -50,7 +53,7 @@
 }
 
 .button-pets-slider {
-  max-width: 261px;
+  max-width: max-content;
   text-align: center;
   padding-inline: 2.5rem;
   padding-block: 0.85rem;
@@ -59,9 +62,11 @@
 }
 
 .button--donation {
+  padding-block: 11px;
   margin-bottom: 17px;
   padding-right: 13px;
-  max-width: 349px;
+  padding-left: 14%;
+  max-width: max-content;
   width: 100%;
 
   position: relative;
@@ -81,5 +86,25 @@
     position: absolute;
     // background-color: red;
     background-image: url('../img/icons/credit-card.svg');
+  }
+
+  @media (max-width: $desktop-width - 1) {
+    margin-bottom: 20px;
+    padding-left: 15%;
+  }
+
+  @media (max-width: $tablet-width - 1) {
+    margin-bottom: 20px;
+    padding-left: 14%;
+  }
+  @media (max-width: 400px) {
+    padding-left: 20%;
+  }
+}
+
+.pets__item.pets__item--button {
+  @media (max-width: $tablet-width - 1) {
+    padding-bottom: 0;
+    padding-inline: 19%;
   }
 }

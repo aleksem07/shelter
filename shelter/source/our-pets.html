@@ -31,6 +31,11 @@
               <li class="menu-nav__item menu-site__item"><a class="menu-nav__link menu-site__link" href="#contacts" rel="noopener noreferrer">Contacts</a>
               </li>
         </ul>
+        <button class="menu-nav__button" type="button" aria-expanded="false" aria-controls="menu-nav__list">
+          <svg class="menu-nav__icon" aria-hidden="true" width="35" height="35">
+              <use class="menu-nav__icon-menu" href="img/sprite.svg#menu"></use>
+          </svg>
+        </button>
       </nav>
     </header>
     <main class="our-pets-page">
@@ -95,7 +100,7 @@
       <div class="footer__wrapper">
         <div class="footer__contacts contacts">
           <h2 class="footer__contacts--title titleH2 titleH2--footer">For questions <br> and suggestions</h2>
-          <ul class="contacts__list">
+          <ul class="contacts__list contact">
                 <li class="contacts__item"><a class="contacts__link" href="mailto:email@shelter.com"><svg width="40" height="40" viewBox="0 0 40 40">
 <use xlink:href="./img/sprite.svg#mail"></use>
 </svg>
@@ -118,6 +123,6 @@
         <div class="footer__img"></div>
       </div>
     </footer>
-    <script src="js/index.js"></script>
+    <script src="js/index.js" type="module"></script>
   </body>
 </html>

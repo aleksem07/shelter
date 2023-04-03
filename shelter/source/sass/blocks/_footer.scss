@@ -1,23 +1,40 @@
-@use './abstract/' as *;
-@use './modules/variables' as v;
 /* footer */
 
 .footer {
   margin-top: auto;
   padding-top: 40px;
+
   width: 100%;
   min-height: 350px;
 
   display: flex;
   flex-direction: column;
   background: $footer-gradient-background;
+  @media (max-width: $desktop-width - 1) {
+    padding-top: 15px;
+    padding-bottom: 60px;
+  }
+  @media (max-width: $tablet-width - 1) {
+    padding-top: 12px;
+    padding-bottom: 0;
+  }
 }
 
 .footer__wrapper {
-  padding-inline: v.$wrapper-inline;
+  padding-inline: $wrapper-inline;
   display: flex;
   justify-content: flex-start;
   gap: 3.5%;
+  @media (max-width: $desktop-width - 1) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 5%;
+    row-gap: 10.5%;
+  }
+  @media (max-width: $tablet-width - 1) {
+    display: block;
+  }
 }
 
 .titleH2--footer {
@@ -25,6 +42,34 @@
   margin-bottom: 32px;
   color: $color-light-xl;
   text-align: left;
+
+  @media (max-width: $tablet-width - 1) {
+    text-align: center;
+    font-size: $fz25;
+    max-width: 98%;
+    margin-bottom: 36px;
+  }
+
+  & br {
+    @media (max-width: $tablet-width - 1) {
+      display: none;
+    }
+  }
+}
+
+.contacts {
+  @media (max-width: $desktop-width - 1) {
+    margin-left: 40px;
+  }
+  @media (max-width: $min-width) {
+    margin-left: 0;
+  }
+}
+
+.contact .contacts__item {
+  @media (max-width: $tablet-width - 1) {
+    margin-left: 25px;
+  }
 }
 
 .contacts__item {
@@ -36,6 +81,14 @@
 .footer__contacts,
 .footer__address {
   flex-basis: 33%;
+
+  @include media('max', 'xl') {
+    max-width: 320px;
+  }
+  @include media('max', 'md') {
+    margin: 0 auto;
+    margin-bottom: 38px;
+  }
 }
 
 .footer__address {
@@ -48,9 +101,16 @@
   flex-wrap: wrap;
   gap: 20px;
   align-items: center;
+  @extend %transition;
 
   &:hover h3 {
-    color: $color-primary-light;
+    color: lighten($color-primary-light, 50%);
+  }
+}
+
+.address {
+  @include media('max', 'md') {
+    margin-bottom: 44px;
   }
 }
 
@@ -64,6 +124,12 @@
 
 .address__link h3 {
   padding-left: 43px;
+}
+
+.address .contacts__item:first-child {
+  @include media('max', 'md') {
+    margin-bottom: 43px;
+  }
 }
 
 .contacts__info {
@@ -84,4 +150,14 @@
   background: url('../img/bg/footer-puppy.png');
   background-repeat: no-repeat;
   background-size: contain;
+
+  @media (max-width: $desktop-width - 1) {
+    margin-inline: auto;
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: $tablet-width - 1) {
+    max-width: 260px;
+    height: 269px;
+  }
 }
