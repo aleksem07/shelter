@@ -41,9 +41,15 @@
   flex-wrap: wrap;
   column-gap: 2.7863%;
   row-gap: 30px;
-  @media (max-width: $desktop-width - 1) {
+
+  @include media('min', 'xl') {
+    column-gap: 3.3%;
+  }
+
+  @include media('max', 'xl') {
     justify-content: center;
     margin-bottom: 43px;
+    column-gap: 5.7863%;
   }
 }
 

@@ -81,10 +81,11 @@
 .footer__contacts,
 .footer__address {
   flex-basis: 33%;
-  @media (max-width: $desktop-width - 1) {
+
+  @include media('max', 'xl') {
     max-width: 320px;
   }
-  @media (max-width: $tablet-width - 1) {
+  @include media('max', 'md') {
     margin: 0 auto;
     margin-bottom: 38px;
   }
@@ -108,8 +109,8 @@
 }
 
 .address {
-  @media (max-width: $tablet-width - 1) {
-    margin-bottom: 54px;
+  @include media('max', 'md') {
+    margin-bottom: 44px;
   }
 }
 
@@ -123,6 +124,12 @@
 
 .address__link h3 {
   padding-left: 43px;
+}
+
+.address .contacts__item:first-child {
+  @include media('max', 'md') {
+    margin-bottom: 43px;
+  }
 }
 
 .contacts__info {
