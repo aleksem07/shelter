@@ -53,6 +53,7 @@
   row-gap: 30px;
   cursor: pointer;
   border-radius: 9px;
+  @extend %transition;
 
   &:hover {
     box-shadow: 0 10px 20px 0 $color-dark-m--alpha20;

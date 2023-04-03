@@ -36,7 +36,7 @@
   background-color: $color-light-xl;
 }
 
-.header__pets button .menu-nav__icon {
+.header__pets .menu-nav__icon {
   @media (max-width: $tablet-width - 1) {
     stroke: $basic_black;
   }
