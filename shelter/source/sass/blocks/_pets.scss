@@ -151,6 +151,7 @@
 .pagination__link--active {
   border-radius: 50%;
   background-color: $color-primary;
+  cursor: default;
 
   &:hover {
     box-shadow: none;

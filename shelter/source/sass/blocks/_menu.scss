@@ -5,19 +5,15 @@
   color: red;
   display: flex;
   column-gap: 2rem;
+  flex-wrap: wrap;
 }
 
 /* list */
-
 .menu-nav__list {
   margin: 0;
   padding: 0;
   display: flex;
-
-  @media (max-width: $tablet-width - 1px) {
-    display: none;
-  }
-
+  @extend %transition;
   gap: 2.2rem;
   list-style: none;
   font-size: 1.125rem;
@@ -25,31 +21,39 @@
   font-weight: 400;
   line-height: 125%;
   font-family: 'Manrope';
-}
 
-.menu__list--open {
-  @include media('max', 'md') {
-    // transform: translateX(1px, 50px);
+  @media (max-width: $tablet-width - 1px) {
+    width: 100%;
+    max-width: 330px;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    position: fixed;
+    opacity: 0;
+    z-index: 10;
     display: grid;
     align-content: center;
     row-gap: 40px;
-    min-width: 326px;
-    width: 100%;
-    max-width: 320px;
-
-    height: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 10;
-
     text-align: center;
+    overflow: auto;
     background-color: $color-dark-3xl;
 
     & li a {
       font-family: $font-family-second;
       @include font(32px, 160%);
     }
+  }
+}
+
+.menu__list--open {
+  @extend %transition;
+  @include media('max', 'md') {
+    right: 0;
+    opacity: 1;
+  }
+
+  & li a {
+    color: $color-primary;
   }
 }
 
@@ -90,43 +94,4 @@
   &:active {
     color: $color-dark-s;
   }
-}
-
-//toggle
-
-.menu-nav__button {
-  @media (width < ($tablet-width + 1px)) {
-    align-items: baseline;
-    display: block;
-    z-index: 11;
-    order: 1;
-    padding: 0;
-    border: none;
-    margin: 0;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
-  @media (width > ($tablet-width - 1px)) {
-    display: none;
-  }
-}
-
-@media (width < ($tablet-width + 1px)) {
-  .menu-nav__icon {
-    stroke: $color-primary;
-  }
-}
-
-.menu-nav__icon-menu {
-  @extend %transition;
-  transform-origin: 20px 20px;
-}
-
-.rotated {
-  transform: rotate(90deg);
-}
-
-.fix {
-  overflow: hidden;
 }
