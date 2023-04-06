@@ -23,7 +23,7 @@
   position: relative;
   display: grid;
   max-width: 100%;
-  grid-template-columns: 52px repeat(auto-fit, minmax(270px, auto)) 52px;
+  grid-template-columns: 52px 1fr 52px;
   justify-content: space-between;
   justify-items: center;
   @media (max-width: $tablet-width - 1) {
@@ -36,6 +36,17 @@
   }
 }
 
+.carousel {
+  display: flex;
+  gap: 90px;
+}
+
+.carousel .pets__item:nth-child(3) {
+  @media (max-width: $desktop-width - 1) {
+    display: none;
+  }
+}
+
 .pets-slider__slider .pets__item:nth-child(1) {
   @media (max-width: $tablet-width - 1) {
     grid-area: buttonsLeftRight;
@@ -43,28 +54,7 @@
   }
 }
 
-.pets-slider__slider .pets__item:nth-child(2) {
-  @media (max-width: $desktop-width - 1) {
-    margin-right: 23px;
-  }
-  @media (max-width: $tablet-width - 1) {
-    grid-area: pet;
-    margin: 0;
-  }
-}
-
 .pets-slider__slider .pets__item:nth-child(3) {
-  margin-inline: 36px;
-
-  @media (max-width: $desktop-width - 1) {
-    margin-inline: 0;
-  }
-  @media (max-width: $tablet-width - 1) {
-    display: none;
-  }
-}
-
-.pets-slider__slider .pets__item:nth-child(5) {
   grid-column: -1 / -2;
   grid-row: -1/-2;
   @media (max-width: $tablet-width - 1) {
@@ -73,8 +63,13 @@
   }
 }
 
-.pets-slider__slider .pets__item:nth-child(4) {
+.carousel .pets__item:nth-child(2) {
+  margin-inline: 36px;
+
   @media (max-width: $desktop-width - 1) {
+    margin-inline: 0;
+  }
+  @media (max-width: $tablet-width - 1) {
     display: none;
   }
 }

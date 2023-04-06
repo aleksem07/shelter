@@ -7,9 +7,10 @@ section.pets-slider#our-friends
       li.pets__item.pets__item--button
         button.button.pets-slider__arrow--left.arrow
           span.arrow__background
-      +friend('Katrine', 'katrine')
-      +friend('Jennifer', 'jennifer')
-      +friend('Woody', 'woody')
+      ul.carousel
+        +friend('Katrine', 'katrine')
+        +friend('Jennifer', 'jennifer')
+        +friend('Woody', 'woody')
       li.pets__item.pets__item--button
         button.button.pets-slider__arrow--right.arrow
           span.arrow__background

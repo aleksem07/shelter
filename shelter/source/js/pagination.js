@@ -10,8 +10,16 @@ const BUTTONS = {
 };
 
 const minPage = 1;
-const maxPage = 4;
+let maxPage = 0;
+const pagesCountWidth = {
+  desktop: 6,
+  tablet: 8,
+  mobile: 16,
+};
+
 let currentCount = minPage;
+
+console.log(document.documentElement.clientWidth);
 
 const disabledBtn = () => {
   if (currentCount > minPage) {
@@ -30,12 +38,23 @@ const disabledBtn = () => {
   }
 };
 
-const activeBtnPage = () => {
+const showActiveBtnPage = () => {
+  if (currentCount > maxPage) {
+    currentCount = maxPage;
+  }
   BUTTONS.ACTIVE.textContent = currentCount;
 };
 
-button.forEach((btn, i) => {
+button.forEach((btn) => {
   btn.addEventListener('click', () => {
+    if (document.documentElement.clientWidth < 1280 && document.documentElement.clientWidth > 320) {
+      maxPage = pagesCountWidth.tablet;
+    } else if (document.documentElement.clientWidth >= 1280) {
+      maxPage = pagesCountWidth.desktop;
+    } else if (document.documentElement.clientWidth <= 320) {
+      maxPage = pagesCountWidth.mobile;
+    }
+
     if (btn === BUTTONS.ALL_LEFT) {
       currentCount = minPage;
     }
@@ -48,8 +67,7 @@ button.forEach((btn, i) => {
     if (btn === BUTTONS.ALL_RIGHT) {
       currentCount = maxPage;
     }
-
-    activeBtnPage();
+    showActiveBtnPage();
     disabledBtn();
   });
 });

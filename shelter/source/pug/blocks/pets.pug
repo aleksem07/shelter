@@ -20,3 +20,10 @@ section.pets
       +pagination('1', true)(class="pagination__link--active")
       +pagination('>')(class="one-right")
       +pagination('>>', false)(class="all-right")
+
+  <template id="petCardTemplate">
+    li.pets__item
+      img(src='', alt='', width='270' height='270')
+      h2.pets__name #{name}
+      +button('Learn more')(class='button--pets')
+  </template>
