@@ -1,5 +1,6 @@
 const dataPets = [
   {
+    id: '1',
     name: 'Jennifer',
     img: 'img/pets/jennifer.png',
     type: 'Dog',
@@ -12,6 +13,7 @@ const dataPets = [
     parasites: ['none'],
   },
   {
+    id: '2',
     name: 'Sophia',
     img: 'img/pets/sophia.png',
     type: 'Dog',
@@ -24,6 +26,7 @@ const dataPets = [
     parasites: ['none'],
   },
   {
+    id: '3',
     name: 'Woody',
     img: 'img/pets/woody.png',
     type: 'Dog',
@@ -36,6 +39,7 @@ const dataPets = [
     parasites: ['none'],
   },
   {
+    id: '4',
     name: 'Scarlett',
     img: 'img/pets/scarlett.png',
     type: 'Dog',
@@ -48,6 +52,7 @@ const dataPets = [
     parasites: ['none'],
   },
   {
+    id: '5',
     name: 'Katrine',
     img: 'img/pets/katrine.png',
     type: 'Cat',
@@ -60,6 +65,7 @@ const dataPets = [
     parasites: ['none'],
   },
   {
+    id: '6',
     name: 'Timmy',
     img: 'img/pets/timmy.png',
     type: 'Cat',
@@ -72,6 +78,7 @@ const dataPets = [
     parasites: ['none'],
   },
   {
+    id: '7',
     name: 'Freddie',
     img: 'img/pets/freddie.png',
     type: 'Cat',
@@ -84,6 +91,7 @@ const dataPets = [
     parasites: ['none'],
   },
   {
+    id: '8',
     name: 'Charly',
     img: 'img/pets/charly.png',
     type: 'Dog',

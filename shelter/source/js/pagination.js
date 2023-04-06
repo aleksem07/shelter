@@ -1,3 +1,8 @@
+import { removeHtmlPetsCards, showCard } from './petsCard.js';
+import { shuffle } from './util.js';
+import dataPets from './data.js';
+const arrPets = dataPets.dataPets;
+
 const listButtons = document.querySelector('.pets__pagination');
 const button = listButtons.querySelectorAll('.pagination__link');
 
@@ -47,6 +52,8 @@ const showActiveBtnPage = () => {
 
 button.forEach((btn) => {
   btn.addEventListener('click', () => {
+    removeHtmlPetsCards();
+    showCard(shuffle(arrPets));
     if (document.documentElement.clientWidth < 1280 && document.documentElement.clientWidth > 320) {
       maxPage = pagesCountWidth.tablet;
     } else if (document.documentElement.clientWidth >= 1280) {

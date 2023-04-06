@@ -1,4 +1,6 @@
 import dataPets from './data.js';
+import { shuffle } from './util.js';
+
 const arrPets = dataPets.dataPets;
 const petsContainer = document.querySelector('.pets__list');
 const cardTemplate = document
@@ -31,4 +33,4 @@ const showCard = (pets) => {
 
 showCard(arrPets);
 
-console.log(dataPets.dataPets);
+export { removeHtmlPetsCards, showCard };
