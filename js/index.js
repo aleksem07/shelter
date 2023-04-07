@@ -1,2 +1,2 @@
 
-import'./menuToggle.js';console.log('100/100 \n Все пункты задания выполнены в полном объеме \n Спасибо за проверку. \n Удачи в обучении!');
+import'./carousel.js';import'./modal.js';

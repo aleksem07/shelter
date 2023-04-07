@@ -21,7 +21,7 @@
         <p class="logo__title">Cozy House</p>
         <p class="logo__subtitle">Shelter for pets in Boston</p></a>
       <nav class="header__menu menu-nav">
-        <ul class="menu-nav__list menu-site" id="menu-nav__list">
+        <ul class="menu-nav__list menu-site">
               <li class="menu-nav__item menu-site__item"><a class="menu-nav__link menu-site__link" href="index.html" rel="noopener noreferrer">About the shelter</a>
               </li>
               <li class="menu-nav__item menu-site__item"><a class="menu-nav__link menu-site__link menu-site__link--active">Our pets</a>
@@ -31,11 +31,7 @@
               <li class="menu-nav__item menu-site__item"><a class="menu-nav__link menu-site__link" href="#contacts" rel="noopener noreferrer">Contacts</a>
               </li>
         </ul>
-        <button class="menu-nav__button" type="button" aria-expanded="false" aria-controls="menu-nav__list">
-          <svg class="menu-nav__icon" aria-hidden="true" width="35" height="35">
-              <use class="menu-nav__icon-menu" href="img/sprite.svg#menu"></use>
-          </svg>
-        </button>
+        <div class="header__burger"><span class="menu-nav__button menu-nav__icon-menu"></span></div>
       </nav>
     </header>
     <main class="our-pets-page">
@@ -77,23 +73,27 @@
                   </li>
           </ul>
           <ul class="pets__pagination pagination">
-                  <li class="pagination__item">
+                  <li class="pagination__item all-left">
                     <button class="button pagination__link" disabled title="'Текущая страница № &lt;&lt;'">&lt;&lt;</button>
                   </li>
-                  <li class="pagination__item">
+                  <li class="pagination__item one-left">
                     <button class="button pagination__link" disabled title="'Текущая страница № &lt;'">&lt;</button>
                   </li>
                   <li class="pagination__item pagination__link--active">
                     <button class="button pagination__link pagination__link--active" title="'Текущая страница № 1'">1</button>
                   </li>
-                  <li class="pagination__item">
+                  <li class="pagination__item one-right">
                     <button class="button pagination__link" title="'Перейти на страницу № &gt;'">&gt;</button>
                   </li>
-                  <li class="pagination__item">
+                  <li class="pagination__item all-right">
                     <button class="button pagination__link" title="'Перейти на страницу № &gt;&gt;'">&gt;&gt;</button>
                   </li>
           </ul>
-        </div>
+        </div><template id="petCardTemplate">
+        <li class="pets__item"><img src="" alt="" width="270" height="270">
+          <h2 class="pets__name"></h2>
+                <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
+        </li></template>
       </section>
     </main>
     <footer class="footer" id="contacts">
@@ -123,6 +123,7 @@
         <div class="footer__img"></div>
       </div>
     </footer>
-    <script src="js/index.js" type="module"></script>
+    <script src="js/our-pets.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>
