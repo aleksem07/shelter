@@ -41,6 +41,7 @@
   flex-wrap: wrap;
   column-gap: 2.7863%;
   row-gap: 30px;
+  // overflow: hidden;
 
   @include media('min', 'xl') {
     column-gap: 3.3%;

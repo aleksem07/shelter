@@ -89,11 +89,7 @@
                     <button class="button pagination__link" title="'Перейти на страницу № &gt;&gt;'">&gt;&gt;</button>
                   </li>
           </ul>
-        </div><template id="petCardTemplate">
-        <li class="pets__item"><img src="" alt="" width="270" height="270">
-          <h2 class="pets__name"></h2>
-                <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
-        </li></template>
+        </div>
       </section>
     </main>
     <footer class="footer" id="contacts">
@@ -123,7 +119,44 @@
         <div class="footer__img"></div>
       </div>
     </footer>
-    <script src="js/our-pets.js" type="module"></script>
+    <script src="js/our-pets.js" type="module"></script><template id="petCardTemplate">
+    <li class="pets__item"><img src="" alt="" width="270" height="270">
+      <h2 class="pets__name"></h2>
+          <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
+    </li></template>
+    <div class="modal visually-hidden">
+      <div class="container container__modal">
+        <div class="modal__img"><img src="img/pets/woody.png" alt="" width="270" height="270"></div>
+        <div class="modal__text">
+          <h2 class="modal__name">Jennifer</h2>
+          <h3 class="modal__breed">Dog - Labrador</h3>
+          <p class="modal__desc">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+          <ul class="modal__about-list">
+            <li class="modal__about-item">
+              <dl>Age:
+                <dt>2 months</dt>
+              </dl>
+            </li>
+            <li class="modal__about-item">
+              <dl>Inoculations:
+                <dt>none</dt>
+              </dl>
+            </li>
+            <li class="modal__about-item">
+              <dl>Diseases:
+                <dt>none</dt>
+              </dl>
+            </li>
+            <li class="modal__about-item">
+              <dl>Parasites:
+                <dt>none</dt>
+              </dl>
+            </li>
+          </ul>
+        </div>
+        <button class="modal__button--close"></button>
+      </div>
+    </div>
     <script src="js/main.js" type="module"></script>
   </body>
 </html>

@@ -50,10 +50,15 @@ const showActiveBtnPage = () => {
   BUTTONS.ACTIVE.textContent = currentCount;
 };
 
+const petsContainer = document.querySelector('.pets__list');
+
 button.forEach((btn) => {
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', (evt) => {
+    if (btn === BUTTONS.ACTIVE) {
+      return;
+    }
     removeHtmlPetsCards();
-    showCard(shuffle(arrPets));
+    showCard(shuffle(arrPets), petsContainer);
     if (document.documentElement.clientWidth < 1280 && document.documentElement.clientWidth > 320) {
       maxPage = pagesCountWidth.tablet;
     } else if (document.documentElement.clientWidth >= 1280) {

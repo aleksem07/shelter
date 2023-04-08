@@ -26,6 +26,7 @@
   grid-template-columns: 52px 1fr 52px;
   justify-content: space-between;
   justify-items: center;
+  overflow: hidden;
   @media (max-width: $tablet-width - 1) {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -39,6 +40,14 @@
 .carousel {
   display: flex;
   gap: 90px;
+  @extend %transition;
+
+  .pets-slider__slider & {
+    position: relative;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    transform: translateX(612px);
+  }
 }
 
 .carousel .pets__item:nth-child(3) {
@@ -93,6 +102,7 @@
   align-self: center;
   transition: all 1s ease;
   background-color: transparent;
+  z-index: 1;
 
   &:hover {
     background-color: $color-primary-light;

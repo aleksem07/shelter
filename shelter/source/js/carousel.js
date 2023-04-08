@@ -1,13 +1,21 @@
+import { removeHtmlPetsCards, showCard } from './petsCard.js';
 import dataPets from './data.js';
-// let dataPets = pets.json;
-console.log('hello carousel');
 
-const track = document.querySelectorAll('.carousel');
-const slides = Array.from(track[0].children);
+const arrPets = dataPets.dataPets;
+
+const carousel = document.querySelector('.carousel');
 const nextButton = document.querySelector('.pets-slider__arrow--right');
 const prevButton = document.querySelector('.pets-slider__arrow--left');
 
-const windowWidth = document.body.getBoundingClientRect().width;
-console.log(windowWidth);
+const stepShift = -137;
 
-console.log(dataPets);
+nextButton.addEventListener('click', () => {
+  carousel.style.transform = `translateX(${stepShift}px)`;
+});
+prevButton.addEventListener('click', () => {
+  carousel.style.transform = `translateX(${612}px)`;
+});
+
+const petsContainer = document.querySelector('.carousel');
+removeHtmlPetsCards();
+showCard(arrPets, petsContainer);

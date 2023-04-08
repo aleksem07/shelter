@@ -1,7 +1,7 @@
-import dataPets from './data.js';
-import { shuffle } from './util.js';
+// import dataPets from './data.js';
+// import { shuffle } from './util.js';
 
-const arrPets = dataPets.dataPets;
+// const arrPets = dataPets.dataPets;
 const petsContainer = document.querySelector('.pets__list');
 const cardTemplate = document
   .querySelector('#petCardTemplate')
@@ -10,7 +10,7 @@ const cardTemplate = document
 const removeHtmlPetsCards = () => {
   petsContainer.replaceChildren();
 };
-removeHtmlPetsCards();
+// removeHtmlPetsCards();
 
 const createCard = (dataPets) => {
   const card = cardTemplate.cloneNode(true);
@@ -21,16 +21,16 @@ const createCard = (dataPets) => {
   return card;
 };
 
-const showCard = (pets) => {
+const showCard = (dataPets, container) => {
   let cardItemFragment = document.createDocumentFragment();
 
-  pets.forEach((pet) => {
+  dataPets.forEach((pet) => {
     cardItemFragment.appendChild(createCard(pet));
   });
 
-  petsContainer.append(cardItemFragment);
+  container.append(cardItemFragment);
 };
 
-showCard(arrPets);
+// showCard(shuffle(arrPets));
 
 export { removeHtmlPetsCards, showCard };
