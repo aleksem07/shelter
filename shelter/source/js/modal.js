@@ -49,7 +49,7 @@ document.addEventListener('click', (evt) => {
   }
 });
 
-// const closeModalButton = document.querySelector('.modal__button--close');
+const closeModalButton = document.querySelector('.modal__button--close');
 
 closeModalButton.addEventListener('click', () => {
   document.removeChild(document.querySelector('.modal'));

@@ -70,16 +70,16 @@
   }
 }
 
-.pets__list .pets__item:last-child,
-.pets__list .pets__item:nth-last-child(2) {
+.pets__wrapper .pets__list .pets__item:last-child,
+.pets__wrapper .pets__list .pets__item:nth-last-child(2) {
   @media (max-width: $desktop-width - 1) {
     display: none;
   }
 }
 
-.pets__list .pets__item:nth-last-child(3),
-.pets__list .pets__item:nth-last-child(4),
-.pets__list .pets__item:nth-last-child(5) {
+.pets__wrapper .pets__list .pets__item:nth-last-child(3),
+.pets__wrapper .pets__list .pets__item:nth-last-child(4),
+.pets__wrapper .pets__list .pets__item:nth-last-child(5) {
   @media (max-width: $tablet-width - 1) {
     display: none;
   }
