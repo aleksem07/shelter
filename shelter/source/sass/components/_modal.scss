@@ -1,17 +1,20 @@
 .modal {
   top: 50%;
-  left: 25%;
+  left: 20%;
 
   transform: translateY(-50%);
-  position: fixed;
+  position: absolute;
   max-width: 900px;
   margin: 0;
   background-color: $color-light-xl;
   z-index: 9;
+  opacity: 0;
+  transition: all 0.1s;
 
   @include media('max', 'md') {
     left: 2rem;
     max-width: 630px;
+    width: 100%;
     min-width: 240px;
   }
 }
@@ -49,7 +52,31 @@
   right: -52px;
   position: absolute;
   border-radius: 50%;
-  background-color: red;
+  background-color: inherit;
+  border: 1px solid $color-primary;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    transition: all 0.5s;
+    content: '';
+    top: 50%;
+    left: 30%;
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    transform: rotate(45deg);
+    background-color: $color-dark-3xl;
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &:hover::before {
+    transform: rotate(-45deg);
+  }
+  &:hover::after {
+    transform: rotate(45deg);
+  }
 }
 
 .modal__name {
@@ -70,9 +97,28 @@
   margin-bottom: 20px;
 }
 
-.modal__about-item dl {
+.modal__about-item dl,
+.modal__about-item dt {
   display: inline-block;
   font-weight: 700;
   font-size: 15px;
   line-height: 17px;
+}
+
+.modal__about-item dl {
+  position: relative;
+  padding-left: 15px;
+  &::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    top: 25%;
+    left: 0;
+    background-color: $color-primary;
+  }
+}
+
+.modal__about-item dt {
+  font-weight: 400;
 }

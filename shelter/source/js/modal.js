@@ -6,34 +6,30 @@ const body = document.querySelector('html');
 
 const modal = document.querySelector('.modal');
 
-// const createModal = (arrPets) => {
-//   const cardModal = modal.cloneNode(true);
-
-//   cardModal.querySelector('img').src = arrPets.img;
-//   cardModal.querySelector('img').alt = '';
-//   cardModal.querySelector('.modal__name').textContent = arrPets.name;
-//   return cardModal;
-// };
-
-// const showCard = (dataPets, container) => {
-//   let cardItemFragment = document.createDocumentFragment();
-
-//   dataPets.forEach((pet) => {
-//     cardItemFragment.appendChild(createModal(pet));
-//   });
-
-//   container.append(cardItemFragment);
-// };
-// showCard(arrPets, body);
-
 slidersContainer.addEventListener('click', (evt) => {
   modal.classList.toggle('visually-hidden');
   body.classList.add('lock');
-  console.log(evt.target);
+
+  arrPets.forEach((i) => {
+    setTimeout(() => {
+      if (evt.target.alt == i.name) {
+        modal.querySelector('img').src = i.img;
+        modal.querySelector('.modal__name').textContent = i.name;
+        modal.querySelector('.modal__breed').textContent = `${i.type} - ${i.breed} `;
+        modal.querySelector('.modal__desc').textContent = i.description;
+        modal.querySelector('.about-item__age').textContent = i.age;
+        modal.querySelector('.about-item__inoculations').textContent = i.inoculations;
+        modal.querySelector('.about-item__diseases').textContent = i.diseases;
+        modal.querySelector('.about-item__parasites').textContent = i.parasites;
+      }
+      modal.style.opacity = '1';
+    }, 100);
+  });
 });
 
 document.addEventListener('keydown', (evt) => {
   if (evt.keyCode === 27) {
+    modal.style.opacity = '0';
     modal.classList.add('visually-hidden');
     body.classList.remove('lock');
   }
@@ -44,15 +40,8 @@ document.addEventListener('click', (evt) => {
     evt.target.classList.contains('lock') ||
     evt.target.classList.contains('modal__button--close')
   ) {
+    modal.style.opacity = '0';
     modal.classList.add('visually-hidden');
     body.classList.remove('lock');
   }
 });
-
-const closeModalButton = document.querySelector('.modal__button--close');
-
-closeModalButton.addEventListener('click', () => {
-  document.removeChild(document.querySelector('.modal'));
-});
-
-console.log(document.querySelector('.modal'));

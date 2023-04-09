@@ -16,7 +16,7 @@ const createCard = (dataPets) => {
   const card = cardTemplate.cloneNode(true);
 
   card.querySelector('img').src = dataPets.img;
-  card.querySelector('img').alt = '';
+  card.querySelector('img').alt = dataPets.name;
   card.querySelector('.pets__name').textContent = dataPets.name;
   return card;
 };
