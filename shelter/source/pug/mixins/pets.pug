@@ -4,6 +4,6 @@ mixin friend(name, img)
   li.pets__item
     img(src=`img/pets/${img}.webp`,
 		srcset=`img/pets/${img}.webp, img/pets/@2/${img}.webp 2x`
-		alt=`Питомец ${name}`, width='270' height='270')
+		alt=`${name}`, width='270' height='270')
     h2.pets__name #{name}
     +button('Learn more')(class='button--pets')

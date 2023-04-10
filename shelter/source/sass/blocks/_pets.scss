@@ -41,6 +41,7 @@
   flex-wrap: wrap;
   column-gap: 2.7863%;
   row-gap: 30px;
+  // overflow: hidden;
 
   @include media('min', 'xl') {
     column-gap: 3.3%;
@@ -69,16 +70,16 @@
   }
 }
 
-.pets__list .pets__item:last-child,
-.pets__list .pets__item:nth-last-child(2) {
+.pets__wrapper .pets__list .pets__item:last-child,
+.pets__wrapper .pets__list .pets__item:nth-last-child(2) {
   @media (max-width: $desktop-width - 1) {
     display: none;
   }
 }
 
-.pets__list .pets__item:nth-last-child(3),
-.pets__list .pets__item:nth-last-child(4),
-.pets__list .pets__item:nth-last-child(5) {
+.pets__wrapper .pets__list .pets__item:nth-last-child(3),
+.pets__wrapper .pets__list .pets__item:nth-last-child(4),
+.pets__wrapper .pets__list .pets__item:nth-last-child(5) {
   @media (max-width: $tablet-width - 1) {
     display: none;
   }
@@ -151,6 +152,7 @@
 .pagination__link--active {
   border-radius: 50%;
   background-color: $color-primary;
+  cursor: default;
 
   &:hover {
     box-shadow: none;

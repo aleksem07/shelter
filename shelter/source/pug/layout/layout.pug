@@ -11,4 +11,38 @@ html.page(lang='en-US')
 
       include ../modules/footer
 
-      script(src="js/index.js" type='module')
+      block scripts
+
+      <template id="petCardTemplate">
+        li.pets__item
+          img(src='', alt='', width='270' height='270')
+          h2.pets__name #{name}
+          +button('Learn more')(class='button--pets')
+      </template>
+
+      .modal.visually-hidden
+        .container.container__modal
+          .modal__img
+            img(src='img/pets/woody.png', alt='', width='270' height='270')
+          .modal__text
+            h2.modal__name Jennifer
+            h3.modal__breed Dog - Labrador
+            p.modal__desc Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.
+            ul.modal__about-list
+              li.modal__about-item.about-item
+                dl Age:
+                  dt.about-item__age 2 months
+              li.modal__about-item
+                dl Inoculations:
+                  dt.about-item__inoculations none
+              li.modal__about-item
+                dl Diseases:
+                  dt.about-item__diseases none
+              li.modal__about-item
+                dl Parasites:
+                  dt.about-item__parasites none
+          button.modal__button--close
+
+
+      script(src="js/main.js" type='module')
+

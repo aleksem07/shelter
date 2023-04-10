@@ -15,8 +15,10 @@ section.pets
       +friend('Freddie', 'freddie')
 
     ul.pets__pagination.pagination
-      +pagination('<<', false, true)
-      +pagination('<', false, true)
+      +pagination('<<', false, true)(class="all-left")
+      +pagination('<', false, true)(class="one-left")
       +pagination('1', true)(class="pagination__link--active")
-      +pagination('>')
-      +pagination('>>', false)
+      +pagination('>')(class="one-right")
+      +pagination('>>', false)(class="all-right")
+
+

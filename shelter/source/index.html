@@ -21,7 +21,7 @@
         <p class="logo__title">Cozy House</p>
         <p class="logo__subtitle">Shelter for pets in Boston</p></a>
       <nav class="header__menu menu-nav">
-        <ul class="menu-nav__list menu-site" id="menu-nav__list">
+        <ul class="menu-nav__list menu-site">
               <li class="menu-nav__item menu-site__item"><a class="menu-nav__link menu-site__link menu-site__link--active">About the shelter</a>
               </li>
               <li class="menu-nav__item menu-site__item"><a class="menu-nav__link menu-site__link" href="our-pets.html" rel="noopener noreferrer">Our pets</a>
@@ -31,11 +31,7 @@
               <li class="menu-nav__item menu-site__item"><a class="menu-nav__link menu-site__link" href="#contacts" rel="noopener noreferrer">Contacts</a>
               </li>
         </ul>
-        <button class="menu-nav__button" type="button" aria-expanded="false" aria-controls="menu-nav__list">
-          <svg class="menu-nav__icon" aria-hidden="true" width="35" height="35">
-              <use class="menu-nav__icon-menu" href="img/sprite.svg#menu"></use>
-          </svg>
-        </button>
+        <div class="header__burger"><span class="menu-nav__button menu-nav__icon-menu"></span></div>
       </nav>
     </header>
     <main class="index-page">
@@ -66,18 +62,20 @@
             <li class="pets__item pets__item--button">
               <button class="button pets-slider__arrow--left arrow"><span class="arrow__background"></span></button>
             </li>
-                  <li class="pets__item"><img src="img/pets/katrine.webp" srcset="img/pets/katrine.webp, img/pets/@2/katrine.webp 2x" alt="Питомец Katrine" width="270" height="270">
-                    <h2 class="pets__name">Katrine</h2>
-                          <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
-                  </li>
-                  <li class="pets__item"><img src="img/pets/jennifer.webp" srcset="img/pets/jennifer.webp, img/pets/@2/jennifer.webp 2x" alt="Питомец Jennifer" width="270" height="270">
-                    <h2 class="pets__name">Jennifer</h2>
-                          <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
-                  </li>
-                  <li class="pets__item"><img src="img/pets/woody.webp" srcset="img/pets/woody.webp, img/pets/@2/woody.webp 2x" alt="Питомец Woody" width="270" height="270">
-                    <h2 class="pets__name">Woody</h2>
-                          <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
-                  </li>
+            <ul class="pets__list carousel">
+                    <li class="pets__item"><img src="img/pets/katrine.webp" srcset="img/pets/katrine.webp, img/pets/@2/katrine.webp 2x" alt="Katrine" width="270" height="270">
+                      <h2 class="pets__name">Katrine</h2>
+                            <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
+                    </li>
+                    <li class="pets__item"><img src="img/pets/jennifer.webp" srcset="img/pets/jennifer.webp, img/pets/@2/jennifer.webp 2x" alt="Jennifer" width="270" height="270">
+                      <h2 class="pets__name">Jennifer</h2>
+                            <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
+                    </li>
+                    <li class="pets__item"><img src="img/pets/woody.webp" srcset="img/pets/woody.webp, img/pets/@2/woody.webp 2x" alt="Woody" width="270" height="270">
+                      <h2 class="pets__name">Woody</h2>
+                            <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
+                    </li>
+            </ul>
             <li class="pets__item pets__item--button">
               <button class="button pets-slider__arrow--right arrow"><span class="arrow__background"></span></button>
             </li>
@@ -174,6 +172,44 @@
         <div class="footer__img"></div>
       </div>
     </footer>
-    <script src="js/index.js" type="module"></script>
+    <script src="js/index.js" type="module"></script><template id="petCardTemplate">
+    <li class="pets__item"><img src="" alt="" width="270" height="270">
+      <h2 class="pets__name"></h2>
+          <button class="button button--pets" type="button"><span class="button__text">Learn more</span></button>
+    </li></template>
+    <div class="modal visually-hidden">
+      <div class="container container__modal">
+        <div class="modal__img"><img src="img/pets/woody.png" alt="" width="270" height="270"></div>
+        <div class="modal__text">
+          <h2 class="modal__name">Jennifer</h2>
+          <h3 class="modal__breed">Dog - Labrador</h3>
+          <p class="modal__desc">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+          <ul class="modal__about-list">
+            <li class="modal__about-item about-item">
+              <dl>Age:
+                <dt class="about-item__age">2 months</dt>
+              </dl>
+            </li>
+            <li class="modal__about-item">
+              <dl>Inoculations:
+                <dt class="about-item__inoculations">none</dt>
+              </dl>
+            </li>
+            <li class="modal__about-item">
+              <dl>Diseases:
+                <dt class="about-item__diseases">none</dt>
+              </dl>
+            </li>
+            <li class="modal__about-item">
+              <dl>Parasites:
+                <dt class="about-item__parasites">none</dt>
+              </dl>
+            </li>
+          </ul>
+        </div>
+        <button class="modal__button--close"></button>
+      </div>
+    </div>
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>

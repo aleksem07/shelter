@@ -19,6 +19,7 @@ $mobile-width-only: ($tablet-width - 1);
 @import 'blocks/_header';
 @import 'blocks/_logo';
 @import 'blocks/_menu';
+@import 'components/_toggle';
 
 @import 'blocks/_start-screen';
 @import 'blocks/_about';
@@ -29,3 +30,5 @@ $mobile-width-only: ($tablet-width - 1);
 @import 'blocks/_social';
 
 @import 'blocks/_footer';
+
+@import 'components/_modal';
