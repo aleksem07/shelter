@@ -1,0 +1,26 @@
+.screen {
+  margin: 0 auto 60px;
+  padding: 20px;
+  width: 60%;
+  height: 200px;
+  border-radius: 10px;
+  position: relative;
+  background-color: $color-text;
+  box-shadow: -7px -7px 17px -6px $color-screen--shadow,
+    inset -5px -7px 20px -7px $color-screen--shadow-inset;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: $color-screen;
+  }
+}
+
+.screen__cursor {
+  padding-top: 10px;
+  padding-left: 10px;
+  color: $color-light;
+}
