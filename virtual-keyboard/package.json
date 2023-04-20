@@ -2,7 +2,7 @@
   "name": "virtual-keyboard",
   "version": "0.0.1",
   "description": "",
-  "homepage": "https://github.com/aleksem07/virtual-keyboard",
+  "homepage": "https://github.com/rolling-scopes-school/aleksem07-JSFE2023Q1/tree/virtual-keyboard",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve",
