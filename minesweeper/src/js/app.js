@@ -1,19 +1,23 @@
 import { createElements } from "./createElements";
-import { colorCellNumbers } from "./colored-cell-numbers";
+import { colorCellNumbers, themeSwitcher } from "./colored-cell-numbers";
 import { startTimer } from "./timer";
 
 createElements.init();
 
 document.addEventListener("DOMContentLoaded", () => {
   let bombsCount = 10;
+  let moveCount = 0;
   let cellWidth = 10;
   let MAX_FIELD_SIZE = 100;
   let flags = 0;
   let cells = [];
   let gameOverStatus = false;
+  let startTimerStatus = false;
+  let startGameStatus = false;
 
-  createElements.panel(bombsCount);
+  createElements.panel(bombsCount, moveCount);
   createElements.score();
+  createElements.addPanel();
 
   function createField() {
     const bombsArr = Array(bombsCount).fill("bomb");
@@ -22,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let shuffledArr = gameArr.sort(() => Math.random() - 0.5);
 
     for (let i = 0; i < MAX_FIELD_SIZE; i++) {
-      const cell = document.createElement("li");
+      let cell = document.createElement("li");
 
       cell.setAttribute("id", i);
       cell.className = "cell";
@@ -31,13 +35,26 @@ document.addEventListener("DOMContentLoaded", () => {
       cells.push(cell);
 
       //left click
+
       cell.addEventListener("click", function () {
+        if (
+          createElements.elements.moveCounter.textContent == 0 &&
+          cell.classList.contains("bomb")
+        ) {
+          if (cell.id == 99) {
+            cell = cells[i - 1];
+          } else cell = cells[i + 1];
+        }
+
+        createElements.elements.moveCounter.textContent++;
         click(cell);
       });
       //right click
       cell.addEventListener("contextmenu", function (evt) {
-        evt.preventDefault();
-        addFlag(cell);
+        if (startGameStatus) {
+          evt.preventDefault();
+          addFlag(cell);
+        }
       });
     }
 
@@ -108,17 +125,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
   createField();
 
-  const addFlag = (cell) => {
-    console.log(flags);
-    if (gameOverStatus) return;
+  const removeField = () => {
+    let field = document.querySelector(".mine-field");
+    field.remove();
+  };
 
-    if (!cell.classList.contains("checked") && flags < bombsCount) {
+  const newGame = () => {
+    const newGameButton = document.querySelector(".panel__new-game");
+
+    newGameButton.addEventListener("click", () => {
+      removeField();
+      createElements.init();
+      createField();
+    });
+  };
+  newGame();
+
+  const addFlag = (cell) => {
+    if (gameOverStatus) return;
+    createElements.elements.moveCounter.textContent++;
+
+    if (!cell.classList.contains("checked")) {
       if (!cell.classList.contains("flag")) {
         cell.classList.add("flag");
         cell.innerHTML = "💀";
         flags++;
+        console.log(flags);
         createElements.elements.mineCounter.textContent--;
         if (createElements.elements.mineCounter.textContent <= 0) {
           createElements.elements.mineCounter.textContent = 0;
@@ -131,25 +166,19 @@ document.addEventListener("DOMContentLoaded", () => {
         createElements.elements.mineCounter.textContent =
           +createElements.elements.mineCounter.textContent + 1;
       }
-      if (flags == 10 && !gameOverStatus) {
+      if (flags > bombsCount && !gameOverStatus) {
         cell.classList.remove("flag");
         cell.innerHTML = "";
         flags--;
       }
     }
-    // if (
-    //   cell.classList.contains("flag") &&
-    //   flags <= bombsCount &&
-    //   !gameOverStatus
-    // ) {
-    //   cell.classList.remove("flag");
-    //   cell.innerHTML = "💀";
-    //   flags--;
-    // }
   };
 
   function click(cell) {
-    startTimer();
+    if (!startTimerStatus) startTimer();
+    startTimerStatus = true;
+    startGameStatus = true;
+
     let id = cell.id;
     if (gameOverStatus) return;
     if (cell.classList.contains("checked") || cell.classList.contains("flag"))
@@ -223,9 +252,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
     gameOverStatus = true;
+    alert("Game over. Try again");
   };
 
   const checkToWin = () => {
+    let time = document.querySelector(".panel__time");
+    let move = document.querySelector(".panel__move-counter");
+
     let moves = 0;
     for (let i = 0; i < cells.length; i++) {
       if (
@@ -235,9 +268,13 @@ document.addEventListener("DOMContentLoaded", () => {
         moves++;
       }
       if (moves === bombsCount) {
-        console.log("win");
+        alert(
+          `Hooray! You found all mines in ${time.textContent} seconds and ${move.textContent} moves!`
+        );
         gameOverStatus = true;
+        return;
       }
     }
   };
+  themeSwitcher();
 });
