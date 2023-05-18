@@ -1,12 +1,15 @@
-.mineField {
+.mine-field {
+  order: 2;
   width: 400px;
   height: 400px;
   display: flex;
   flex-wrap: wrap;
   background: grey;
   background: rgb(255, 255, 0);
-  margin: auto;
-  margin-top: 10%;
+  margin: 0 auto;
+  border-top: 30px solid pink;
+  border-bottom: 30px solid pink;
+  // margin-top: 10%;
 }
 
 .cell {
@@ -27,7 +30,7 @@
 }
 
 .checked {
-  background: rgb(206, 245, 190);
+  background: #c9f76f;
 }
 .bomb,
 .flag {

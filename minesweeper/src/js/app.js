@@ -1,15 +1,19 @@
 import { createElements } from "./createElements";
 import { colorCellNumbers } from "./colored-cell-numbers";
+import { startTimer } from "./timer";
 
 createElements.init();
 
 document.addEventListener("DOMContentLoaded", () => {
+  let bombsCount = 10;
   let cellWidth = 10;
-  let bombsCount = 20;
   let MAX_FIELD_SIZE = 100;
   let flags = 0;
   let cells = [];
   let gameOverStatus = false;
+
+  createElements.panel(bombsCount);
+  createElements.score();
 
   function createField() {
     const bombsArr = Array(bombsCount).fill("bomb");
@@ -107,27 +111,45 @@ document.addEventListener("DOMContentLoaded", () => {
   createField();
 
   const addFlag = (cell) => {
+    console.log(flags);
     if (gameOverStatus) return;
+
     if (!cell.classList.contains("checked") && flags < bombsCount) {
       if (!cell.classList.contains("flag")) {
         cell.classList.add("flag");
         cell.innerHTML = "💀";
         flags++;
+        createElements.elements.mineCounter.textContent--;
+        if (createElements.elements.mineCounter.textContent <= 0) {
+          createElements.elements.mineCounter.textContent = 0;
+        }
         checkToWin();
       } else {
         cell.classList.remove("flag");
         cell.innerHTML = "";
         flags--;
+        createElements.elements.mineCounter.textContent =
+          +createElements.elements.mineCounter.textContent + 1;
+      }
+      if (flags == 10 && !gameOverStatus) {
+        cell.classList.remove("flag");
+        cell.innerHTML = "";
+        flags--;
       }
     }
-    if (cell.classList.contains("flag") && flags == bombsCount) {
-      cell.classList.remove("flag");
-      cell.innerHTML = "";
-      flags--;
-    }
+    // if (
+    //   cell.classList.contains("flag") &&
+    //   flags <= bombsCount &&
+    //   !gameOverStatus
+    // ) {
+    //   cell.classList.remove("flag");
+    //   cell.innerHTML = "💀";
+    //   flags--;
+    // }
   };
 
   function click(cell) {
+    startTimer();
     let id = cell.id;
     if (gameOverStatus) return;
     if (cell.classList.contains("checked") || cell.classList.contains("flag"))
