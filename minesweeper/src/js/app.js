@@ -271,6 +271,8 @@ document.addEventListener("DOMContentLoaded", () => {
         alert(
           `Hooray! You found all mines in ${time.textContent} seconds and ${move.textContent} moves!`
         );
+        const scoreList = document.querySelector(".score__win-item");
+        scoreList.textContent = prompt();
         gameOverStatus = true;
         return;
       }
