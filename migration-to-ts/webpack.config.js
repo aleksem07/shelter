@@ -2,20 +2,27 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/index.js'),
+    devtool: 'eval-source-map',
+    entry: path.resolve(__dirname, './src/index'),
     mode: 'development',
     module: {
         rules: [
             {
-                test: /\.css$/i,
+                test: [/\.css$/i],
                 use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.ts$/i,
+                use: 'ts-loader',
+                // include: [path.resolve(__dirname), '/src'],
             },
         ],
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.js', '.ts'],
     },
     output: {
         filename: 'index.js',
@@ -27,6 +34,7 @@ const baseConfig = {
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(),
+        new ESLintPlugin({ extensions: 'ts' }),
     ],
 };
 
