@@ -4,25 +4,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const baseConfig = {
-    devtool: 'eval-source-map',
-    entry: path.resolve(__dirname, './src/index.ts'),
+    entry: path.resolve(__dirname, './src/index.js'),
     mode: 'development',
     module: {
         rules: [
             {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
-                test: /\.ts$/,
-                use: 'ts-loader',
-                include: [path.resolve(__dirname), '/src'],
             },
         ],
     },
     resolve: {
-        extensions: ['.js', '.ts'],
+        extensions: ['.js'],
     },
     output: {
-        // publicPath: '/dist',
         filename: 'index.js',
         path: path.resolve(__dirname, './dist'),
     },
