@@ -21,7 +21,6 @@
         "no-console": 0,
         "class-methods-use-this": "off",
 				"@typescript-eslint/no-explicit-any": "error",
-				"@typescript-eslint/no-explicit-function-return-type": "error",
 				"@typescript-eslint/no-unnecessary-type-assertion": "error",
 				"@typescript-eslint/no-non-null-assertion": "error",
 				"max-lines-per-function": ["error", 40]
