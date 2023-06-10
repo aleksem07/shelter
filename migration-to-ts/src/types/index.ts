@@ -7,7 +7,12 @@ type NewsItem = {
     url: string;
     source: {
         name: string;
+        id: number;
     };
 };
 
-export { NewsItem };
+type AppView = {
+    news: string;
+};
+
+export { NewsItem, AppView };
