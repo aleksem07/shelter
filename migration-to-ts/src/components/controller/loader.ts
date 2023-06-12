@@ -1,3 +1,4 @@
+import { NewsItem } from '../../types/index';
 class Loader {
     baseLink: string;
     options: Record<string, string>;
@@ -8,7 +9,7 @@ class Loader {
 
     getResp(
         { endpoint, options = {} }: { endpoint: string; options?: Record<string, string> },
-        callback = () => {
+        callback: (data: { sources?: { name: string; id: number }[] } | null | undefined) => void = () => {
             console.error('No callback for GET response');
         }
     ) {
@@ -36,7 +37,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: (data: unknown) => void, options: Record<string, string> = {}) {
+    load(
+        method: string,
+        endpoint: string,
+        callback: (data: { sources?: NewsItem['source'][] } | null | undefined) => void,
+        options: Record<string, string> = {}
+    ) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
