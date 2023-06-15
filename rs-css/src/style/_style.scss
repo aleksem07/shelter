@@ -3,11 +3,10 @@
   max-width: $width-desktop;
   margin: 0 auto;
   display: grid;
+  grid-template-columns: 65% 35%;
   grid-template-rows: max-content 1fr max-content;
   height: 100vh;
   font-family: "Montserrat";
   background-color: $back;
   color: $text;
-  background: url("/src/img/methed.jpg");
-  background-size: contain;
 }

@@ -1,0 +1,34 @@
+aside {
+  background-color: $back-add;
+  grid-column: 2 / -1;
+  grid-row: 1 / -1;
+}
+
+.levels {
+  padding: 20px;
+}
+
+.levels-header,
+.levels-header__nav {
+  display: flex;
+}
+
+.levels-header {
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.levels-header__nav {
+  gap: 10px;
+}
+
+.levels__progress {
+  margin-bottom: 30px;
+  width: 100%;
+  height: 2px;
+  background: tomato;
+}
+
+.levels__description {
+  margin-bottom: 50px;
+}
