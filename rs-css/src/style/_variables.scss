@@ -1,0 +1,15 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 1576px,
+  md: 1768px,
+  lg: 1992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+.navbar-expand-lg-1 {
+  @media (min-width: 1992px) {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+  }
+}

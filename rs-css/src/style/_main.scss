@@ -10,18 +10,33 @@
 
 .task__editor {
   margin: 20px;
+  padding: 10px;
   width: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
   background-color: $back-add;
+  border-radius: 10px;
+  outline: 5px solid var(--bs-green);
+  outline-offset: -5px;
+}
+
+.task__editor > div {
+  display: grid;
+  grid-template-rows: 50px auto;
 }
 
 .css__header,
 .html__header {
+  font-size: 0.8rem;
   padding-inline: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.css__header > h3,
+.html__header > h3 {
+  font-size: 1rem;
 }
 
 .html__numbers {
