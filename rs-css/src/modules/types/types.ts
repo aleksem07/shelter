@@ -5,6 +5,7 @@ type Level = {
   example: string;
   htmlViewer: string;
   completed: boolean;
+  board: string;
 };
 
 export { Level };
