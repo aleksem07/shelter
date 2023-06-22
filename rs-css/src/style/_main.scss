@@ -3,13 +3,16 @@
 }
 
 .task {
+  height: 100%;
   display: grid;
+  grid-template-rows: max-content min-content 1fr auto;
   align-items: center;
   justify-items: center;
 }
 
 .task__editor {
   margin: 20px;
+  margin-top: auto;
   padding: 10px;
   width: 100%;
   display: grid;

@@ -14,10 +14,7 @@ const level: Level[] = [
       <div>
       `,
     completed: false,
-    board: `
-      <tag1/>
-      <tag2/>
-    `,
+    board: ["circle", "circle"],
   },
   {
     name: "second task",
@@ -27,10 +24,7 @@ const level: Level[] = [
     example: "<strong>div</strong> selects all <tag>div</tag> elements.",
     htmlViewer: "htmlViewer",
     completed: false,
-    board: `
-      <tag1/>
-      <tag2/>
-    `,
+    board: ["circle", "circle", "circle"],
   },
   {
     name: "third task",
@@ -40,11 +34,19 @@ const level: Level[] = [
     example:
       "<strong>#cool</strong> selects any element with <strong>id='cool'</strong>",
     htmlViewer: "htmlViewer",
-    completed: false,
-    board: `
-      <tag1/>
-      <tag2/>
-    `,
+    completed: true,
+    board: ["square", "circle", "square"],
+  },
+  {
+    name: "four task",
+    answer: "answer four task",
+    description:
+      "Selects the element with a specific <strong>id</strong>. You can also combine the ID selector with the type selector.",
+    example:
+      "<strong>#cool</strong> selects any element with <strong>id='cool'</strong>",
+    htmlViewer: "htmlViewer",
+    completed: true,
+    board: ["square", "square", "square"],
   },
 ];
 

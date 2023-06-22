@@ -1,6 +1,10 @@
 import { Level } from "./types/types";
 import { level } from "./data/data";
+import { addTagsOnTable, clearTagsOnTable } from "./getTags";
 
+let pageCount = 0;
+
+// ToDo save page count
 // localStorage.setItem("data", JSON.stringify(level[0]));
 // const savedData: string | null = localStorage.getItem("data");
 
@@ -26,7 +30,24 @@ const levelDescription = document.querySelector(
 ) as HTMLElement;
 const levelExample = document.querySelector(".levels__examples") as HTMLElement;
 
-let pageCount = 0;
+const selectLevelRightMenu = document.querySelector(
+  ".navbar-nav"
+) as HTMLElement;
+
+const setTaksRightMenu = () => {
+  selectLevelRightMenu.innerHTML = "";
+  for (let i = 0; i < level.length; i++) {
+    const li = document.createElement("li");
+    li.className = "nav-item";
+    if (level[i].completed) {
+      li.textContent = `v ${i} ${level[i].name}`;
+    } else {
+      li.textContent = `x ${i} ${level[i].name}`;
+    }
+    selectLevelRightMenu.appendChild(li);
+  }
+};
+setTaksRightMenu();
 
 maxPage.textContent = `${level.length}`;
 progress.setAttribute("aria-valuemax", `${level.length}`);
@@ -37,8 +58,10 @@ const fillingData = (arr: Level[]) => {
     levelDescription.textContent = arr[pageCount].description;
     levelExample.textContent = arr[pageCount].example;
     currentPage.textContent = `${pageCount + 1}`;
-    progress?.setAttribute("aria-valuenow", `${pageCount + 1}`);
+    progress.setAttribute("aria-valuenow", `${pageCount + 1}`);
     progressBar.style.width = `${((pageCount + 1) / +arr.length) * 100}%`;
+    // add tags on table
+    addTagsOnTable(pageCount);
   }
 };
 
@@ -50,6 +73,7 @@ if (pageCount >= 0 && pageCount < level.length) {
     if (pageCount < 0) {
       pageCount = 0;
     }
+    clearTagsOnTable();
     fillingData(level);
   });
   next.addEventListener("click", () => {
@@ -57,8 +81,9 @@ if (pageCount >= 0 && pageCount < level.length) {
     if (pageCount > level.length - 1) {
       pageCount = level.length - 1;
     }
+    clearTagsOnTable();
     fillingData(level);
   });
 }
 
-console.log(level[0].board);
+console.log(level[0].board[0]);

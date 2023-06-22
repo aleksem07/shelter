@@ -1,3 +1,5 @@
+type Board = string[];
+
 type Level = {
   name: string;
   answer: string;
@@ -5,7 +7,7 @@ type Level = {
   example: string;
   htmlViewer: string;
   completed: boolean;
-  board: string;
+  board: Board;
 };
 
-export { Level };
+export { Level, Board };
