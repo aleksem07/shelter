@@ -47,3 +47,14 @@
   margin: 0;
   padding: 10px;
 }
+
+.levels-header__numb {
+  position: relative;
+}
+
+.html__disabled {
+  padding: 10px;
+  flex: 1;
+  background-color: $back;
+  border-radius: 10px;
+}

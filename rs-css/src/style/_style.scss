@@ -10,3 +10,28 @@
   background-color: $back;
   color: $text;
 }
+
+.not-approved,
+.approved {
+  &::after {
+    content: "";
+    top: 50%;
+    left: -13.5px;
+    transform: translate(0, -50%);
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+}
+.not-approved {
+  &::after {
+    background-color: tomato;
+  }
+}
+
+.approved {
+  &::after {
+    background-color: green;
+  }
+}

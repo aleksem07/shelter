@@ -7,12 +7,10 @@ const level: Level[] = [
     description:
       "Selects all elements of type <strong>A</strong>. Type refers to the type of tag, so <tag>div</tag>, <tag>p</tag> and <tag>ul</tag> are all different element types.",
     example: "<strong>div</strong> selects all <tag>div</tag> elements.",
-    htmlViewer: `
-      <div class="board">
+    htmlViewer: `<div class="board">
         <circle />
         <circle />
-      <div>
-      `,
+        </div>`,
     completed: false,
     board: ["circle", "circle"],
   },
@@ -22,7 +20,11 @@ const level: Level[] = [
     description:
       "Selects all elements of type <strong>A</strong>. Type refers to the type of tag, so <tag>div</tag>, <tag>p</tag> and <tag>ul</tag> are all different element types.",
     example: "<strong>div</strong> selects all <tag>div</tag> elements.",
-    htmlViewer: "htmlViewer",
+    htmlViewer: `<div class="board">
+        <circle />
+        <circle />
+        <circle />
+        </div>`,
     completed: false,
     board: ["circle", "circle", "circle"],
   },
@@ -33,7 +35,11 @@ const level: Level[] = [
       "Selects the element with a specific <strong>id</strong>. You can also combine the ID selector with the type selector.",
     example:
       "<strong>#cool</strong> selects any element with <strong>id='cool'</strong>",
-    htmlViewer: "htmlViewer",
+    htmlViewer: `<div class="board">
+        <square />
+        <circle />
+        <square />
+        </div>`,
     completed: true,
     board: ["square", "circle", "square"],
   },
@@ -44,7 +50,11 @@ const level: Level[] = [
       "Selects the element with a specific <strong>id</strong>. You can also combine the ID selector with the type selector.",
     example:
       "<strong>#cool</strong> selects any element with <strong>id='cool'</strong>",
-    htmlViewer: "htmlViewer",
+    htmlViewer: `<div class="board">
+        <square />
+        <square />
+        <square />
+        </div>`,
     completed: true,
     board: ["square", "square", "square"],
   },

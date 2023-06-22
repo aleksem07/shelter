@@ -29,6 +29,9 @@ const levelDescription = document.querySelector(
   ".levels__description"
 ) as HTMLElement;
 const levelExample = document.querySelector(".levels__examples") as HTMLElement;
+const levelNumbs = document.querySelector(
+  ".levels-header__numb"
+) as HTMLElement;
 
 const selectLevelRightMenu = document.querySelector(
   ".navbar-nav"
@@ -40,14 +43,23 @@ const setTaksRightMenu = () => {
     const li = document.createElement("li");
     li.className = "nav-item";
     if (level[i].completed) {
-      li.textContent = `v ${i} ${level[i].name}`;
+      li.textContent = `v ${i + 1} ${level[i].name}`;
+      levelNumbs.classList.add("approved");
     } else {
-      li.textContent = `x ${i} ${level[i].name}`;
+      li.textContent = `x ${i + 1} ${level[i].name}`;
     }
     selectLevelRightMenu.appendChild(li);
   }
 };
 setTaksRightMenu();
+
+const addApproved = (pageCount: number) => {
+  if (level[pageCount].completed) {
+    levelNumbs.classList.add("approved");
+  } else {
+    levelNumbs.classList.remove("approved");
+  }
+};
 
 maxPage.textContent = `${level.length}`;
 progress.setAttribute("aria-valuemax", `${level.length}`);
@@ -55,13 +67,14 @@ progress.setAttribute("aria-valuemax", `${level.length}`);
 const fillingData = (arr: Level[]) => {
   if (arr) {
     title.textContent = arr[pageCount].name;
-    levelDescription.textContent = arr[pageCount].description;
-    levelExample.textContent = arr[pageCount].example;
+    levelDescription.innerHTML = arr[pageCount].description;
+    levelExample.innerHTML = arr[pageCount].example;
     currentPage.textContent = `${pageCount + 1}`;
     progress.setAttribute("aria-valuenow", `${pageCount + 1}`);
     progressBar.style.width = `${((pageCount + 1) / +arr.length) * 100}%`;
     // add tags on table
     addTagsOnTable(pageCount);
+    addApproved(pageCount);
   }
 };
 
