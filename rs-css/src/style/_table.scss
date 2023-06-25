@@ -2,6 +2,11 @@
   min-width: 50%;
   min-height: 50%;
   border-radius: 10px;
-  box-shadow: -5px -5px 1px 1px $back-add, -7px -7px 1px 1px $text-add;
+  box-shadow: -5px -5px 1px 1px $back-add, -7px -7px 1px 1px $text-add,
+    -22px -2px 86px 3px $text;
   background-color: $text;
+
+  & div {
+    box-shadow: -2px -2px 86px 1px $back-add;
+  }
 }

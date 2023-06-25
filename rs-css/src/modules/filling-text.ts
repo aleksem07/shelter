@@ -1,7 +1,7 @@
 import { Level } from "./types/types";
 import { level } from "./data/data";
 import { addTagsOnTable, clearTagsOnTable } from "./getTags";
-
+import { enterInput } from "./send-answer";
 let pageCount = 0;
 
 // ToDo save page count
@@ -64,7 +64,7 @@ const addApproved = (pageCount: number) => {
 maxPage.textContent = `${level.length}`;
 progress.setAttribute("aria-valuemax", `${level.length}`);
 
-const fillingData = (arr: Level[]) => {
+const fillingData = (arr: Level[]): void => {
   if (arr) {
     title.textContent = arr[pageCount].name;
     levelDescription.innerHTML = arr[pageCount].description;
@@ -80,23 +80,49 @@ const fillingData = (arr: Level[]) => {
 
 fillingData(level);
 
+const setNextPage = () => {
+  pageCount++;
+  if (pageCount > level.length - 1) {
+    pageCount = level.length - 1;
+  }
+  if (pageCount === level.length - 1) {
+    next.classList.add("disabled");
+  }
+  if (prev.classList.contains("disabled") && pageCount !== 0) {
+    prev.classList.remove("disabled");
+  }
+  clearTagsOnTable();
+  fillingData(level);
+  enterInput(pageCount);
+};
+
+const setPrevPage = () => {
+  pageCount--;
+  if (pageCount < 0) {
+    pageCount = 0;
+  }
+  if (pageCount === 0) {
+    prev.classList.add("disabled");
+  }
+  if (next.classList.contains("disabled") && pageCount !== level.length - 1) {
+    next.classList.remove("disabled");
+  }
+  clearTagsOnTable();
+  fillingData(level);
+  enterInput(pageCount);
+};
+
 if (pageCount >= 0 && pageCount < level.length) {
   prev.addEventListener("click", () => {
-    pageCount--;
-    if (pageCount < 0) {
-      pageCount = 0;
-    }
-    clearTagsOnTable();
-    fillingData(level);
+    setPrevPage();
   });
   next.addEventListener("click", () => {
-    pageCount++;
-    if (pageCount > level.length - 1) {
-      pageCount = level.length - 1;
-    }
-    clearTagsOnTable();
-    fillingData(level);
+    setNextPage();
   });
 }
+
+enterInput(pageCount);
+
+export { fillingData, setTaksRightMenu, setNextPage };
 
 console.log(level[0].board[0]);

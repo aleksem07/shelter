@@ -51,10 +51,16 @@
               <li class="html__number">10</li>
             </ul>
             <form>
-              <textarea class="form-control"
-                        id="exampleFormControlTextarea1"
-                        rows="3"
-                        placeholder="your code is here"></textarea>
+              <div class="form-control">
+                <input class="task__input"
+                       value=""
+                       id="input"
+                       type="text"
+                       name="tag">
+                <button class="task-button"
+                        type="submit"
+                        value="Enter">Enter</button>
+              </div>
             </form>
           </div>
 
@@ -95,7 +101,7 @@
       <div class="levels-header">
         <div class="levels-header__numb not-approved">Level <span class="current-page">1</span> of <span class="max-page">10</span></div>
         <nav class="levels-header__nav">
-          <div class="levels-header__prev">prev</div>
+          <div class="levels-header__prev disabled">prev</div>
           <div class="levels-header__next">next</div>
           <div class="navbar fixed-right">
             <div class="container-fluid">

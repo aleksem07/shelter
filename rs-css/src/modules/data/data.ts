@@ -16,7 +16,7 @@ const level: Level[] = [
   },
   {
     name: "second task",
-    answer: "answer second task",
+    answer: "answer",
     description:
       "Selects all elements of type <strong>A</strong>. Type refers to the type of tag, so <tag>div</tag>, <tag>p</tag> and <tag>ul</tag> are all different element types.",
     example: "<strong>div</strong> selects all <tag>div</tag> elements.",
@@ -30,7 +30,7 @@ const level: Level[] = [
   },
   {
     name: "third task",
-    answer: "answer third task",
+    answer: "answer",
     description:
       "Selects the element with a specific <strong>id</strong>. You can also combine the ID selector with the type selector.",
     example:
@@ -40,7 +40,7 @@ const level: Level[] = [
         <circle />
         <square />
         </div>`,
-    completed: true,
+    completed: false,
     board: ["square", "circle", "square"],
   },
   {
@@ -55,7 +55,7 @@ const level: Level[] = [
         <square />
         <square />
         </div>`,
-    completed: true,
+    completed: false,
     board: ["square", "square", "square"],
   },
 ];

@@ -35,3 +35,14 @@
     background-color: green;
   }
 }
+
+div .disabled {
+  background-color: transparent;
+  border: 1px solid tomato;
+  color: $text-add;
+
+  &:hover {
+    background-color: transparent;
+    color: $text-add;
+  }
+}
