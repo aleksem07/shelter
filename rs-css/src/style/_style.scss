@@ -46,3 +46,83 @@ div .disabled {
     color: $text-add;
   }
 }
+
+.anima {
+  transform-origin: bottom;
+  animation: animaStart 0.5s ease-out, anima 1s infinite;
+  animation-delay: 0s, 0s;
+  animation-delay: 0s, 0.5s;
+}
+
+@keyframes animaStart {
+  0% {
+    transform: translateY(0);
+    animation: ease;
+  }
+  40% {
+    transform: translateY(-10px);
+    animation: ease-out;
+  }
+  100% {
+    transform: translateY(0);
+    animation: ease-in;
+  }
+}
+
+@keyframes anima {
+  0% {
+    transform: skew(0deg, 0deg) translateY(0);
+  }
+  10% {
+    transform: skew(1deg, 4deg) translateY(-5x);
+  }
+  20% {
+    transform: skew(4deg, 4deg) translateY(-8x);
+  }
+  50% {
+    transform: skew(3deg, 1deg) translateY(-10px);
+  }
+  90% {
+    transform: skew(1deg, 1deg) translateY(5px);
+  }
+  100% {
+    transform: skew(0deg, 0deg) translateY(0);
+  }
+}
+
+.input-error {
+  animation: errorStart 0.1s ease-out, error 0.1s infinite;
+  animation-delay: 0s, 0s;
+  animation-delay: 0s, 0.1s;
+}
+
+@keyframes errorStart {
+  0% {
+    transform: translateX(0);
+    animation: ease;
+  }
+  100% {
+    transform: translateX(20px);
+    animation: ease-in;
+  }
+}
+
+@keyframes error {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+circle,
+square {
+  display: block;
+
+  // &:hover {
+  //   outline: 5px solid rgba(247, 9, 9, 0.589);
+  //   outline-offset: -5px;
+  // }
+}

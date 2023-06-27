@@ -30,7 +30,9 @@
     <div class="container task">
       <h2 class="task__title">name task</h2>
       <button class="task__help">HELP ME!</button>
-      <div class="task__table"></div>
+      <div class="task__table">
+        <div class="table"></div>
+      </div>
       <div class="task__editor">
         <div class="task__editor--css css">
           <div class="css__header">
@@ -60,6 +62,11 @@
                 <button class="task-button"
                         type="submit"
                         value="Enter">Enter</button>
+                <p>/* Styles would go here */</p>
+                <p>/*
+                <p>Type a number tio skip to a level</p>
+                <p>Ex -> "5" for level 5</p>
+                */</p>
               </div>
             </form>
           </div>
@@ -84,16 +91,17 @@
               <li class="html__number">10</li>
             </ul>
             <div class="html__disabled">
-              <textarea class="form-control"
-                        id="exampleFormControlTextarea1"
-                        rows="3"
-                        disabled
-                        placeholder="disabled"></textarea>
-              </d>
+              <div class="">
+                <p>&lt;div class="table"&gt;</p>
+                <div class="html__disabled--start"></div>
+                <p>&lt;/div&gt;</p>
+                </code>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </main>
 
   <aside>
@@ -102,7 +110,7 @@
         <div class="levels-header__numb not-approved">Level <span class="current-page">1</span> of <span class="max-page">10</span></div>
         <nav class="levels-header__nav">
           <div class="levels-header__prev disabled">prev</div>
-          <div class="levels-header__next">next</div>
+          <div class="levels-header__next disabled">next</div>
           <div class="navbar fixed-right">
             <div class="container-fluid">
               <button class="navbar-toggler button__toogle"

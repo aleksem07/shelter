@@ -1,9 +1,29 @@
+import { getDataTags } from "./local-storage";
 import { Level } from "./types/types";
-import { level } from "./data/data";
+// import { level } from "./data/data";
 import { addTagsOnTable, clearTagsOnTable } from "./getTags";
 import { enterInput } from "./send-answer";
-let pageCount = 0;
 
+// page counter
+const PAGE_START_COUNT = 0;
+
+const savePageCount = (numb: number) => {
+  localStorage.setItem("pageCount", `${numb}`);
+};
+
+if (!localStorage.getItem("pageCount")) {
+  savePageCount(PAGE_START_COUNT);
+}
+
+let getPageCount = (function () {
+  const data = localStorage.getItem("pageCount");
+  return Number(data);
+})();
+
+console.log(getPageCount);
+
+const level = getDataTags();
+// const saveDataLevel = defaultDataTags;
 // ToDo save page count
 // localStorage.setItem("data", JSON.stringify(level[0]));
 // const savedData: string | null = localStorage.getItem("data");
@@ -51,10 +71,9 @@ const setTaksRightMenu = () => {
     selectLevelRightMenu.appendChild(li);
   }
 };
-setTaksRightMenu();
 
-const addApproved = (pageCount: number) => {
-  if (level[pageCount].completed) {
+const addApproved = (getPageCount: number) => {
+  if (level[getPageCount].completed) {
     levelNumbs.classList.add("approved");
   } else {
     levelNumbs.classList.remove("approved");
@@ -66,53 +85,62 @@ progress.setAttribute("aria-valuemax", `${level.length}`);
 
 const fillingData = (arr: Level[]): void => {
   if (arr) {
-    title.textContent = arr[pageCount].name;
-    levelDescription.innerHTML = arr[pageCount].description;
-    levelExample.innerHTML = arr[pageCount].example;
-    currentPage.textContent = `${pageCount + 1}`;
-    progress.setAttribute("aria-valuenow", `${pageCount + 1}`);
-    progressBar.style.width = `${((pageCount + 1) / +arr.length) * 100}%`;
+    title.textContent = arr[getPageCount].name;
+    levelDescription.innerHTML = arr[getPageCount].description;
+    levelExample.innerHTML = arr[getPageCount].example;
+    currentPage.textContent = `${getPageCount + 1}`;
+    progress.setAttribute("aria-valuenow", `${getPageCount + 1}`);
+    progressBar.style.width = `${((getPageCount + 1) / +arr.length) * 100}%`;
     // add tags on table
-    addTagsOnTable(pageCount);
-    addApproved(pageCount);
+    addTagsOnTable(getPageCount);
+    setTaksRightMenu();
+    addApproved(getPageCount);
   }
 };
 
 fillingData(level);
 
 const setNextPage = () => {
-  pageCount++;
-  if (pageCount > level.length - 1) {
-    pageCount = level.length - 1;
+  getPageCount++;
+  savePageCount(getPageCount);
+  if (getPageCount > level.length - 1) {
+    getPageCount = level.length - 1;
+    savePageCount(getPageCount);
   }
-  if (pageCount === level.length - 1) {
+  if (getPageCount === level.length - 1) {
     next.classList.add("disabled");
   }
-  if (prev.classList.contains("disabled") && pageCount !== 0) {
+  if (prev.classList.contains("disabled") && getPageCount !== 0) {
     prev.classList.remove("disabled");
   }
   clearTagsOnTable();
   fillingData(level);
-  enterInput(pageCount);
+  enterInput(getPageCount);
 };
 
 const setPrevPage = () => {
-  pageCount--;
-  if (pageCount < 0) {
-    pageCount = 0;
+  getPageCount--;
+  savePageCount(getPageCount);
+  if (getPageCount < 0) {
+    getPageCount = 0;
+    savePageCount(getPageCount);
   }
-  if (pageCount === 0) {
+  if (getPageCount === 0) {
     prev.classList.add("disabled");
   }
-  if (next.classList.contains("disabled") && pageCount !== level.length - 1) {
+  if (
+    next.classList.contains("disabled") &&
+    getPageCount !== level.length - 1
+  ) {
     next.classList.remove("disabled");
   }
   clearTagsOnTable();
   fillingData(level);
-  enterInput(pageCount);
+  enterInput(getPageCount);
+  addApproved(getPageCount);
 };
 
-if (pageCount >= 0 && pageCount < level.length) {
+if (getPageCount >= 0 && getPageCount < level.length) {
   prev.addEventListener("click", () => {
     setPrevPage();
   });
@@ -121,8 +149,21 @@ if (pageCount >= 0 && pageCount < level.length) {
   });
 }
 
-enterInput(pageCount);
+if (
+  getPageCount > 0 &&
+  getPageCount < level.length &&
+  prev.classList.contains("disabled")
+) {
+  prev.classList.remove("disabled");
+}
+if (
+  getPageCount >= 0 &&
+  getPageCount < level.length - 1 &&
+  next.classList.contains("disabled")
+) {
+  next.classList.remove("disabled");
+}
+
+enterInput(getPageCount);
 
 export { fillingData, setTaksRightMenu, setNextPage };
-
-console.log(level[0].board[0]);
