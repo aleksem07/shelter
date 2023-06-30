@@ -16,25 +16,22 @@ const rightAnswer = (pageCount: number) => {
   setNextPage();
 };
 
-const getValue = (pageCount: number): boolean => {
+const getValue = (pageCount: number) => {
   const input = document.getElementById("input") as HTMLInputElement;
   const taskEditor = document.querySelector(
     ".task__editor"
   ) as HTMLInputElement;
   const inputValue = input.value;
-  console.log(inputValue === level[pageCount].answer);
+
   if (inputValue === level[pageCount].answer) {
     rightAnswer(pageCount);
     input.value = "";
-    return true;
   } else {
     taskEditor.classList.add("input-error");
     setTimeout(() => {
       taskEditor.classList.remove("input-error");
     }, 250);
   }
-  console.log(pageCount);
-  return false;
 };
 
 const enterInput = (pageCount: number) => {

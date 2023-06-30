@@ -17,6 +17,10 @@
   <link rel="icon"
         href="img/favicon.png"
         type="image/png">
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 
   <title>Webpack</title>
 </head>
@@ -29,7 +33,7 @@
   <main class="main">
     <div class="container task">
       <h2 class="task__title">name task</h2>
-      <button class="task__help">HELP ME!</button>
+      <button class="task__help button">HELP ME!</button>
       <div class="task__table">
         <div class="table"></div>
       </div>
@@ -93,9 +97,10 @@
             <div class="html__disabled">
               <div class="">
                 <p>&lt;div class="table"&gt;</p>
-                <div class="html__disabled--start"></div>
+                <pre><code class="html html__disabled--start">
+                  <!-- <div class="html__disabled--start"></div> -->
+                </code></pre>
                 <p>&lt;/div&gt;</p>
-                </code>
               </div>
             </div>
           </div>
@@ -141,11 +146,8 @@
                     <li class="nav-item">
                       <span>x 2 Name</span>
                     </li>
-                    <li class="nav-item">
-                      <span>Reset progress</span>
-                    </li>
-                    </li>
                   </ul>
+                  <button class="button levels__button">Reset progress</button>
                 </div>
               </div>
             </div>

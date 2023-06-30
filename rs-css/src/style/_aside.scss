@@ -83,3 +83,11 @@ aside {
   height: 100%;
   resize: none;
 }
+
+aside p {
+  margin: 20px;
+  padding-left: 20px;
+  color: $back;
+  background-color: #fff;
+  border-radius: 10px;
+}

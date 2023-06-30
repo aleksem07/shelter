@@ -1,0 +1,14 @@
+.button {
+  padding: 10px;
+  color: $text;
+  background-color: transparent;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: green;
+  }
+
+  &:active {
+    background-color: tomato;
+  }
+}

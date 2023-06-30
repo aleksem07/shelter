@@ -3,6 +3,7 @@ import { Level } from "./types/types";
 // import { level } from "./data/data";
 import { addTagsOnTable, clearTagsOnTable } from "./getTags";
 import { enterInput } from "./send-answer";
+import { getHelp } from "./help";
 
 // page counter
 const PAGE_START_COUNT = 0;
@@ -20,23 +21,7 @@ let getPageCount = (function () {
   return Number(data);
 })();
 
-console.log(getPageCount);
-
 const level = getDataTags();
-// const saveDataLevel = defaultDataTags;
-// ToDo save page count
-// localStorage.setItem("data", JSON.stringify(level[0]));
-// const savedData: string | null = localStorage.getItem("data");
-
-// const getLocalData = (() => {
-//   if (savedData) {
-//     const data: Level[] = JSON.parse(savedData);
-//     return data;
-//   }
-// })();
-// if (getLocalData) {
-//   console.log(getLocalData[0]);
-// }
 
 const title = document.querySelector(".task__title") as HTMLElement;
 const prev = document.querySelector(".levels-header__prev") as HTMLElement;
@@ -165,5 +150,7 @@ if (
 }
 
 enterInput(getPageCount);
+console.log(getPageCount);
+getHelp(getPageCount);
 
 export { fillingData, setTaksRightMenu, setNextPage };

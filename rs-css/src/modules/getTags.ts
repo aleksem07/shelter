@@ -11,7 +11,7 @@ const addTagsOnTable = (pageCount: number) => {
   tagsArr[pageCount].map((i) => {
     const div = document.createElement("div");
     div.className = i;
-    console.log(level[pageCount].answer);
+
     if (div.classList.contains(level[pageCount].answer)) {
       div.classList.add("anima");
     }

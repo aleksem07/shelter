@@ -117,6 +117,16 @@ div .disabled {
   }
 }
 
+.html .html__disabled--start {
+  margin: 0;
+  padding: 0;
+  padding-left: 15px;
+  display: grid;
+  background-color: transparent;
+  color: $text-add;
+  text-wrap: balance;
+}
+
 circle,
 square {
   display: block;

@@ -1,0 +1,35 @@
+import { level } from "./data/data";
+
+const help = document.querySelector(".task__help") as HTMLAreaElement;
+const aside = document.querySelector("aside") as HTMLAreaElement;
+const buttonPrev = document.querySelector(
+  ".levels-header__prev"
+) as HTMLAreaElement;
+const buttonNext = document.querySelector(
+  ".levels-header__next"
+) as HTMLAreaElement;
+
+const getHelp = (pageCount: number) => {
+  help.addEventListener("click", (evt) => {
+    if (!aside.querySelector("p")) {
+      evt.preventDefault();
+      const p = document.createElement("p");
+      p.textContent = level[pageCount].answer;
+      aside.appendChild(p);
+    }
+  });
+  buttonPrev.addEventListener("click", () => {
+    const p = aside.querySelector("p");
+    if (p) {
+      p.remove();
+    }
+  });
+  buttonNext.addEventListener("click", () => {
+    const p = aside.querySelector("p");
+    if (p) {
+      p.remove();
+    }
+  });
+};
+
+export { getHelp };
