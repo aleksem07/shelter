@@ -1,0 +1,13 @@
+.nav-item {
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    color: tomato;
+  }
+
+  &:active {
+    color: green;
+  }
+}

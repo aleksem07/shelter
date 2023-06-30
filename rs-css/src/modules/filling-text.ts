@@ -1,7 +1,7 @@
 import { getDataTags } from "./local-storage";
 import { Level } from "./types/types";
-// import { level } from "./data/data";
-import { addTagsOnTable, clearTagsOnTable } from "./getTags";
+import { setTaksRightMenu } from "./right-menu";
+import { addTagsOnTable, clearTagsOnTable } from "./get-tags";
 import { enterInput } from "./send-answer";
 import { getHelp } from "./help";
 
@@ -37,25 +37,6 @@ const levelExample = document.querySelector(".levels__examples") as HTMLElement;
 const levelNumbs = document.querySelector(
   ".levels-header__numb"
 ) as HTMLElement;
-
-const selectLevelRightMenu = document.querySelector(
-  ".navbar-nav"
-) as HTMLElement;
-
-const setTaksRightMenu = () => {
-  selectLevelRightMenu.innerHTML = "";
-  for (let i = 0; i < level.length; i++) {
-    const li = document.createElement("li");
-    li.className = "nav-item";
-    if (level[i].completed) {
-      li.textContent = `v ${i + 1} ${level[i].name}`;
-      levelNumbs.classList.add("approved");
-    } else {
-      li.textContent = `x ${i + 1} ${level[i].name}`;
-    }
-    selectLevelRightMenu.appendChild(li);
-  }
-};
 
 const addApproved = (getPageCount: number) => {
   if (level[getPageCount].completed) {
@@ -153,4 +134,11 @@ enterInput(getPageCount);
 console.log(getPageCount);
 getHelp(getPageCount);
 
-export { fillingData, setTaksRightMenu, setNextPage };
+export {
+  fillingData,
+  setTaksRightMenu,
+  setNextPage,
+  clearTagsOnTable,
+  savePageCount,
+  getPageCount,
+};

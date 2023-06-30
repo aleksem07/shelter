@@ -1,5 +1,5 @@
 import { getDataTags, setDataTags } from "./local-storage";
-import { clearTagsOnTable } from "./getTags";
+import { clearTagsOnTable } from "./get-tags";
 import { fillingData } from "./filling-text";
 import { setTaksRightMenu, setNextPage } from "./filling-text";
 

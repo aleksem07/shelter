@@ -18,17 +18,19 @@ const getHelp = (pageCount: number) => {
       aside.appendChild(p);
     }
   });
-  buttonPrev.addEventListener("click", () => {
+
+  const removeP = () => {
     const p = aside.querySelector("p");
     if (p) {
       p.remove();
     }
+  };
+
+  buttonPrev.addEventListener("click", () => {
+    removeP();
   });
   buttonNext.addEventListener("click", () => {
-    const p = aside.querySelector("p");
-    if (p) {
-      p.remove();
-    }
+    removeP();
   });
 };
 
