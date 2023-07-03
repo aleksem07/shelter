@@ -91,9 +91,9 @@ div .disabled {
 }
 
 div .rightAnswer {
-  width: 0;
-  height: 0;
-  opacity: 0;
+  width: 100px;
+  height: 100px;
+  transition: all 0.1s ease;
 }
 
 .input-error {
