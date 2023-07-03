@@ -67,6 +67,7 @@ const fillingData = (arr: Level[]): void => {
 fillingData(level);
 
 const setNextPage = () => {
+  location.reload();
   getPageCount++;
   savePageCount(getPageCount);
   if (getPageCount > level.length - 1) {
@@ -85,6 +86,7 @@ const setNextPage = () => {
 };
 
 const setPrevPage = () => {
+  location.reload();
   getPageCount--;
   savePageCount(getPageCount);
   if (getPageCount < 0) {

@@ -79,6 +79,10 @@ aside {
   display: flex;
 }
 
+.task__textarea-container form {
+  flex: 1;
+}
+
 .form-control {
   height: 100%;
   resize: none;

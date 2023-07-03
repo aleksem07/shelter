@@ -1,17 +1,33 @@
 .task__table {
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
 }
 
-.circle {
+.circle,
+.circle-small,
+.circle-id,
+.circle-smallincircle {
+  position: relative;
   width: 50px;
   height: 50px;
-  background: tomato;
+  background: white;
   border: 1px solid $back;
   border-radius: 50%;
   box-shadow: -1px -1px 1px 1px $back-add;
+}
+
+.circle-small {
+  background: tomato;
+  width: 30px;
+  height: 30px;
+}
+
+.circle-id {
+  outline: 5px solid green;
+  outline-offset: -10px;
 }
 
 .square {
@@ -20,4 +36,13 @@
   background: green;
   border: 1px solid $back;
   box-shadow: -1px -1px 1px 1px $back-add;
+}
+
+.circle-smallincircle {
+  margin-left: 20px;
+  margin-top: 20px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: tomato;
 }

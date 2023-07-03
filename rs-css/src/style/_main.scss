@@ -5,6 +5,7 @@
 .task {
   height: 100%;
   display: grid;
+  gap: 20px;
   grid-template-rows: max-content min-content 1fr auto;
   align-items: center;
   justify-items: center;
@@ -20,11 +21,20 @@
   grid-template-columns: 50% 50%;
   background-color: $back-add;
   border-radius: 10px;
+
+  @media (max-width: 860px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .task__editor > div {
   display: grid;
   grid-template-rows: 50px auto;
+}
+
+.task__input {
+  width: 65%;
 }
 
 .css__header,

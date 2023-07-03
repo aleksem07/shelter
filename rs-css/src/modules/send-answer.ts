@@ -24,8 +24,18 @@ const getValue = (pageCount: number) => {
   const inputValue = input.value;
 
   if (inputValue === level[pageCount].answer) {
-    rightAnswer(pageCount);
-    input.value = "";
+    const anima = document.querySelectorAll(".anima");
+    console.log(anima);
+    anima.forEach((i) => i.classList.add("rightAnswer"));
+    setTimeout(() => {
+      rightAnswer(pageCount);
+      input.value = "";
+      anima.forEach((i) => {
+        if (i.classList.contains("rightAnswer")) {
+          i.classList.remove("rightAnswer");
+        }
+      });
+    }, 250);
   } else {
     taskEditor.classList.add("input-error");
     setTimeout(() => {

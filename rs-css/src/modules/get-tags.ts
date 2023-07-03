@@ -12,7 +12,7 @@ const addTagsOnTable = (pageCount: number) => {
     const div = document.createElement("div");
     div.className = i;
 
-    if (div.classList.contains(level[pageCount].answer)) {
+    if (div.classList.contains(level[pageCount].animation)) {
       div.classList.add("anima");
     }
     table.appendChild(div);

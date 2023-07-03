@@ -1,4 +1,5 @@
-import { level } from "./data/data";
+// import { level } from "./data/data";
+import { getDataTags, setDataTags } from "./local-storage";
 
 const help = document.querySelector(".task__help") as HTMLAreaElement;
 const aside = document.querySelector("aside") as HTMLAreaElement;
@@ -9,12 +10,17 @@ const buttonNext = document.querySelector(
   ".levels-header__next"
 ) as HTMLAreaElement;
 
+const level = getDataTags();
+console.log(setDataTags);
+
 const getHelp = (pageCount: number) => {
   help.addEventListener("click", (evt) => {
     if (!aside.querySelector("p")) {
       evt.preventDefault();
       const p = document.createElement("p");
       p.textContent = level[pageCount].answer;
+      level[pageCount].help = true;
+      setDataTags(level);
       aside.appendChild(p);
     }
   });
