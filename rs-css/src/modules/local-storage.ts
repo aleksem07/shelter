@@ -17,8 +17,6 @@ const getDataTags = () => {
   }
 };
 
-console.log(getDataTags());
-
 const clearLocalStorage = () => {
   localStorage.clear();
 };

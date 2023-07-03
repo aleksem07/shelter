@@ -37,7 +37,6 @@ const setTaksRightMenu = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const item = document.querySelectorAll(".nav-item");
-  console.log(item);
   item.forEach((navItem, index) => {
     if (navItem.classList.contains("current")) {
       navItem.classList.remove("current");
@@ -58,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const resetButton = document.getElementById("reset");
 
-console.log(resetButton);
 resetButton?.addEventListener("click", () => {
   localStorage.clear();
   location.reload();

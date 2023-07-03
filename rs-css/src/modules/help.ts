@@ -11,7 +11,6 @@ const buttonNext = document.querySelector(
 ) as HTMLAreaElement;
 
 const level = getDataTags();
-console.log(setDataTags);
 
 const getHelp = (pageCount: number) => {
   help.addEventListener("click", (evt) => {

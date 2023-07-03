@@ -133,7 +133,6 @@ if (
 }
 
 enterInput(getPageCount);
-console.log(getPageCount);
 getHelp(getPageCount);
 
 export {
