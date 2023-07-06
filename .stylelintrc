@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "stylelint-config-airbnb"
+  ],
+  "plugins": ["stylelint-order", "stylelint-scss"],
+  "customSyntax": "postcss-less",
+
+  "rules": {
+    "declaration-no-important": true,
+    "indentation": [2, {"ignore": ["inside-parens"]}],
+    "no-duplicate-selectors": true,
+    "selector-class-pattern": null,
+    "property-no-vendor-prefix": null,
+    "no-descending-specificity": null
+    }
+}
