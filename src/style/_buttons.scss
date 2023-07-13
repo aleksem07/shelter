@@ -1,0 +1,9 @@
+.button {
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  color: $text;
+  border-radius: 5px;
+  background-color: $back-btn--default;
+  box-shadow: 2px 2px 15px 1px $text;
+}
