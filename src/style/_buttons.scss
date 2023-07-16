@@ -1,9 +1,27 @@
 .button {
-  padding: 10px;
+  padding: 15px;
   margin: 10px;
   cursor: pointer;
-  color: $text;
+  color: $text-button;
+  font-weight: 700;
   border-radius: 5px;
   background-color: $back-btn--default;
-  box-shadow: 2px 2px 15px 1px $text;
+  box-shadow: 0 0 15px 5px $back--add, 0 0 50px -15px rgb(109, 255, 255),
+    inset 2px 2px 15px 5px $back;
+  transition: all 0.25s ease;
+
+  &:hover {
+    color: $text;
+  }
+
+  &:active {
+    color: $back--add;
+    box-shadow: inset 2px 2px 15px 10px $shadow--add;
+  }
+}
+
+.editor-button {
+  min-width: 125px;
+  margin: 0;
+  padding: 7px 15px;
 }

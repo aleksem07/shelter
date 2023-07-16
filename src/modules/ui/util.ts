@@ -12,7 +12,7 @@ const createAndAppendElement = function (
 ): HTMLElement {
   const element = document.createElement(tag);
   if (className) element.className = className;
-  if (textContent) element.textContent = textContent;
+  if (textContent) element.textContent = textContent.toUpperCase();
   return element;
 };
 

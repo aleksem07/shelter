@@ -15,11 +15,11 @@ const createHeader = {
 
     //create buttons
     const garageBtn = new Button("garage", "tomato");
-    const winnersBtn = new Button("winners");
+    const winnersBtn = new Button("winners", "lightgreen");
 
     this.elements.button = createAndAppendElement(
       "button",
-      "button",
+      "button button-garage",
       garageBtn.name
     );
     this.elements.button.style.backgroundColor = garageBtn.color;
@@ -27,11 +27,12 @@ const createHeader = {
 
     this.elements.button = createAndAppendElement(
       "button",
-      "button",
+      "button button-winners",
       winnersBtn.name
     );
     this.elements.header.appendChild(this.elements.button);
+    this.elements.button.style.backgroundColor = winnersBtn.color;
   },
 };
 
-createHeader.initHeader();
+export { createHeader };
