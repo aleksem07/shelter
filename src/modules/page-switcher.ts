@@ -1,16 +1,39 @@
 import { createMain } from "./ui/main";
+import { getGarageUI } from "./app";
 
-const garage = document.querySelector(".button-garage");
-const winners = document.querySelector(".button-winners");
+let updateCurrentPage = {};
 
-garage?.addEventListener("click", (evt) => {
-  evt.preventDefault();
-  createMain.clear();
-  createMain.initGarage();
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const garage = document.querySelector(".button-garage");
+  const winners = document.querySelector(".button-winners");
 
-winners?.addEventListener("click", (evt) => {
-  evt.preventDefault();
-  createMain.clear();
-  createMain.initWinners();
+  if (garage) {
+    garage.addEventListener("click", (evt) => {
+      evt.preventDefault();
+      createMain.clear();
+      updateCurrentPage = {
+        page: 0,
+      };
+      localStorage.setItem("currentPage", JSON.stringify(updateCurrentPage));
+      getGarageUI();
+    });
+  } else {
+    console.error("not find garage button");
+  }
+
+  if (winners) {
+    winners.addEventListener("click", (evt) => {
+      evt.preventDefault();
+      createMain.clear();
+
+      updateCurrentPage = {
+        page: 1,
+      };
+      localStorage.setItem("currentPage", JSON.stringify(updateCurrentPage));
+
+      createMain.initWinners();
+    });
+  } else {
+    console.error("not find winners button");
+  }
 });

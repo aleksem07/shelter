@@ -1,0 +1,85 @@
+.flag {
+  position: absolute;
+  margin-left: auto;
+  margin-right: 10%;
+  width: 7%;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.flag:before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  right: -65%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 10%;
+  background-color: black;
+  border-radius: 5px;
+  animation: wave 1s infinite alternate;
+}
+
+.flag .pole {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 80%;
+  background-color: black;
+}
+
+.flag .pole:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 6px;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.flag .pole:after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 5px;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.flag .checkered {
+  position: absolute;
+  z-index: -1;
+  top: 15%;
+  right: -70%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 40%;
+  background-image: linear-gradient(45deg, black 25%, transparent 25%),
+    linear-gradient(-45deg, black 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, black 75%),
+    linear-gradient(-45deg, white 75%, black 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  animation: wave 1s infinite alternate;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-50%) scaleY(1);
+  }
+  50% {
+    transform: translateX(-50%) scaleY(0.8);
+  }
+  100% {
+    transform: translateX(-50%) scaleY(1);
+  }
+}

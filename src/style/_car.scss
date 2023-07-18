@@ -1,0 +1,101 @@
+.car-box {
+  display: grid;
+  grid-template-columns: repeat(5, max-content) 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 90vw;
+}
+
+.car-road {
+  position: relative;
+  grid-column: 1 / -1;
+  grid-row: 2 / -1;
+  min-width: 100px;
+  align-self: end;
+  border-bottom: 1px dashed white;
+}
+
+.car {
+  position: absolute;
+  top: -100%;
+  left: -10%;
+  width: 400px;
+  height: 200px;
+  perspective: 800px;
+  perspective-origin: 50% 50%;
+  transform: scale(0.25);
+}
+
+.car .car-body {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  width: 320px;
+  height: 120px;
+  background-color: #333;
+  border-radius: 10px;
+  transform: translateY(-50%) rotateY(30deg);
+  transform-origin: left center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 5px solid black;
+}
+
+.car .car-window {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  width: 100px;
+  height: 60px;
+  background-color: #19303f;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid black;
+}
+
+.car .car-wheel {
+  position: absolute;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #999;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 5px solid black;
+}
+
+.car .car-wheel.car-front {
+  left: 60px;
+}
+
+.car .car-wheel.car-rear {
+  right: 60px;
+}
+
+.car .car-headlight {
+  position: absolute;
+  top: 30%;
+  border: 5px solid black;
+  width: 30px;
+  height: 12px;
+  background-color: #fdd835;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.car .car-headlight.car-left {
+  top: 100px;
+  left: 30px;
+  background-color: #fd3535;
+}
+.car .car-headlight.car-right {
+  left: 280px;
+}
+
+// race light
+.car-right.car-right-light {
+  box-shadow: 40px 0px 100px 20px rgb(230, 255, 87);
+}
+
+.car-left.car-left-light {
+  box-shadow: 10px 0px 100px 20px rgb(255, 87, 87);
+}
