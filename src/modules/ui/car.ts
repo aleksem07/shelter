@@ -1,12 +1,6 @@
 import { Car } from "../type";
 import { Button, createAndAppendElement } from "./util";
-
-let cars: [Car];
-
-const storedCars = localStorage.getItem("carsAll");
-if (storedCars !== null) {
-  cars = JSON.parse(storedCars);
-}
+import { getRequest } from "../fetch";
 
 const createCar = {
   elements: {
@@ -92,10 +86,17 @@ const createCar = {
     this.elements.car?.appendChild(this.elements.div);
   },
 };
+const url = "http://localhost:3000/garage/";
 
-document.addEventListener("DOMContentLoaded", () => {
-  cars.forEach((car: Car) => {
-    createCar.init(car.name);
-    createCar.road(car.color);
-  });
-});
+const getCars = () => {
+  getRequest("GET", url)
+    .then((cars) => {
+      cars.forEach((car: Car) => {
+        createCar.init(car.name);
+        createCar.road(car.color);
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
+export { getCars };

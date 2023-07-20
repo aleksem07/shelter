@@ -10,6 +10,7 @@
   grid-column: 1 / -1;
   grid-row: 2 / -1;
   min-width: 100px;
+  max-width: 1400px;
   align-self: end;
   border-bottom: 1px dashed white;
 }
@@ -17,7 +18,7 @@
 .car {
   position: absolute;
   top: -100%;
-  left: -10%;
+  left: 0;
   width: 400px;
   height: 200px;
   perspective: 800px;

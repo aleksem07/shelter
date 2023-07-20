@@ -2,7 +2,7 @@
   position: absolute;
   margin-left: auto;
   margin-right: 10%;
-  width: 7%;
+  width: 75px;
   height: 60px;
   position: relative;
   overflow: hidden;
@@ -11,7 +11,7 @@
 .flag:before {
   content: "";
   position: absolute;
-  top: 15%;
+  top: 16%;
   right: -65%;
   transform: translateX(-50%);
   width: 80%;
@@ -58,7 +58,7 @@
 .flag .checkered {
   position: absolute;
   z-index: -1;
-  top: 15%;
+  top: 20%;
   right: -70%;
   transform: translateX(-50%);
   width: 80%;
@@ -69,7 +69,7 @@
     linear-gradient(-45deg, white 75%, black 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0;
-  animation: wave 1s infinite alternate;
+  animation: wave 1.5s infinite alternate;
 }
 
 @keyframes wave {
