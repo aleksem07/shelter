@@ -6,7 +6,6 @@ function clearCar() {
   document.addEventListener("click", async (evt) => {
     const targetElement = evt.target as HTMLElement;
     const parenElement = targetElement.parentNode as HTMLElement;
-    evt.preventDefault();
     if (targetElement.classList.contains("remove-button")) {
       await deleteCar(Number(parenElement.getAttribute("id")));
       location.reload();

@@ -16,7 +16,7 @@ const createMain = {
     this.elements.body?.appendChild(this.elements.main);
   },
 
-  async initGarage() {
+  async initGarage(pageCount: number) {
     let carsAll = 0;
     await getRequest("GET", url).then((data) => {
       carsAll = data.length;
@@ -35,7 +35,7 @@ const createMain = {
     this.elements.main?.appendChild(this.elements.div);
     //page numb
     this.elements.p = createAndAppendElement("p", "page-number");
-    this.elements.p.textContent = `Page number 1`;
+    this.elements.p.textContent = `Page number ${pageCount}`;
     this.elements.div?.appendChild(this.elements.p);
     //all count car in base
     this.elements.p = createAndAppendElement("p", "database-counter");

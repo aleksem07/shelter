@@ -13,21 +13,24 @@ import { getCars } from "./ui/car";
 import "./fetch";
 import { createCar, generateCar } from "./edit/create";
 import { clearGarage, clearCar } from "./edit/delete";
+import { startOneCar } from "./edit/start-stop";
 
 const currentPage: pageUi[] = [];
+const carPageCount = 1;
 
 async function getGarageUI() {
-  createMain.initGarage();
+  await createMain.initGarage(carPageCount);
   createEditor.initEditor();
-  createEditor.createEditorButton("create");
+  await createEditor.createEditorButton("create");
   createEditor.createEditorButton("update");
   createStartButtons.init();
   createStartButtons.createButtons();
-  await getCars();
+  await getCars(carPageCount);
   createCar();
   generateCar();
   clearGarage();
   clearCar();
+  startOneCar();
 }
 
 const getWinnersUI = () => {

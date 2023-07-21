@@ -75,22 +75,19 @@ const createCar = {
     this.elements.car?.appendChild(this.elements.div);
     this.elements.div = createAndAppendElement("div", "car-wheel car-rear");
     this.elements.car?.appendChild(this.elements.div);
-    this.elements.div = createAndAppendElement(
-      "div",
-      "car-headlight car-left car-left-light"
-    );
+    this.elements.div = createAndAppendElement("div", "car-headlight car-left");
     this.elements.car?.appendChild(this.elements.div);
     this.elements.div = createAndAppendElement(
       "div",
-      "car-headlight car-right car-right-light"
+      "car-headlight car-right"
     );
     this.elements.car?.appendChild(this.elements.div);
   },
 };
 const url = "http://localhost:3000/garage/";
 
-const getCars = () => {
-  getRequest("GET", url).then((cars) => {
+const getCars = (carsPageCount: number) => {
+  getRequest("GET", url + `?_page=${carsPageCount}&_limit=7`).then((cars) => {
     cars.forEach((car: Car) => {
       createCar.init(car.name, car.id.toString());
       createCar.road(car.color);

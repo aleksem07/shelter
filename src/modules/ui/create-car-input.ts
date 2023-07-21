@@ -6,11 +6,16 @@ const createEditor = {
     container: null as HTMLElement | null,
     div: null as HTMLElement | null,
     button: null as HTMLElement | null,
-    input: null as HTMLInputElement | null,
+    inputCreate: null as HTMLInputElement | null,
+    inputUpdate: null as HTMLInputElement | null,
   },
 
   initEditor() {
-    this.elements.main = document.querySelector("main");
+    try {
+      this.elements.main = document.querySelector("main");
+    } catch {
+      console.error("not found html-element main");
+    }
   },
 
   createEditorButton(name: string) {
@@ -23,19 +28,19 @@ const createEditor = {
       console.error("Not find <main></main>");
     }
 
-    this.elements.input = createAndAppendElement(
+    this.elements.inputCreate = createAndAppendElement(
       "input",
       `${name}-input`
     ) as HTMLInputElement;
-    this.elements.input.placeholder = "name and model";
-    this.elements.container?.appendChild(this.elements.input);
+    this.elements.inputCreate.placeholder = "name and model";
+    this.elements.container.appendChild(this.elements.inputCreate);
 
-    this.elements.input = createAndAppendElement(
+    this.elements.inputUpdate = createAndAppendElement(
       "input",
       `${name}-color`
     ) as HTMLInputElement;
-    this.elements.input.type = "color";
-    this.elements.container.appendChild(this.elements.input);
+    this.elements.inputUpdate.type = "color";
+    this.elements.container.appendChild(this.elements.inputUpdate);
 
     this.elements.button = createAndAppendElement(
       "button",

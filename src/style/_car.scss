@@ -3,6 +3,7 @@
   grid-template-columns: repeat(5, max-content) 1fr;
   grid-template-rows: 1fr 1fr;
   width: 90vw;
+  max-height: min-content;
 }
 
 .car-road {
@@ -13,6 +14,14 @@
   max-width: 1400px;
   align-self: end;
   border-bottom: 1px dashed white;
+  background-color: #4b4b4b;
+  background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),
+    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  z-index: -1;
 }
 
 .car {
@@ -23,7 +32,13 @@
   height: 200px;
   perspective: 800px;
   perspective-origin: 50% 50%;
-  transform: scale(0.25);
+  transform: scale(0.25) translate(-600px);
+  transition: all 1s ease-out;
+}
+
+.car-start {
+  //1050%
+  transform: scale(0.25) translate(1-140px);
 }
 
 .car .car-body {
