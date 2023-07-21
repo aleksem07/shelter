@@ -11,7 +11,7 @@ import { getCars } from "./ui/car";
 
 //edit
 import "./fetch";
-import { createCar } from "./edit/create";
+import { createCar, generateCar } from "./edit/create";
 import { clearGarage, clearCar } from "./edit/delete";
 
 const currentPage: pageUi[] = [];
@@ -24,7 +24,8 @@ async function getGarageUI() {
   createStartButtons.init();
   createStartButtons.createButtons();
   await getCars();
-  await createCar();
+  createCar();
+  generateCar();
   clearGarage();
   clearCar();
 }

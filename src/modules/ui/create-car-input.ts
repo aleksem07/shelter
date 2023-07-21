@@ -35,14 +35,14 @@ const createEditor = {
       `${name}-color`
     ) as HTMLInputElement;
     this.elements.input.type = "color";
-    this.elements.container?.appendChild(this.elements.input);
+    this.elements.container.appendChild(this.elements.input);
 
     this.elements.button = createAndAppendElement(
       "button",
       `button editor-button ${name}-button`,
       createBtn.name
     );
-    this.elements.container?.appendChild(this.elements.button);
+    this.elements.container.appendChild(this.elements.button);
   },
 };
 
