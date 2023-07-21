@@ -26,5 +26,10 @@
   padding: 7px 15px;
 }
 
+.button.editor-button.dont-touch {
+  outline: 5px solid rgba(247, 9, 9, 0.589);
+  outline-offset: -5px;
+}
+
 .car-button {
 }

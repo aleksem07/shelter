@@ -1,6 +1,6 @@
 import { createHeader } from "./ui/header";
 import { createMain } from "./ui/main";
-import { createEditor } from "./ui/create-car";
+import { createEditor } from "./ui/create-car-input";
 import { createStartButtons } from "./ui/start-race";
 import "./ui/car";
 import "./page-switcher";
@@ -10,21 +10,22 @@ import { page } from "./local-storage";
 import { getCars } from "./ui/car";
 
 //edit
-import { createCar } from "./edit/create";
 import "./fetch";
+import { createCar } from "./edit/create";
+import "./edit/delete";
 
 const currentPage: pageUi[] = [];
 
-const getGarageUI = () => {
+async function getGarageUI() {
   createMain.initGarage();
   createEditor.initEditor();
   createEditor.createEditorButton("create");
   createEditor.createEditorButton("update");
   createStartButtons.init();
   createStartButtons.createButtons();
-  setTimeout(() => getCars(), 10);
+  await getCars();
   createCar();
-};
+}
 
 const getWinnersUI = () => {
   createMain.initWinners();
@@ -33,9 +34,9 @@ const getWinnersUI = () => {
 currentPage.push(getGarageUI);
 currentPage.push(getWinnersUI);
 
-function app() {
+async function app() {
   createHeader.initHeader();
-  createMain.initMain();
+  await createMain.initMain();
   currentPage[page.page]();
 }
 app();

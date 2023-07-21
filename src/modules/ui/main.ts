@@ -1,4 +1,5 @@
 import { createAndAppendElement } from "./util";
+import { getRequest, url } from "../fetch";
 
 const createMain = {
   elements: {
@@ -15,7 +16,12 @@ const createMain = {
     this.elements.body?.appendChild(this.elements.main);
   },
 
-  initGarage() {
+  async initGarage() {
+    let carsAll = 0;
+    await getRequest("GET", url).then((data) => {
+      carsAll = data.length;
+      return carsAll;
+    });
     //name
     this.elements.h1 = createAndAppendElement("h1", "garage-title");
     this.elements.h1.textContent = "My Garage";
@@ -29,11 +35,11 @@ const createMain = {
     this.elements.main?.appendChild(this.elements.div);
     //page numb
     this.elements.p = createAndAppendElement("p", "page-number");
-    this.elements.p.textContent = "Page number 1";
+    this.elements.p.textContent = `Page number 1`;
     this.elements.div?.appendChild(this.elements.p);
     //all count car in base
     this.elements.p = createAndAppendElement("p", "database-counter");
-    this.elements.p.textContent = "All cars (1)";
+    this.elements.p.textContent = `All cars ${carsAll}`;
     this.elements.div?.appendChild(this.elements.p);
   },
 

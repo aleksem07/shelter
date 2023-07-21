@@ -30,23 +30,23 @@ const createCar = {
 
     const selectBtn = new Button("select");
     const removeBtn = new Button("remove");
-    const aBtn = new Button("a", "green");
-    const bBtn = new Button("b");
+    const aBtn = new Button("start", "lightgreen");
+    const bBtn = new Button("stop", "lightyellow");
 
-    const btn = (btn: Button) => {
+    const btn = (btn: Button, classAdd: string) => {
       this.elements.button = createAndAppendElement(
         "button",
-        `button editor-button start-button`,
+        `button editor-button ${classAdd}`,
         btn.name
       );
       this.elements.button.style.backgroundColor = btn.color;
       this.elements.container?.appendChild(this.elements.button);
     };
 
-    btn(selectBtn);
-    btn(removeBtn);
-    btn(aBtn);
-    btn(bBtn);
+    btn(selectBtn, "select-button");
+    btn(removeBtn, "remove-button");
+    btn(aBtn, "one-start-button");
+    btn(bBtn, "one-stop-button");
 
     this.elements.p = createAndAppendElement("p", "car-name");
     this.elements.p.textContent = carName;

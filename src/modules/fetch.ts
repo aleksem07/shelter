@@ -33,8 +33,14 @@ const sendRequest = (
 const deleteCar = (id: number) => {
   const body = {};
   sendRequest("DELETE", url + `${id}`, body).then(() =>
-    console.log("delete all cars - ok")
+    console.log("delete car")
   );
+};
+
+const deleteOneCar = (index: number) => {
+  getRequest("GET", url)
+    .then((data) => deleteCar(data[index].id))
+    .catch((err) => console.error("ID not found | " + err));
 };
 
 const deleteAllCar = () => {
@@ -51,4 +57,4 @@ const deleteAllCar = () => {
   localStorage.removeItem("carsAll");
 };
 
-export { getRequest, sendRequest, deleteAllCar };
+export { getRequest, sendRequest, deleteOneCar, deleteAllCar, url };
