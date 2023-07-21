@@ -1,8 +1,8 @@
 import { Car } from "./type";
 const url = "http://localhost:3000/garage/";
 
-const getRequest = (method: string, url: string) => {
-  return fetch(url).then((response) => {
+const getRequest = async (method: string, url: string) => {
+  return await fetch(url).then((response) => {
     if (response.ok) {
       return response.json();
     }
@@ -14,7 +14,7 @@ const getRequest = (method: string, url: string) => {
   });
 };
 
-const sendRequest = (
+const sendRequest = async (
   method: string,
   url: string,
   body: object | null = null
@@ -23,38 +23,24 @@ const sendRequest = (
     "Content-Type": "application/json",
   };
 
-  return fetch(url, {
+  return await fetch(url, {
     method: method,
     body: JSON.stringify(body),
     headers: headers,
   }).then((response) => response.json());
 };
 
-const deleteCar = (id: number) => {
+const deleteCar = async (id: number) => {
   const body = {};
-  sendRequest("DELETE", url + `${id}`, body).then(() =>
-    console.log("delete car")
+  await sendRequest("DELETE", url + `${id}`, body).then(() =>
+    console.log(`delete car id:${id}`)
   );
 };
 
-const deleteOneCar = (index: number) => {
-  getRequest("GET", url)
-    .then((data) => deleteCar(data[index].id))
-    .catch((err) => console.error("ID not found | " + err));
-};
-
-const deleteAllCar = () => {
-  let carCount = 0;
-  getRequest("GET", url).then((data) => {
-    carCount = data.length;
-    console.log(carCount);
-    if (carCount > 0) {
-      data.forEach((item: Car, index: number) => deleteCar(index));
-    } else {
-      console.log("All data deleted");
-    }
+const deleteAllCar = async () => {
+  await getRequest("GET", url).then((data) => {
+    data.forEach((item: Car) => deleteCar(item.id));
   });
-  localStorage.removeItem("carsAll");
 };
 
-export { getRequest, sendRequest, deleteOneCar, deleteAllCar, url };
+export { deleteCar, getRequest, sendRequest, deleteAllCar, url };

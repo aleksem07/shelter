@@ -12,7 +12,7 @@ import { getCars } from "./ui/car";
 //edit
 import "./fetch";
 import { createCar } from "./edit/create";
-import "./edit/delete";
+import { clearGarage, clearCar } from "./edit/delete";
 
 const currentPage: pageUi[] = [];
 
@@ -24,7 +24,9 @@ async function getGarageUI() {
   createStartButtons.init();
   createStartButtons.createButtons();
   await getCars();
-  createCar();
+  await createCar();
+  clearGarage();
+  clearCar();
 }
 
 const getWinnersUI = () => {
@@ -36,7 +38,7 @@ currentPage.push(getWinnersUI);
 
 async function app() {
   createHeader.initHeader();
-  await createMain.initMain();
+  createMain.initMain();
   currentPage[page.page]();
 }
 app();

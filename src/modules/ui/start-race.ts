@@ -28,16 +28,16 @@ const createStartButtons = {
     const btn = (btn: Button, classAdd?: string) => {
       this.elements.button = createAndAppendElement(
         "button",
-        `button editor-button start-button ${classAdd}`,
+        `button editor-button ${classAdd}`,
         btn.name
       );
       this.elements.button.style.backgroundColor = btn.color;
       this.elements.container?.appendChild(this.elements.button);
     };
 
-    btn(startBtn);
-    btn(resetBtn);
-    btn(generateBtn);
+    btn(startBtn, "start-button");
+    btn(resetBtn, "reset-button");
+    btn(generateBtn, "generate-button");
     btn(delAllBtn, "dont-touch");
   },
 };

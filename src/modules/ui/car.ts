@@ -16,12 +16,13 @@ const createCar = {
     car: null as HTMLElement | null,
   },
 
-  init(carName: string) {
+  init(carName: string, id: string) {
     this.elements.main = document.querySelector("main");
     this.elements.container = createAndAppendElement(
       "div",
       "container car-box"
     );
+    this.elements.container.setAttribute("id", `${id}`);
     if (this.elements.main) {
       this.elements.main.appendChild(this.elements.container);
     } else {
@@ -89,14 +90,12 @@ const createCar = {
 const url = "http://localhost:3000/garage/";
 
 const getCars = () => {
-  getRequest("GET", url)
-    .then((cars) => {
-      cars.forEach((car: Car) => {
-        createCar.init(car.name);
-        createCar.road(car.color);
-      });
-    })
-    .catch((err) => console.log(err));
+  getRequest("GET", url).then((cars) => {
+    cars.forEach((car: Car) => {
+      createCar.init(car.name, car.id.toString());
+      createCar.road(car.color);
+    });
+  });
 };
 
 export { getCars };
