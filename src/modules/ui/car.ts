@@ -50,7 +50,7 @@ const createCar = {
     btn(bBtn, "one-stop-button");
 
     this.elements.p = createAndAppendElement("p", "car-name");
-    this.elements.p.textContent = carName;
+    this.elements.p.textContent = `${carName} #${id}`;
     this.elements.container?.appendChild(this.elements.p);
   },
   road(color: string) {

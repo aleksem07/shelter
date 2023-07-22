@@ -1,7 +1,7 @@
 .car-box {
   display: grid;
   grid-template-columns: repeat(5, max-content) 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto;
   width: 90vw;
   max-height: min-content;
 }
@@ -27,18 +27,54 @@
 .car {
   position: absolute;
   top: -100%;
-  left: 0;
+  left: -150px;
   width: 400px;
   height: 200px;
   perspective: 800px;
   perspective-origin: 50% 50%;
-  transform: scale(0.25) translate(-600px);
+  transform: scale(0.25);
   transition: all 1s ease-out;
 }
 
 .car-start {
   //1050%
-  transform: scale(0.25) translate(1-140px);
+  animation: shake 1s infinite;
+  left: -40px;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: scale(0.25) translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale(0.25) translateY(-1.5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: scale(0.25) translateY(1.5px);
+  }
+}
+
+.car-name {
+  padding: 5px 15px;
+  margin: 0;
+  font-weight: 700;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.car-name::first-letter {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  color: goldenrod;
 }
 
 .car .car-body {
@@ -93,7 +129,7 @@
   border: 5px solid black;
   width: 30px;
   height: 12px;
-  background-color: #fdd835;
+  background-color: #fce168;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -109,9 +145,12 @@
 
 // race light
 .car-right.car-right-light {
-  box-shadow: 40px 0px 100px 20px rgb(230, 255, 87);
+  box-shadow: 40px 0px 100px 20px rgb(253, 250, 51),
+    10px 0px 30px 5px rgb(239, 255, 150),
+    60px 40px 200px 40px rgb(246, 255, 195);
 }
 
 .car-left.car-left-light {
-  box-shadow: 10px 0px 100px 20px rgb(255, 87, 87);
+  box-shadow: 10px 0px 100px 20px rgb(255, 87, 87),
+    -10px 0px 30px 5px rgb(255, 19, 39), -50px -10px 200px 40px rgb(255, 87, 87);
 }

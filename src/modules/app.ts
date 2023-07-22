@@ -14,6 +14,7 @@ import "./fetch";
 import { createCar, generateCar } from "./edit/create";
 import { clearGarage, clearCar } from "./edit/delete";
 import { startOneCar } from "./edit/start-stop";
+import { updateCar } from "./edit/select";
 
 const currentPage: pageUi[] = [];
 const carPageCount = 1;
@@ -31,6 +32,7 @@ async function getGarageUI() {
   clearGarage();
   clearCar();
   startOneCar();
+  updateCar();
 }
 
 const getWinnersUI = () => {
