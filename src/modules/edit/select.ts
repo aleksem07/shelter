@@ -1,11 +1,14 @@
 function updateCar() {
   document.addEventListener("click", async (evt) => {
     const targetElement = evt.target as HTMLElement;
-    const parenElement = targetElement.parentNode as HTMLElement;
+    const parentElement = targetElement.parentNode as HTMLElement;
+    const carName = parentElement.querySelector(".car-name") as HTMLElement;
+    const updateInput = document.querySelector(
+      ".update-input"
+    ) as HTMLInputElement;
     if (targetElement.classList.contains("select-button")) {
-      // await deleteCar(Number(parenElement.getAttribute("id")));
-      console.log(parenElement);
-      location.reload();
+      updateInput.value = `${carName.textContent?.slice(0, -3)}`;
+      // location.reload();
     }
   });
 }

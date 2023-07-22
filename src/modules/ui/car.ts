@@ -72,8 +72,12 @@ const createCar = {
     this.elements.div = createAndAppendElement("div", "car-window");
     this.elements.car?.appendChild(this.elements.div);
     this.elements.div = createAndAppendElement("div", "car-wheel car-front");
+    this.elements.div.style.backgroundColor = color;
+    this.elements.div.style.filter = "hue-rotate(90deg) invert(70%)";
     this.elements.car?.appendChild(this.elements.div);
     this.elements.div = createAndAppendElement("div", "car-wheel car-rear");
+    this.elements.div.style.backgroundColor = color;
+    this.elements.div.style.filter = "hue-rotate(90deg) invert(70%)";
     this.elements.car?.appendChild(this.elements.div);
     this.elements.div = createAndAppendElement("div", "car-headlight car-left");
     this.elements.car?.appendChild(this.elements.div);

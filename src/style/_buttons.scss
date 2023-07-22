@@ -18,6 +18,13 @@
     color: $back--add;
     box-shadow: inset 2px 2px 15px 10px $shadow--add;
   }
+
+  &:disabled {
+    outline: 18px solid rgb(148, 148, 148);
+    outline-offset: -18px;
+    color: grey;
+    cursor: default;
+  }
 }
 
 .editor-button {
