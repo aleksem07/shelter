@@ -13,7 +13,7 @@ import { getCars } from "./ui/car";
 import "./fetch";
 import { createCar, generateCar } from "./edit/create";
 import { clearGarage, clearCar } from "./edit/delete";
-import { startOneCar } from "./edit/start-stop";
+import { startAndStopOneCar, stopAllCar, startAllCar } from "./edit/start-stop";
 import { selectCar, updateCar } from "./edit/select";
 
 const currentPage: pageUi[] = [];
@@ -31,9 +31,11 @@ async function getGarageUI() {
   generateCar();
   clearGarage();
   clearCar();
-  startOneCar();
+  startAndStopOneCar();
   selectCar();
   updateCar();
+  stopAllCar();
+  startAllCar();
 }
 
 const getWinnersUI = () => {

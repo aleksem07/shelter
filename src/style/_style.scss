@@ -16,3 +16,13 @@
   background-color: #282828;
   background-size: 16px 16px;
 }
+
+.visually-hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}

@@ -1,0 +1,16 @@
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 600px;
+  height: 100px;
+
+  background-color: $back-btn--add;
+  border: 5px solid tomato;
+  border-radius: 10px;
+  color: $shadow--add;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
