@@ -1,4 +1,7 @@
 import { createAndAppendElement } from "./../ui/util";
+import { BestTimeEntry, WinnerCar } from "./../type";
+import { sendRequest, urlWinners } from "../fetch";
+
 const startStatus = "started";
 const stopStatus = "stopped";
 let time = 60;
@@ -32,13 +35,6 @@ const toggleEngine = async (id: number, status: string) => {
   }
 };
 
-const disableButtonTimer = (el: HTMLInputElement, sec: number) => {
-  el.disabled = true;
-  setTimeout(() => {
-    el.disabled = false;
-  }, sec);
-};
-
 const toggleCarEngine = (
   car: Element,
   stopLight: HTMLElement,
@@ -70,7 +66,7 @@ const startAndStopOneCar = () => {
     const id = Number(parenElement.getAttribute("id"));
 
     if (targetElement.classList.contains("one-start-button")) {
-      disableButtonTimer(targetElement, 5000);
+      targetElement.disabled = true;
       await toggleEngine(id, startStatus);
       time = +(time / 1000).toFixed(2);
 
@@ -78,9 +74,11 @@ const startAndStopOneCar = () => {
       toggleCarEngine(car, stopLight, firstLight, true);
     }
     if (targetElement.classList.contains("one-stop-button")) {
-      car.style.transition = `all 1s ease-out`;
+      const startButton =
+        targetElement.previousElementSibling as HTMLButtonElement;
+      startButton.disabled = false;
+      car.style.transition = `all 0s ease-out`;
       toggleCarEngine(car, stopLight, firstLight, false);
-      disableButtonTimer(targetElement, 5000);
       const carId = id;
       await toggleEngine(carId, stopStatus);
     }
@@ -93,9 +91,11 @@ const stopAllCar = () => {
 
     if (targetElement.classList.contains("reset-button")) {
       const cars = document.querySelectorAll(".car");
-
+      const startButton =
+        targetElement.previousElementSibling as HTMLButtonElement;
+      startButton.disabled = false;
       cars.forEach((car) => {
-        (car as HTMLElement).style.transition = `all 1s ease-out`;
+        (car as HTMLElement).style.transition = `all 0s ease-out`;
         const carParent = car.parentElement?.parentElement;
         const id = Number(carParent?.getAttribute("id"));
         const stopLight = car.querySelector(".car-left") as HTMLElement;
@@ -107,47 +107,56 @@ const stopAllCar = () => {
   });
 };
 
-interface BestTimeEntry {
-  time: number;
-  name: string;
-}
-
 const startAllCar = () => {
   document.addEventListener("click", async (evt) => {
     const targetElement = evt.target as HTMLInputElement;
-
     let bestTime: BestTimeEntry[] = [];
     if (targetElement.classList.contains("start-button")) {
+      targetElement.disabled = true;
       const cars = document.querySelectorAll(".car");
 
-      cars.forEach(async (car) => {
+      await cars.forEach(async (car) => {
+        car.classList.add("car-motor");
         const carParent = car.parentElement?.parentElement;
         const nameElement = carParent?.querySelector(".car-name");
         const name = nameElement?.textContent || "";
-
         const id = Number(carParent?.getAttribute("id"));
-        disableButtonTimer(targetElement, 3000);
+        const color = car.getAttribute("data-color") || "";
         await toggleEngine(id, startStatus);
         time = +(time / 1000).toFixed(2);
-
-        bestTime.push({ time, name });
+        bestTime.push({ time, name, color });
         await setCarTransition(car as HTMLElement, time);
         const stopLight = car.querySelector(".car-left") as HTMLElement;
         const firstLight = car.querySelector(".car-right") as HTMLElement;
         toggleCarEngine(car as HTMLElement, stopLight, firstLight, true);
       });
       setTimeout(() => {
-        const time = bestTime.sort((a, b) => a.time - b.time)[0].time;
-        const name = bestTime.sort((a, b) => a.time - b.time)[0].name;
+        const sortedBestTime = bestTime.sort((a, b) => a.time - b.time);
+        const winner = sortedBestTime[0];
+        const time = winner ? winner.time : 10;
+        const name = winner ? winner.name : "CarName";
+        const color = winner ? winner.color : "grey";
         modalWinner(name, time);
+        winnerPost(name, time, color);
         setTimeout(() => {
           const modal = document.querySelector(".modal-container");
           bestTime = [];
           modal?.remove();
-        }, 3500);
-      }, 5000);
+        }, 6000);
+      }, 1500);
     }
   });
+};
+
+const winnerPost = async (name: string, time: number, color: string) => {
+  const body: WinnerCar = {
+    name,
+    time,
+    color,
+  };
+  await sendRequest("POST", urlWinners, body)
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
 };
 
 const modalWinner = (name: string, time: number) => {

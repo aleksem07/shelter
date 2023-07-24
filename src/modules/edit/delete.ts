@@ -1,4 +1,4 @@
-import { deleteCar, deleteAllCar } from "../fetch";
+import { deleteCar, deleteAllCar, url, urlWinners } from "../fetch";
 import { createMain } from "./../ui/main";
 import { getGarageUI } from "./../app";
 
@@ -7,7 +7,8 @@ function clearCar() {
     const targetElement = evt.target as HTMLElement;
     const parenElement = targetElement.parentNode as HTMLElement;
     if (targetElement.classList.contains("remove-button")) {
-      await deleteCar(Number(parenElement.getAttribute("id")));
+      await deleteCar(Number(parenElement.getAttribute("id")), url);
+      await deleteCar(Number(parenElement.getAttribute("id")), urlWinners);
       location.reload();
     }
   });
@@ -18,7 +19,8 @@ async function clearGarage() {
 
   dontTouch.addEventListener("click", async (evt) => {
     evt.preventDefault();
-    await deleteAllCar();
+    await deleteAllCar(url);
+    await deleteAllCar(urlWinners);
     setTimeout(() => {
       createMain.clear();
       getGarageUI();

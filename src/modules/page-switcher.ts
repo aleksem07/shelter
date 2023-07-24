@@ -1,5 +1,5 @@
 import { createMain } from "./ui/main";
-import { getGarageUI } from "./app";
+import { getGarageUI, getWinnersUI } from "./app";
 
 let updateCurrentPage = {};
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       localStorage.setItem("currentPage", JSON.stringify(updateCurrentPage));
 
-      createMain.initWinners();
+      getWinnersUI();
     });
   } else {
     console.error("not find winners button");

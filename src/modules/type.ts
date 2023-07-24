@@ -6,4 +6,17 @@ type Car = {
   color: string;
 };
 
-export { pageUi, Car };
+type WinnerCar = {
+  id?: number;
+  time: number;
+  color: string;
+  name: string;
+};
+
+interface BestTimeEntry {
+  time: number;
+  name: string;
+  color: string;
+}
+
+export { pageUi, Car, WinnerCar, BestTimeEntry };

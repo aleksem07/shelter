@@ -65,6 +65,7 @@ const createCar = {
     this.elements.flag?.appendChild(this.elements.checkered);
 
     this.elements.car = createAndAppendElement("div", "car");
+    this.elements.car.setAttribute("data-color", color);
     this.elements.road?.appendChild(this.elements.car);
     this.elements.div = createAndAppendElement("div", "car-body");
     this.elements.div.style.backgroundColor = color;

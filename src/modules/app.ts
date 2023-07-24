@@ -15,11 +15,38 @@ import { createCar, generateCar } from "./edit/create";
 import { clearGarage, clearCar } from "./edit/delete";
 import { startAndStopOneCar, stopAllCar, startAllCar } from "./edit/start-stop";
 import { selectCar, updateCar } from "./edit/select";
+//winners
+import { createWinner, getWinners } from "./ui/winners";
 
 const currentPage: pageUi[] = [];
 const carPageCount = 1;
+const winnerPageCount = 1;
+// const pageSwitcher = () => {
+//   const body = document.querySelector("body");
+//   const buttonNext = document.querySelector(".button-next");
+//   buttonNext?.addEventListener("click", async () => {
+//     carPageCount++;
+//     if (body) {
+//       body.innerHTML = "";
+//     }
+//     createHeader.initHeader();
+//     createMain.initMain();
+//     await currentPage[page.page]();
+//   });
 
-async function getGarageUI() {
+//   const buttonPrev = document.querySelector(".button-prev");
+//   buttonPrev?.addEventListener("click", async () => {
+//     carPageCount <= 1 ? (carPageCount = 1) : carPageCount--;
+//     if (body) {
+//       body.innerHTML = "";
+//     }
+//     createHeader.initHeader();
+//     createMain.initMain();
+//     await currentPage[page.page]();
+//   });
+// };
+
+const getGarageUI = async () => {
   await createMain.initGarage(carPageCount);
   createEditor.initEditor();
   await createEditor.createEditorButton("create");
@@ -36,10 +63,13 @@ async function getGarageUI() {
   updateCar();
   stopAllCar();
   startAllCar();
-}
+  // pageSwitcher();
+};
 
-const getWinnersUI = () => {
-  createMain.initWinners();
+const getWinnersUI = async () => {
+  await createMain.initWinners();
+  createWinner.init(`Number`, `Car`, `Name`, `Wins`, `Best Time`);
+  getWinners(winnerPageCount);
 };
 
 currentPage.push(getGarageUI);
@@ -48,7 +78,7 @@ currentPage.push(getWinnersUI);
 async function app() {
   createHeader.initHeader();
   createMain.initMain();
-  currentPage[page.page]();
+  await currentPage[page.page]();
 }
 app();
 

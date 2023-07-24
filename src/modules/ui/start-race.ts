@@ -23,7 +23,7 @@ const createStartButtons = {
     const startBtn = new Button("start", "yellow");
     const resetBtn = new Button("reset", "red");
     const generateBtn = new Button("generate");
-    const delAllBtn = new Button("don`t touch", "white");
+    const delAllBtn = new Button("del all data", "white");
 
     const btn = (btn: Button, classAdd?: string) => {
       this.elements.button = createAndAppendElement(

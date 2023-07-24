@@ -1,5 +1,6 @@
 import { Car } from "./type";
 const url = "http://localhost:3000/garage/";
+const urlWinners = "http://localhost:3000/winners/";
 
 const getRequest = async (method: string, url: string) => {
   return await fetch(url).then((response) => {
@@ -30,17 +31,17 @@ const sendRequest = async (
   }).then((response) => response.json());
 };
 
-const deleteCar = async (id: number) => {
+const deleteCar = async (id: number, url: string) => {
   const body = {};
   await sendRequest("DELETE", url + `${id}`, body).then(() =>
     console.log(`delete car id:${id}`)
   );
 };
 
-const deleteAllCar = async () => {
+const deleteAllCar = async (url: string) => {
   await getRequest("GET", url).then((data) => {
-    data.forEach((item: Car) => deleteCar(item.id));
+    data.forEach((item: Car) => deleteCar(item.id, url));
   });
 };
 
-export { deleteCar, getRequest, sendRequest, deleteAllCar, url };
+export { deleteCar, getRequest, sendRequest, deleteAllCar, url, urlWinners };

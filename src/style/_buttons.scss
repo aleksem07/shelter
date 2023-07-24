@@ -40,3 +40,13 @@
 
 .car-button {
 }
+
+.button-next,
+.button-prev {
+  background-color: inherit;
+  color: lightblue;
+}
+
+.button-prev {
+  cursor: not-allowed;
+}
