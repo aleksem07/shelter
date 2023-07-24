@@ -1,4 +1,4 @@
-import { Button, createAndAppendElement } from "./util";
+import { Button, createAndAppendElement } from "../util";
 
 const createEditor = {
   elements: {

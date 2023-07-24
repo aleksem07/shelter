@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       localStorage.setItem("currentPage", JSON.stringify(updateCurrentPage));
       getGarageUI();
+      location.reload();
     });
   } else {
     console.error("not find garage button");

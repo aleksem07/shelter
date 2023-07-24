@@ -1,6 +1,6 @@
 import { getRequest, urlWinners } from "../fetch";
 import { WinnerCar } from "../type";
-import { createAndAppendElement } from "./util";
+import { createAndAppendElement } from "../util";
 
 const createWinner = {
   elements: {

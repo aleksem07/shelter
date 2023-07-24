@@ -22,6 +22,7 @@ async function clearGarage() {
     await deleteAllCar(url);
     await deleteAllCar(urlWinners);
     setTimeout(() => {
+      localStorage.setItem("currentCarPage", "1");
       createMain.clear();
       getGarageUI();
     }, 100);

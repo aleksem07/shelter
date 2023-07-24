@@ -6,9 +6,8 @@ import "./ui/car";
 import "./page-switcher";
 import "./local-storage";
 import { pageUi } from "./type";
-import { page } from "./local-storage";
+import { page, pageCar, pageWin } from "./local-storage";
 import { getCars } from "./ui/car";
-
 //edit
 import "./fetch";
 import { createCar, generateCar } from "./edit/create";
@@ -19,30 +18,42 @@ import { selectCar, updateCar } from "./edit/select";
 import { createWinner, getWinners } from "./ui/winners";
 
 const currentPage: pageUi[] = [];
-let carPageCount = 1;
-const winnerPageCount = 1;
+let carPageCount = pageCar;
+let winnerPageCount = pageWin;
+
 const pageSwitcher = () => {
-  const body = document.querySelector("body");
   const buttonNext = document.querySelector(".button-next");
   buttonNext?.addEventListener("click", async () => {
     carPageCount++;
-    if (body) {
-      body.innerHTML = "";
-    }
-    createHeader.initHeader();
-    createMain.initMain();
-    await currentPage[page.page]();
+    localStorage.setItem("currentCarPage", `${carPageCount}`);
+    createMain.clear();
+    getGarageUI();
   });
 
   const buttonPrev = document.querySelector(".button-prev");
   buttonPrev?.addEventListener("click", async () => {
     carPageCount <= 1 ? (carPageCount = 1) : carPageCount--;
-    if (body) {
-      body.innerHTML = "";
-    }
-    createHeader.initHeader();
-    createMain.initMain();
-    await currentPage[page.page]();
+    localStorage.setItem("currentCarPage", `${carPageCount}`);
+    createMain.clear();
+    getGarageUI();
+  });
+};
+
+const pageWinSwitcher = () => {
+  const buttonNext = document.querySelector(".button-next");
+  buttonNext?.addEventListener("click", async () => {
+    winnerPageCount++;
+    localStorage.setItem("currentWinPage", `${winnerPageCount}`);
+    createMain.clear();
+    getWinnersUI();
+  });
+
+  const buttonPrev = document.querySelector(".button-prev");
+  buttonPrev?.addEventListener("click", async () => {
+    winnerPageCount <= 1 ? (winnerPageCount = 1) : winnerPageCount--;
+    localStorage.setItem("currentWinPage", `${winnerPageCount}`);
+    createMain.clear();
+    getWinnersUI();
   });
 };
 
@@ -67,9 +78,10 @@ const getGarageUI = async () => {
 };
 
 const getWinnersUI = async () => {
-  await createMain.initWinners();
+  await createMain.initWinners(winnerPageCount);
   createWinner.init(`Number`, `Car`, `Name`, `Wins`, `Best Time`);
   getWinners(winnerPageCount);
+  pageWinSwitcher();
 };
 
 currentPage.push(getGarageUI);

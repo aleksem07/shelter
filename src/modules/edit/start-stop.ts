@@ -1,4 +1,4 @@
-import { createAndAppendElement } from "./../ui/util";
+import { createAndAppendElement } from "../util";
 import { BestTimeEntry, WinnerCar } from "./../type";
 import { sendRequest, urlWinners } from "../fetch";
 
@@ -111,10 +111,11 @@ const startCarEngine = async (car: Element) => {
   const stopLight = car?.querySelector(".car-left") as HTMLElement;
   const firstLight = car?.querySelector(".car-right") as HTMLElement;
   const carParent = car.parentElement?.parentElement;
-  const nameElement = carParent?.querySelector(".car-name");
-  const name = nameElement?.textContent || "";
   const id = Number(carParent?.getAttribute("id"));
   const color = car.getAttribute("data-color") || "";
+
+  const nameElement = carParent?.querySelector(".car-name");
+  const name = nameElement?.textContent || "";
   await toggleEngine(id, startStatus);
   time = +(time / 1000).toFixed(2);
   (car as HTMLElement).style.transition = `all ${time}s ease-out`;
@@ -135,7 +136,6 @@ const startAllCar = () => {
         const promise = startCarEngine(car);
         await promises.push(promise);
       });
-
       try {
         const results = await Promise.all(promises);
         const winner = results.reduce((minTimeCar, car) => {

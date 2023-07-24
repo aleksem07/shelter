@@ -2,6 +2,7 @@ import { createMain } from "./../ui/main";
 import { getGarageUI } from "./../app";
 import { sendRequest } from "../fetch";
 import { COLORS, BRANDS, MODELS } from "../data/data";
+import { shuffle } from "../util";
 
 const url = "http://localhost:3000/garage/";
 
@@ -31,15 +32,7 @@ async function createCar() {
   });
 }
 
-const shuffle = (array: Array<string>) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-};
-
-function generateCar() {
+const generateCar = () => {
   const generateBtn = document.querySelector(".generate-button") as HTMLElement;
   generateBtn.addEventListener("click", async (evt) => {
     evt.preventDefault();
@@ -52,9 +45,7 @@ function generateCar() {
         name: `${shuffledBrand[0]} ${shuffledModel[0]}`,
         color: shuffledColor[0],
       };
-      sendRequest("POST", url, body)
-        .then((data) => console.log(data))
-        .catch((err) => console.log(err));
+      await sendRequest("POST", url, body);
       i++;
     }
     setTimeout(() => {
@@ -63,5 +54,6 @@ function generateCar() {
       location.reload();
     }, 100);
   });
-}
+};
+
 export { createCar, generateCar };

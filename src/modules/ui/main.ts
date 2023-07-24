@@ -1,4 +1,4 @@
-import { createAndAppendElement } from "./util";
+import { createAndAppendElement } from "../util";
 import { getRequest, url, urlWinners } from "../fetch";
 
 const createMain = {
@@ -55,7 +55,7 @@ const createMain = {
     this.elements.div?.appendChild(this.elements.p);
   },
 
-  async initWinners() {
+  async initWinners(pageCount: number) {
     let winnersAll = 0;
     await getRequest("GET", urlWinners).then((data) => {
       return (winnersAll = data.length);
@@ -79,7 +79,7 @@ const createMain = {
     this.elements.div?.appendChild(this.elements.buttonPrev);
     //page numb
     this.elements.p = createAndAppendElement("p", "page-number");
-    this.elements.p.textContent = "Page number 1";
+    this.elements.p.textContent = `Page number ${pageCount}`;
     this.elements.div?.appendChild(this.elements.p);
 
     this.elements.buttonNext = createAndAppendElement(

@@ -1,5 +1,5 @@
 import { Car } from "../type";
-import { Button, createAndAppendElement } from "./util";
+import { Button, createAndAppendElement } from "../util";
 import { getRequest } from "../fetch";
 
 const createCar = {
