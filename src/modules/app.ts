@@ -19,32 +19,32 @@ import { selectCar, updateCar } from "./edit/select";
 import { createWinner, getWinners } from "./ui/winners";
 
 const currentPage: pageUi[] = [];
-const carPageCount = 1;
+let carPageCount = 1;
 const winnerPageCount = 1;
-// const pageSwitcher = () => {
-//   const body = document.querySelector("body");
-//   const buttonNext = document.querySelector(".button-next");
-//   buttonNext?.addEventListener("click", async () => {
-//     carPageCount++;
-//     if (body) {
-//       body.innerHTML = "";
-//     }
-//     createHeader.initHeader();
-//     createMain.initMain();
-//     await currentPage[page.page]();
-//   });
+const pageSwitcher = () => {
+  const body = document.querySelector("body");
+  const buttonNext = document.querySelector(".button-next");
+  buttonNext?.addEventListener("click", async () => {
+    carPageCount++;
+    if (body) {
+      body.innerHTML = "";
+    }
+    createHeader.initHeader();
+    createMain.initMain();
+    await currentPage[page.page]();
+  });
 
-//   const buttonPrev = document.querySelector(".button-prev");
-//   buttonPrev?.addEventListener("click", async () => {
-//     carPageCount <= 1 ? (carPageCount = 1) : carPageCount--;
-//     if (body) {
-//       body.innerHTML = "";
-//     }
-//     createHeader.initHeader();
-//     createMain.initMain();
-//     await currentPage[page.page]();
-//   });
-// };
+  const buttonPrev = document.querySelector(".button-prev");
+  buttonPrev?.addEventListener("click", async () => {
+    carPageCount <= 1 ? (carPageCount = 1) : carPageCount--;
+    if (body) {
+      body.innerHTML = "";
+    }
+    createHeader.initHeader();
+    createMain.initMain();
+    await currentPage[page.page]();
+  });
+};
 
 const getGarageUI = async () => {
   await createMain.initGarage(carPageCount);
@@ -63,7 +63,7 @@ const getGarageUI = async () => {
   updateCar();
   stopAllCar();
   startAllCar();
-  // pageSwitcher();
+  pageSwitcher();
 };
 
 const getWinnersUI = async () => {

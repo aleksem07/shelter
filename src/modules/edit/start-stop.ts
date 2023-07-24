@@ -52,10 +52,6 @@ const toggleCarEngine = (
   }
 };
 
-const setCarTransition = (car: HTMLElement, timeInSeconds: number) => {
-  car.style.transition = `all ${timeInSeconds}s ease-out`;
-};
-
 const startAndStopOneCar = () => {
   document.addEventListener("click", async (evt) => {
     const targetElement = evt.target as HTMLInputElement;
@@ -85,6 +81,8 @@ const startAndStopOneCar = () => {
   });
 };
 
+let isRaceFinished = false;
+
 const stopAllCar = () => {
   document.addEventListener("click", (evt) => {
     const targetElement = evt.target as HTMLInputElement;
@@ -103,47 +101,61 @@ const stopAllCar = () => {
         toggleCarEngine(car, stopLight, firstLight, false);
         toggleEngine(id, stopStatus);
       });
+      isRaceFinished = false;
     }
   });
+};
+
+const startCarEngine = async (car: Element) => {
+  car.classList.add("car-motor");
+  const stopLight = car?.querySelector(".car-left") as HTMLElement;
+  const firstLight = car?.querySelector(".car-right") as HTMLElement;
+  const carParent = car.parentElement?.parentElement;
+  const nameElement = carParent?.querySelector(".car-name");
+  const name = nameElement?.textContent || "";
+  const id = Number(carParent?.getAttribute("id"));
+  const color = car.getAttribute("data-color") || "";
+  await toggleEngine(id, startStatus);
+  time = +(time / 1000).toFixed(2);
+  (car as HTMLElement).style.transition = `all ${time}s ease-out`;
+  toggleCarEngine(car, stopLight, firstLight, true);
+  return { time, name, color };
 };
 
 const startAllCar = () => {
   document.addEventListener("click", async (evt) => {
     const targetElement = evt.target as HTMLInputElement;
-    let bestTime: BestTimeEntry[] = [];
-    if (targetElement.classList.contains("start-button")) {
+    if (targetElement.classList.contains("start-button") && !isRaceFinished) {
       targetElement.disabled = true;
+      isRaceFinished = true;
       const cars = document.querySelectorAll(".car");
+      const promises: Promise<BestTimeEntry>[] = [];
 
-      await cars.forEach(async (car) => {
-        car.classList.add("car-motor");
-        const carParent = car.parentElement?.parentElement;
-        const nameElement = carParent?.querySelector(".car-name");
-        const name = nameElement?.textContent || "";
-        const id = Number(carParent?.getAttribute("id"));
-        const color = car.getAttribute("data-color") || "";
-        await toggleEngine(id, startStatus);
-        time = +(time / 1000).toFixed(2);
-        bestTime.push({ time, name, color });
-        await setCarTransition(car as HTMLElement, time);
-        const stopLight = car.querySelector(".car-left") as HTMLElement;
-        const firstLight = car.querySelector(".car-right") as HTMLElement;
-        toggleCarEngine(car as HTMLElement, stopLight, firstLight, true);
+      cars.forEach(async (car) => {
+        const promise = startCarEngine(car);
+        await promises.push(promise);
       });
-      setTimeout(() => {
-        const sortedBestTime = bestTime.sort((a, b) => a.time - b.time);
-        const winner = sortedBestTime[0];
-        const time = winner ? winner.time : 10;
-        const name = winner ? winner.name : "CarName";
-        const color = winner ? winner.color : "grey";
+
+      try {
+        const results = await Promise.all(promises);
+        const winner = results.reduce((minTimeCar, car) => {
+          return car.time < minTimeCar.time ? car : minTimeCar;
+        });
+        const time = winner.time;
+        const name = winner.name || "CarName";
+        const color = winner.color || "grey";
         modalWinner(name, time);
-        winnerPost(name, time, color);
-        setTimeout(() => {
-          const modal = document.querySelector(".modal-container");
-          bestTime = [];
-          modal?.remove();
-        }, 6000);
-      }, 1500);
+        await winnerPost(name, time, color);
+      } catch (error) {
+        console.log(error);
+      }
+
+      setTimeout(() => {
+        const modal = document.querySelector(".modal-container");
+        if (modal) {
+          modal.remove();
+        }
+      }, 3000);
     }
   });
 };
@@ -154,19 +166,20 @@ const winnerPost = async (name: string, time: number, color: string) => {
     time,
     color,
   };
-  await sendRequest("POST", urlWinners, body)
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
+  try {
+    const data = await sendRequest("POST", urlWinners, body);
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const modalWinner = (name: string, time: number) => {
   const main = document.querySelector("main");
   const modalContainer = createAndAppendElement("div", "modal-container");
   const modalText = createAndAppendElement("p", "modal-text");
-  modalText.textContent = `Winner ${time}s ${name}`;
-  if (modalContainer.classList.contains("visually-hidden")) {
-    modalContainer.classList.remove("visually-hidden");
-  }
+  modalText.textContent = `Winner ${time}s ${name}
+  \n please, press RESET`;
   modalContainer.appendChild(modalText);
   if (main) {
     main.appendChild(modalContainer);

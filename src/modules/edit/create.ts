@@ -60,6 +60,7 @@ function generateCar() {
     setTimeout(() => {
       createMain.clear();
       getGarageUI();
+      location.reload();
     }, 100);
   });
 }
