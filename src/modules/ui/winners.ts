@@ -48,8 +48,9 @@ const createWinner = {
 };
 
 const getWinners = (carsPageCount: number) => {
-  getRequest("GET", urlWinners + `?_page=${carsPageCount}&_limit=10`).then(
-    (winners) => {
+  getRequest("GET", urlWinners + `?_page=${carsPageCount}&_limit=10`)
+    .then((data) => data.sort((a: WinnerCar, b: WinnerCar) => a.time - b.time))
+    .then((winners) => {
       winners.forEach((winner: WinnerCar, index: number) => {
         const color = Object.prototype.hasOwnProperty.call(winner, "color")
           ? winner.color
@@ -57,18 +58,16 @@ const getWinners = (carsPageCount: number) => {
         const name = Object.prototype.hasOwnProperty.call(winner, "name")
           ? winner.name
           : "NoName";
-        const wins = 1;
 
         createWinner.init(
           (index + 1).toString(),
           color,
           name,
-          wins.toString(),
+          winner.winsCount.toString(),
           `${winner.time} sec`
         );
       });
-    }
-  );
+    });
 };
 
 export { createWinner, getWinners };

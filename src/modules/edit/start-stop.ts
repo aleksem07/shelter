@@ -1,6 +1,6 @@
 import { createAndAppendElement } from "../util";
 import { BestTimeEntry, WinnerCar } from "./../type";
-import { sendRequest, urlWinners } from "../fetch";
+import { sendRequest, getRequest, urlWinners } from "../fetch";
 
 const startStatus = "started";
 const stopStatus = "stopped";
@@ -160,15 +160,42 @@ const startAllCar = () => {
   });
 };
 
-const winnerPost = async (name: string, time: number, color: string) => {
+const winnerPost = async (
+  name: string,
+  time: number,
+  color: string,
+  winsCount = 1
+) => {
   const body: WinnerCar = {
     name,
     time,
     color,
+    winsCount,
   };
+
   try {
-    const data = await sendRequest("POST", urlWinners, body);
-    console.log(data);
+    const getData: WinnerCar[] = await getRequest("GET", urlWinners);
+    const existingWinnerName = getData.findIndex((item) => item.name === name);
+
+    if (existingWinnerName !== -1) {
+      const existingWinner = getData[existingWinnerName];
+      const id = existingWinner.id;
+      if (time < existingWinner.time) {
+        existingWinner.time = time;
+        existingWinner.winsCount += 1;
+        const updateData = await sendRequest(
+          "PUT",
+          urlWinners + id,
+          existingWinner
+        );
+        console.log("Record updated:", updateData);
+      } else {
+        console.log("time is not faster");
+      }
+    } else {
+      const setData = await sendRequest("POST", urlWinners, body);
+      console.log("added:", setData);
+    }
   } catch (err) {
     console.log(err);
   }

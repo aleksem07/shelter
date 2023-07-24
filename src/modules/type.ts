@@ -11,6 +11,7 @@ type WinnerCar = {
   time: number;
   color: string;
   name: string;
+  winsCount: number;
 };
 
 interface BestTimeEntry {

@@ -26,6 +26,7 @@ const pageSwitcher = () => {
   buttonNext?.addEventListener("click", async () => {
     carPageCount++;
     localStorage.setItem("currentCarPage", `${carPageCount}`);
+    location.reload();
     createMain.clear();
     getGarageUI();
   });
@@ -34,6 +35,7 @@ const pageSwitcher = () => {
   buttonPrev?.addEventListener("click", async () => {
     carPageCount <= 1 ? (carPageCount = 1) : carPageCount--;
     localStorage.setItem("currentCarPage", `${carPageCount}`);
+    location.reload();
     createMain.clear();
     getGarageUI();
   });
