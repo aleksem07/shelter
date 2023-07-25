@@ -24,4 +24,32 @@ const shuffle = (array: Array<string>) => {
   return array;
 };
 
-export { Button, createAndAppendElement, shuffle };
+const patchEngine = async (id: number, status: string) => {
+  const url = `http://localhost:3000/engine?id=${id}&status=${status}`;
+  try {
+    const params = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: id,
+        status: status,
+      }),
+    };
+
+    const response = await fetch(url, params);
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log("Success:", data);
+    } else {
+      throw new Error("Engine Error");
+    }
+  } catch (error) {
+    console.log("двигатель сломался");
+    throw error;
+  }
+};
+
+export { Button, createAndAppendElement, shuffle, patchEngine };

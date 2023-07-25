@@ -1,4 +1,4 @@
-import { createAndAppendElement } from "../util";
+import { createAndAppendElement, patchEngine } from "../util";
 import { BestTimeEntry, WinnerCar } from "./../type";
 import { sendRequest, getRequest, urlWinners } from "../fetch";
 
@@ -106,21 +106,37 @@ const stopAllCar = () => {
   });
 };
 
-const startCarEngine = async (car: Element) => {
-  car.classList.add("car-motor");
-  const stopLight = car?.querySelector(".car-left") as HTMLElement;
-  const firstLight = car?.querySelector(".car-right") as HTMLElement;
-  const carParent = car.parentElement?.parentElement;
-  const id = Number(carParent?.getAttribute("id"));
-  const color = car.getAttribute("data-color") || "";
+const startCarEngine = async (car: Element): Promise<BestTimeEntry> => {
+  let id = -1;
+  try {
+    car.classList.add("car-motor");
+    const stopLight = car?.querySelector(".car-left") as HTMLElement;
+    const firstLight = car?.querySelector(".car-right") as HTMLElement;
+    const carParent = car.parentElement?.parentElement;
+    id = Number(carParent?.getAttribute("id"));
+    const color = car.getAttribute("data-color") || "";
 
-  const nameElement = carParent?.querySelector(".car-name");
-  const name = nameElement?.textContent || "";
-  await toggleEngine(id, startStatus);
-  time = +(time / 1000).toFixed(2);
-  (car as HTMLElement).style.transition = `all ${time}s ease-out`;
-  toggleCarEngine(car, stopLight, firstLight, true);
-  return { time, name, color };
+    const nameElement = carParent?.querySelector(".car-name");
+    const name = nameElement?.textContent || "";
+    await toggleEngine(id, startStatus);
+    time = +(time / 2500).toFixed(2);
+    (car as HTMLElement).style.transition = `all ${time}s ease-out`;
+    await toggleCarEngine(car, stopLight, firstLight, true);
+    await patchEngine(id, "drive");
+    return { time, name, color };
+  } catch (error) {
+    console.log("двигатель сломался");
+    const carParent = car.parentElement?.parentElement;
+    const nameElement = carParent?.querySelector(".car-name");
+    const name = nameElement?.textContent || "";
+    const stopLight = car?.querySelector(".car-left") as HTMLElement;
+    const firstLight = car?.querySelector(".car-right") as HTMLElement;
+    toggleCarEngine(car as HTMLElement, stopLight, firstLight, false);
+    if (id !== -1) {
+      toggleEngine(id, stopStatus);
+    }
+    return { time, name: `${name}`, color: "" };
+  }
 };
 
 const startAllCar = () => {
@@ -131,21 +147,25 @@ const startAllCar = () => {
       isRaceFinished = true;
       const cars = document.querySelectorAll(".car");
       const promises: Promise<BestTimeEntry>[] = [];
-
       cars.forEach(async (car) => {
         const promise = startCarEngine(car);
         await promises.push(promise);
       });
       try {
         const results = await Promise.all(promises);
-        const winner = results.reduce((minTimeCar, car) => {
+        let winner = results.reduce((minTimeCar, car) => {
           return car.time < minTimeCar.time ? car : minTimeCar;
         });
+
+        if (winner.time === 0) {
+          winner = results.find((car) => car.time !== 0) || winner;
+        }
+
         const time = winner.time;
         const name = winner.name || "CarName";
         const color = winner.color || "grey";
-        modalWinner(name, time);
         await winnerPost(name, time, color);
+        modalWinner(name, time, color);
       } catch (error) {
         console.log(error);
       }
@@ -155,7 +175,7 @@ const startAllCar = () => {
         if (modal) {
           modal.remove();
         }
-      }, 3000);
+      }, 1000);
     }
   });
 };
@@ -201,12 +221,16 @@ const winnerPost = async (
   }
 };
 
-const modalWinner = (name: string, time: number) => {
+const modalWinner = (name: string, time: number, color: string) => {
+  console.log(color);
   const main = document.querySelector("main");
   const modalContainer = createAndAppendElement("div", "modal-container");
   const modalText = createAndAppendElement("p", "modal-text");
-  modalText.textContent = `Winner ${time}s ${name}
-  \n please, press RESET`;
+  if (time === 0) {
+    modalText.textContent = `Winner: No working cars found. Please press RESET.`;
+  } else {
+    modalText.textContent = `Winner ${time}s ${name}`;
+  }
   modalContainer.appendChild(modalText);
   if (main) {
     main.appendChild(modalContainer);
