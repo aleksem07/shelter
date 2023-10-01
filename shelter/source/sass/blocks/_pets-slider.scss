@@ -1,0 +1,123 @@
+.pets-slider {
+  padding-inline: $wrapper-inline;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: $color-light-l;
+  @media (max-width: $tablet-width - 1) {
+    padding-top: 30px;
+    padding-bottom: 45px;
+  }
+}
+
+.pets-slider__title {
+  margin-bottom: 60px;
+  @media (max-width: $tablet-width - 1) {
+    padding-top: 9px;
+    font-size: $fz25;
+    margin-bottom: 39px;
+  }
+}
+
+.pets-slider__slider {
+  margin-bottom: 62px;
+  position: relative;
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: 52px 1fr 52px;
+  justify-content: space-between;
+  justify-items: center;
+  overflow: hidden;
+  @media (max-width: $tablet-width - 1) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'pet'
+      'buttonsLeftRight';
+    margin-bottom: 42px;
+  }
+}
+
+.carousel {
+  display: flex;
+  gap: 90px;
+  @extend %transition;
+
+  .pets-slider__slider & {
+    position: relative;
+    flex-wrap: nowrap;
+  }
+}
+
+.carousel .pets__item:nth-child(3) {
+  @media (max-width: $desktop-width - 1) {
+    display: none;
+  }
+}
+
+.pets-slider__slider .pets__item:nth-child(1) {
+  @media (max-width: $tablet-width - 1) {
+    grid-area: buttonsLeftRight;
+    justify-self: start;
+  }
+}
+
+.pets-slider__slider .pets__item:nth-child(3) {
+  grid-column: -1 / -2;
+  grid-row: -1/-2;
+  @media (max-width: $tablet-width - 1) {
+    grid-area: buttonsLeftRight;
+    justify-self: end;
+  }
+}
+
+.carousel .pets__item:nth-child(2) {
+  margin-inline: 36px;
+
+  @media (max-width: $desktop-width - 1) {
+    margin-inline: 0;
+  }
+  @media (max-width: $tablet-width - 1) {
+    display: none;
+  }
+}
+
+.pets__item li {
+  margin-inline: 3%;
+}
+
+.pets__item--button {
+  margin-inline: 0.5%;
+}
+
+.arrow {
+  margin-top: 30px;
+  width: 52px;
+  height: 52px;
+  border: 1px solid $color-primary;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  align-self: center;
+  transition: all 1s ease;
+  background-color: transparent;
+  z-index: 1;
+
+  &:hover {
+    background-color: $color-primary-light;
+  }
+  @media (max-width: $tablet-width - 1) {
+    margin-top: 24px;
+  }
+}
+
+.arrow__background {
+  display: block;
+  height: 100%;
+  background: url('../img/icons/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .pets-slider__arrow--right & {
+    transform: rotate(180deg);
+  }
+}

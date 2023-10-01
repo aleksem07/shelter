@@ -1,0 +1,17 @@
+include ../mixins/pets
+
+section.pets-slider#our-friends
+  .pets-slider__wrapper
+    h2.pets-slider__title.titleH2 Our friends who #[br] are looking for a house
+    ul.pets-slider__slider
+      li.pets__item.pets__item--button
+        button.button.pets-slider__arrow--left.arrow
+          span.arrow__background
+      ul.pets__list.carousel
+        +friend('Katrine', 'katrine')
+        +friend('Jennifer', 'jennifer')
+        +friend('Woody', 'woody')
+      li.pets__item.pets__item--button
+        button.button.pets-slider__arrow--right.arrow
+          span.arrow__background
+    +button-link('our-pets.html', 'Get to know the rest')(class="button-pets-slider")

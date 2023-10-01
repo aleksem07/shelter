@@ -1,0 +1,17 @@
+include ../mixins/mixins
+
+header.header&attributes(attributes)(class=headerClass)
+
+  include logo
+
+  nav.header__menu.menu-nav
+
+    ul.menu-nav__list.menu-site
+      +site-nav('About the shelter', href=pageClass === 'index-page' ? false : 'index.html')
+      +site-nav('Our pets', href=pageClass === 'our-pets-page' ? false : 'our-pets.html')
+      +site-nav('Help the shelter', href=pageClass === 'index-page' ? `#help`: `index.html#help`)
+      +site-nav('Contacts', href=pageClass === 'index-page' || 'our-pets-page' ?  `#contacts`: `index.html#contacts`)
+
+    .header__burger
+      span.menu-nav__button.menu-nav__icon-menu
+

@@ -1,0 +1,22 @@
+/* color */
+$basic_font: #292929;
+$basic_black: #000000;
+$color-background-lock: rgba(22, 22, 22, 0.8);
+$color-light-xl: #ffffff;
+$color-light-l: #f6f6f6;
+$color-light-s: #fafafa;
+$color-dark-s: #cdcdcd;
+$color-dark-m: #b2b2b2;
+$color-dark-m--alpha20: rgba(178, 178, 178, 0.2);
+$color-dark-m--alpha50: rgba(178, 178, 178, 0.5);
+$color-dark-l: #545454;
+$color-dark-xl: #4c4c4c;
+$color-dark-2xl: #444444;
+$color-dark-3xl: #292929;
+$color-dark-3xl--alpha60: rgba(41, 41, 41, 0.6);
+$color-primary: #f1cdb3;
+$color-primary-light: #fddcc4;
+$start-screen-gradient-background: url('../img/bg/noise_transparent.png'),
+  radial-gradient(100% 150% at 0% 0%, #5b483a 0%, #211f20 100%);
+$footer-gradient-background: url('../img/bg/noise_transparent.png'),
+  radial-gradient(100% 150% at 0% 0%, #5b483a 0%, #211f20 100%);

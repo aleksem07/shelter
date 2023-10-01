@@ -1,0 +1,18 @@
+extends layout/layout
+
+block variables
+  - var title = 'Cozy House'
+  - var pageClass = "index-page"
+  - var headerClass = "index-page"
+
+block content
+  main(class= pageClass)
+    //- include
+    include ./blocks/start-screen
+    include ./blocks/about
+    include ./blocks/pets-slider
+    include ./blocks/help
+    include ./blocks/donation
+
+block scripts
+  script(src="js/index.js" type='module')

@@ -1,0 +1,12 @@
+.social__list {
+  display: flex;
+  column-gap: 1.25rem;
+  align-self: center;
+}
+
+.social__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

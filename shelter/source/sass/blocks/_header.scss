@@ -1,0 +1,55 @@
+@use './modules/variables' as v;
+@use './abstract/' as *;
+/* header */
+
+.header {
+  margin-inline: auto;
+  padding-top: 30px;
+
+  padding-inline: v.$wrapper-inline;
+  @media (min-width: $desktop-width) {
+    padding-inline: 40px;
+  }
+  @media (max-width: $desktop-width - 1px) {
+    padding-inline: 4.125%;
+  }
+
+  @media (max-width: $tablet-width - 1px) {
+    padding-inline: 6.125%;
+  }
+
+  min-width: $min-width;
+  width: 100%;
+  max-width: $desktop-width;
+
+  position: absolute;
+  display: flex;
+  column-gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: inherit;
+}
+
+.header__pets {
+  position: relative;
+  background-color: $color-light-xl;
+}
+
+.header__pets .menu-nav__icon {
+  @media (max-width: $tablet-width - 1) {
+    stroke: $basic_black;
+  }
+}
+
+.header__pets a,
+.header__pets p {
+  color: $color-dark-l;
+}
+
+.menu-nav__link {
+  color: $color-dark-s;
+  font-family: v.$font-second;
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+}

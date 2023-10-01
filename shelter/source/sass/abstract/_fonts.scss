@@ -1,0 +1,53 @@
+/* fonts */
+
+//&display=swap - добавить при подключении через плагин
+// @import url("https://fonts.googleapis.com/css?family=Oswald:400,500&display=swap");
+
+$font-family-default: Georgia, sans-serif;
+$font-family-second: Arial, sans-serif;
+$font-logo: 2rem;
+
+@font-face {
+  font-family: Arial;
+  src: local('Arial'), url('/fonts/arial/arial-regular.woff2') format('woff2'),
+    url('/fonts/arial/arial-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Arial;
+  src: local('Arial'), url('/fonts/arial/arial-italic.woff2') format('woff2'),
+    url('/fonts/arial/arial-italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Georgia;
+  src: local('Georgia'), url('/fonts/georgia/georgia-regular.woff2') format('woff2'),
+    url('/fonts/georgia/georgia-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Georgia;
+  src: local('Georgia'), url('/fonts/georgia/georgia-bold.woff2') format('woff2'),
+    url('/fonts/georgia/georgia-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Georgia;
+  src: local('Georgia'), url('/fonts/georgia/georgia-italic.woff2') format('woff2'),
+    url('/fonts/georgia/georgia-italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}

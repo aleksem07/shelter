@@ -1,0 +1,110 @@
+@use './abstract/' as *;
+
+.button {
+  padding-block: 0.85rem;
+
+  background-color: $color-primary;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: $color-dark-3xl;
+  cursor: pointer;
+  @extend %transition;
+
+  &:hover {
+    background-color: $color-primary-light;
+    box-shadow: 0 10px 20px 0 $color-dark-m--alpha50;
+  }
+  &:active {
+    background-color: $color-primary;
+    box-shadow: 0 0 1em $color-dark-m--alpha20 inset;
+  }
+
+  &:disabled,
+  &[disabled] {
+    box-shadow: none;
+  }
+}
+
+.start-screen__wrapper .button {
+  &:hover {
+    box-shadow: 0 10px 20px 0 $color-dark-m--alpha20;
+  }
+}
+
+.button--start {
+  max-width: 208px;
+  width: 100%;
+
+  @media (max-width: $desktop-width - 1px) {
+    margin: 0 auto;
+  }
+}
+
+.button--pets {
+  min-width: 187px;
+  max-width: 187px;
+  margin: 0 auto;
+  background-color: inherit;
+  border: 1px solid $color-primary;
+}
+
+.button-pets-slider {
+  max-width: max-content;
+  text-align: center;
+  padding-inline: 2.5rem;
+  padding-block: 0.85rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.button--donation {
+  padding-block: 11px;
+  margin-bottom: 17px;
+  padding-right: 13px;
+  padding-left: 14%;
+  max-width: max-content;
+  width: 100%;
+
+  position: relative;
+
+  border-radius: 9px;
+  font-size: 1.25rem;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  text-align: right;
+
+  &::before {
+    content: '';
+    width: 30px;
+    height: 23px;
+    top: 25%;
+    left: 15px;
+    position: absolute;
+    // background-color: red;
+    background-image: url('../img/icons/credit-card.svg');
+  }
+
+  @media (max-width: $desktop-width - 1) {
+    margin-bottom: 20px;
+    padding-left: 15%;
+  }
+
+  @media (max-width: $tablet-width - 1) {
+    margin-bottom: 20px;
+    padding-left: 14%;
+  }
+  @media (max-width: 400px) {
+    padding-left: 20%;
+  }
+}
+
+.pets__item.pets__item--button {
+  @media (max-width: $tablet-width - 1) {
+    padding-bottom: 0;
+    padding-inline: 19%;
+  }
+}

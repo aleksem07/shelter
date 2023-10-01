@@ -1,0 +1,24 @@
+include ../mixins/pets
+include ../mixins/pagination
+
+section.pets
+  .pets__wrapper
+    h1.pets__title Our friends who<br> are looking for a house
+    ul.pets__list
+      +friend('Katrine', 'katrine')
+      +friend('Jennifer', 'jennifer')
+      +friend('Woody', 'woody')
+      +friend('Sophia', 'sophia')
+      +friend('Timmy', 'timmy')
+      +friend('Charly', 'charly')
+      +friend('Scarlett', 'scarlett')
+      +friend('Freddie', 'freddie')
+
+    ul.pets__pagination.pagination
+      +pagination('<<', false, true)(class="all-left")
+      +pagination('<', false, true)(class="one-left")
+      +pagination('1', true)(class="pagination__link--active")
+      +pagination('>')(class="one-right")
+      +pagination('>>', false)(class="all-right")
+
+
